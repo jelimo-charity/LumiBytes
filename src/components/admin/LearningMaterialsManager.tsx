@@ -35,7 +35,7 @@ export const LearningMaterialsManager = () => {
     description: '',
     category: '',
     ageRange: '',
-    type: 'pdf' as const,
+    type: 'pdf' as 'video' | 'pdf' | 'interactive' | 'game' | 'worksheet',
     fileUrl: '',
     thumbnailUrl: '',
     author: ''

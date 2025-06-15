@@ -36,7 +36,7 @@ export const BlogManager = () => {
     author: '',
     category: '',
     tags: '',
-    status: 'draft' as const,
+    status: 'draft' as 'draft' | 'published',
     image: ''
   });
 
