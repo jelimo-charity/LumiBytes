@@ -1,41 +1,48 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Sparkles, Users, BookOpen, Heart } from 'lucide-react';
+import { Sparkles, Users, BookOpen, Heart, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from '@/hooks/use-toast';
+import { useAuth } from '@/hooks/useAuth';
 
 const Index = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const { user, signOut } = useAuth();
 
-  const handleLogin = (e: React.FormEvent, role: 'admin' | 'parent') => {
-    e.preventDefault();
-    // Simulate authentication
-    localStorage.setItem('userRole', role);
-    localStorage.setItem('userEmail', email);
-    localStorage.setItem('userName', name || email.split('@')[0]);
-    
-    toast({
-      title: "Welcome to KidSpark!",
-      description: `Logged in as ${role}`,
-    });
-    
-    if (role === 'admin') {
-      navigate('/admin');
-    } else {
+  const handleGetStarted = () => {
+    if (user) {
       navigate('/dashboard');
+    } else {
+      navigate('/auth');
     }
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Header */}
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <Sparkles className="h-8 w-8 text-orange-500 mr-2" />
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
+              KidSpark
+            </h1>
+          </div>
+          {user && (
+            <Button variant="outline" onClick={handleSignOut}>
+              <LogOut className="h-4 w-4 mr-2" />
+              Sign Out
+            </Button>
+          )}
+        </div>
+      </div>
+
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
@@ -45,10 +52,31 @@ const Index = () => {
               KidSpark
             </h1>
           </div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
             Empowering parents with expert guidance, engaging content, and a supportive community 
             to nurture happy, healthy, and thriving children.
           </p>
+          
+          {user ? (
+            <div className="space-y-4">
+              <p className="text-lg text-gray-700">
+                Welcome back! Ready to continue your parenting journey?
+              </p>
+              <Button 
+                onClick={handleGetStarted}
+                className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-lg px-8 py-3"
+              >
+                Go to Dashboard
+              </Button>
+            </div>
+          ) : (
+            <Button 
+              onClick={handleGetStarted}
+              className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-lg px-8 py-3"
+            >
+              Get Started Today
+            </Button>
+          )}
         </div>
 
         {/* Features Grid */}
@@ -84,94 +112,20 @@ const Index = () => {
           </Card>
         </div>
 
-        {/* Authentication Section */}
-        <div className="max-w-md mx-auto">
-          <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-bold text-gray-800">Join KidSpark</CardTitle>
-              <CardDescription>Start your parenting journey with us</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Tabs defaultValue="parent" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-4">
-                  <TabsTrigger value="parent" className="text-sm">Parent</TabsTrigger>
-                  <TabsTrigger value="admin" className="text-sm">Admin</TabsTrigger>
-                </TabsList>
-                
-                <TabsContent value="parent">
-                  <form onSubmit={(e) => handleLogin(e, 'parent')} className="space-y-4">
-                    <div>
-                      <Label htmlFor="parent-name">Full Name</Label>
-                      <Input
-                        id="parent-name"
-                        type="text"
-                        placeholder="Enter your full name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="parent-email">Email</Label>
-                      <Input
-                        id="parent-email"
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="parent-password">Password</Label>
-                      <Input
-                        id="parent-password"
-                        type="password"
-                        placeholder="Enter your password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <Button type="submit" className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600">
-                      Join as Parent
-                    </Button>
-                  </form>
-                </TabsContent>
-                
-                <TabsContent value="admin">
-                  <form onSubmit={(e) => handleLogin(e, 'admin')} className="space-y-4">
-                    <div>
-                      <Label htmlFor="admin-email">Admin Email</Label>
-                      <Input
-                        id="admin-email"
-                        type="email"
-                        placeholder="admin@kidspark.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="admin-password">Password</Label>
-                      <Input
-                        id="admin-password"
-                        type="password"
-                        placeholder="Enter admin password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <Button type="submit" className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600">
-                      Admin Login
-                    </Button>
-                  </form>
-                </TabsContent>
-              </Tabs>
-            </CardContent>
-          </Card>
-        </div>
+        {!user && (
+          <div className="text-center">
+            <p className="text-gray-600 mb-4">
+              Already have an account?
+            </p>
+            <Button 
+              variant="outline" 
+              onClick={() => navigate('/auth')}
+              className="border-orange-300 text-orange-600 hover:bg-orange-50"
+            >
+              Sign In
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
