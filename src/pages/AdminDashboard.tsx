@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -16,25 +15,14 @@ import { BlogManager } from '@/components/admin/BlogManager';
 import { LearningMaterialsManager } from '@/components/admin/LearningMaterialsManager';
 import { UserAnalytics } from '@/components/admin/UserAnalytics';
 import { UserManager } from '@/components/admin/UserManager';
+import { useAuth } from '@/hooks/useAuth';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
-  const [userName, setUserName] = useState('');
+  const { user, signOut } = useAuth();
 
-  useEffect(() => {
-    const role = localStorage.getItem('userRole');
-    const name = localStorage.getItem('userName');
-    
-    if (role !== 'admin') {
-      navigate('/');
-      return;
-    }
-    
-    setUserName(name || 'Admin');
-  }, [navigate]);
-
-  const handleLogout = () => {
-    localStorage.clear();
+  const handleLogout = async () => {
+    await signOut();
     toast({
       title: "Logged out successfully",
       description: "Admin session ended",
@@ -61,7 +49,7 @@ const AdminDashboard = () => {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 text-gray-600">
                 <Settings className="h-4 w-4" />
-                <span>Welcome, {userName}!</span>
+                <span>Welcome, {user?.user_metadata?.full_name || user?.email || 'Admin'}!</span>
               </div>
               <Button 
                 variant="outline" 

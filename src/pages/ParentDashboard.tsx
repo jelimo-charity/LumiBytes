@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,26 +6,15 @@ import { BookOpen, Heart, Star, Clock, User, LogOut, Search } from 'lucide-react
 import { useNavigate } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/hooks/use-toast';
+import { useAuth } from '@/hooks/useAuth';
 
 const ParentDashboard = () => {
   const navigate = useNavigate();
-  const [userName, setUserName] = useState('');
+  const { user, signOut } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    const role = localStorage.getItem('userRole');
-    const name = localStorage.getItem('userName');
-    
-    if (role !== 'parent') {
-      navigate('/');
-      return;
-    }
-    
-    setUserName(name || 'Parent');
-  }, [navigate]);
-
-  const handleLogout = () => {
-    localStorage.clear();
+  const handleLogout = async () => {
+    await signOut();
     toast({
       title: "Logged out successfully",
       description: "See you next time!",
@@ -97,7 +85,7 @@ const ParentDashboard = () => {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 text-gray-600">
                 <User className="h-4 w-4" />
-                <span>Welcome, {userName}!</span>
+                <span>Welcome, {user?.user_metadata?.full_name || user?.email || 'Parent'}!</span>
               </div>
               <Button 
                 variant="outline" 

@@ -25,12 +25,12 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/dashboard" element={
-              <AuthGuard>
+              <AuthGuard requiredRole="parent">
                 <ParentDashboard />
               </AuthGuard>
             } />
             <Route path="/admin" element={
-              <AuthGuard>
+              <AuthGuard requiredRole="admin">
                 <AdminDashboard />
               </AuthGuard>
             } />
