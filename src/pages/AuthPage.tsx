@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Sparkles, ArrowLeft, Zap, Heart, Star } from 'lucide-react';
+import { Sparkles, ArrowLeft, Zap, Heart, Star, Lock, Mail, User, Shield } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
@@ -155,13 +155,14 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-orange-100 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-orange-300 to-yellow-300 rounded-full opacity-30 animate-bounce"></div>
-        <div className="absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-br from-blue-300 to-purple-300 rounded-full opacity-25 animate-pulse"></div>
-        <div className="absolute bottom-40 right-1/3 w-16 h-16 bg-gradient-to-br from-green-300 to-teal-300 rounded-full opacity-20 animate-bounce"></div>
+    <div className="min-h-screen bg-gradient-to-br from-[#f1f2f6] via-white to-[#aeb8fe]/30 relative overflow-hidden">
+      {/* Enhanced Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-[#27187e]/10 to-[#758bfd]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-br from-[#ff8600]/15 to-[#758bfd]/20 rounded-full blur-2xl animate-bounce"></div>
+        <div className="absolute bottom-20 left-1/4 w-28 h-28 bg-gradient-to-br from-[#aeb8fe]/20 to-[#ff8600]/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-40 right-1/3 w-24 h-24 bg-gradient-to-br from-[#758bfd]/15 to-[#27187e]/10 rounded-full blur-lg animate-bounce delay-500"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-[#27187e]/5 to-[#758bfd]/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-8">
@@ -169,153 +170,231 @@ const AuthPage = () => {
           <Button 
             variant="ghost" 
             onClick={() => navigate('/')}
-            className="mb-6 hover:bg-white/50 rounded-xl"
+            className="mb-6 hover:bg-white/60 rounded-2xl border border-[#758bfd]/20 backdrop-blur-md transition-all duration-300 hover:scale-105 text-[#27187e]"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Home
           </Button>
           
           <div className="text-center">
-            <div className="flex items-center justify-center mb-6">
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-3xl flex items-center justify-center shadow-2xl">
-                  <Sparkles className="h-8 w-8 text-white" />
+            <div className="flex items-center justify-center mb-8">
+              <div className="relative group">
+                <div className="w-20 h-20 bg-gradient-to-br from-[#27187e] via-[#758bfd] to-[#ff8600] rounded-3xl flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-all duration-500">
+                  <Sparkles className="h-10 w-10 text-white animate-pulse" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center">
-                  <Star className="h-3 w-3 text-white" />
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-[#ff8600] to-[#758bfd] rounded-full flex items-center justify-center shadow-xl animate-bounce">
+                  <Star className="h-4 w-4 text-white" />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#27187e] to-[#758bfd] rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity animate-pulse"></div>
               </div>
             </div>
-            <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
+            <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent">
               KidSpark
             </h1>
-            <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-              Join thousands of parents creating magical moments and raising extraordinary children
+            <p className="text-xl text-[#758bfd] max-w-2xl mx-auto leading-relaxed font-medium">
+              Join thousands of parents creating magical moments and raising extraordinary children ✨
             </p>
           </div>
         </div>
 
-        <div className="max-w-md mx-auto">
-          <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-md rounded-3xl">
-            <CardHeader className="text-center pb-6">
-              <div className="flex items-center justify-center mb-4">
-                <Heart className="h-6 w-6 text-pink-500 mr-2" />
-                <Zap className="h-6 w-6 text-purple-500" />
+        <div className="max-w-lg mx-auto">
+          <Card className="shadow-2xl border-2 border-[#758bfd]/20 bg-white/90 backdrop-blur-xl rounded-3xl overflow-hidden transform hover:scale-105 transition-all duration-500">
+            <CardHeader className="text-center pb-8 bg-gradient-to-br from-white/80 to-[#aeb8fe]/20">
+              <div className="flex items-center justify-center mb-6">
+                <div className="flex space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#758bfd] to-[#ff8600] rounded-2xl flex items-center justify-center shadow-lg animate-pulse">
+                    <Heart className="h-6 w-6 text-white" />
+                  </div>
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#27187e] to-[#758bfd] rounded-2xl flex items-center justify-center shadow-lg animate-pulse delay-300">
+                    <Zap className="h-6 w-6 text-white" />
+                  </div>
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#ff8600] to-[#758bfd] rounded-2xl flex items-center justify-center shadow-lg animate-pulse delay-500">
+                    <Shield className="h-6 w-6 text-white" />
+                  </div>
+                </div>
               </div>
-              <CardTitle className="text-3xl font-bold text-gray-800 mb-2">Welcome</CardTitle>
-              <CardDescription className="text-lg text-gray-600">Ready to spark your parenting journey?</CardDescription>
+              <CardTitle className="text-4xl font-bold text-[#27187e] mb-3">Welcome to Your Journey</CardTitle>
+              <CardDescription className="text-lg text-[#758bfd] font-medium">Ready to spark your parenting adventure?</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-8">
               <Tabs defaultValue="login" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-8 bg-gray-100 rounded-2xl p-1">
-                  <TabsTrigger value="login" className="rounded-xl font-medium">Sign In</TabsTrigger>
-                  <TabsTrigger value="signup" className="rounded-xl font-medium">Join Us</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-2 mb-8 bg-gradient-to-r from-[#f1f2f6] to-[#aeb8fe]/30 rounded-2xl p-2 border-2 border-[#758bfd]/20">
+                  <TabsTrigger 
+                    value="login" 
+                    className="rounded-xl font-semibold text-[#27187e] data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#27187e] data-[state=active]:to-[#758bfd] data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
+                  >
+                    <Lock className="h-4 w-4 mr-1" />
+                    Sign In
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="signup" 
+                    className="rounded-xl font-semibold text-[#27187e] data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#758bfd] data-[state=active]:to-[#ff8600] data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
+                  >
+                    <User className="h-4 w-4 mr-1" />
+                    Join Us
+                  </TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="login">
                   <form onSubmit={handleLogin} className="space-y-6">
-                    <div>
-                      <Label htmlFor="login-email" className="text-gray-700 font-medium">Email Address</Label>
-                      <Input
-                        id="login-email"
-                        type="email"
-                        placeholder="Enter your email"
-                        value={loginForm.email}
-                        onChange={(e) => setLoginForm({...loginForm, email: e.target.value})}
-                        required
-                        disabled={isLoading}
-                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
-                      />
+                    <div className="group">
+                      <Label htmlFor="login-email" className="text-[#27187e] font-semibold text-sm mb-2 block">Email Address</Label>
+                      <div className="relative">
+                        <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#758bfd] group-focus-within:text-[#27187e] transition-colors" />
+                        <Input
+                          id="login-email"
+                          type="email"
+                          placeholder="Enter your email"
+                          value={loginForm.email}
+                          onChange={(e) => setLoginForm({...loginForm, email: e.target.value})}
+                          required
+                          disabled={isLoading}
+                          className="pl-12 pr-4 py-4 border-2 border-[#758bfd]/20 rounded-2xl bg-white/80 backdrop-blur-md focus:ring-2 focus:ring-[#758bfd]/50 focus:border-[#27187e] transition-all duration-300 hover:border-[#758bfd]/40 text-[#27187e] placeholder-[#758bfd]/60"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <Label htmlFor="login-password" className="text-gray-700 font-medium">Password</Label>
-                      <Input
-                        id="login-password"
-                        type="password"
-                        placeholder="Enter your password"
-                        value={loginForm.password}
-                        onChange={(e) => setLoginForm({...loginForm, password: e.target.value})}
-                        required
-                        disabled={isLoading}
-                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
-                      />
+                    <div className="group">
+                      <Label htmlFor="login-password" className="text-[#27187e] font-semibold text-sm mb-2 block">Password</Label>
+                      <div className="relative">
+                        <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#758bfd] group-focus-within:text-[#27187e] transition-colors" />
+                        <Input
+                          id="login-password"
+                          type="password"
+                          placeholder="Enter your password"
+                          value={loginForm.password}
+                          onChange={(e) => setLoginForm({...loginForm, password: e.target.value})}
+                          required
+                          disabled={isLoading}
+                          className="pl-12 pr-4 py-4 border-2 border-[#758bfd]/20 rounded-2xl bg-white/80 backdrop-blur-md focus:ring-2 focus:ring-[#758bfd]/50 focus:border-[#27187e] transition-all duration-300 hover:border-[#758bfd]/40 text-[#27187e] placeholder-[#758bfd]/60"
+                        />
+                      </div>
                     </div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 hover:from-purple-700 hover:via-pink-700 hover:to-orange-700 py-3 rounded-xl font-medium text-lg shadow-lg transform hover:scale-105 transition-all duration-300"
+                      className="w-full bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#aeb8fe] hover:from-[#27187e]/90 hover:via-[#758bfd]/90 hover:to-[#aeb8fe]/90 py-4 rounded-2xl font-semibold text-lg shadow-xl transform hover:scale-105 transition-all duration-300 border-0"
                       disabled={isLoading}
                     >
-                      {isLoading ? 'Signing in...' : 'Sign In'}
+                      {isLoading ? (
+                        <div className="flex items-center">
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          Signing in...
+                        </div>
+                      ) : (
+                        <div className="flex items-center">
+                          <Lock className="h-5 w-5 mr-2" />
+                          Sign In to KidSpark
+                        </div>
+                      )}
                     </Button>
                   </form>
                 </TabsContent>
                 
                 <TabsContent value="signup">
                   <form onSubmit={handleSignup} className="space-y-6">
-                    <div>
-                      <Label htmlFor="signup-name" className="text-gray-700 font-medium">Full Name</Label>
-                      <Input
-                        id="signup-name"
-                        type="text"
-                        placeholder="Enter your full name"
-                        value={signupForm.fullName}
-                        onChange={(e) => setSignupForm({...signupForm, fullName: e.target.value})}
-                        required
-                        disabled={isLoading}
-                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
-                      />
+                    <div className="group">
+                      <Label htmlFor="signup-name" className="text-[#27187e] font-semibold text-sm mb-2 block">Full Name</Label>
+                      <div className="relative">
+                        <User className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#758bfd] group-focus-within:text-[#27187e] transition-colors" />
+                        <Input
+                          id="signup-name"
+                          type="text"
+                          placeholder="Enter your full name"
+                          value={signupForm.fullName}
+                          onChange={(e) => setSignupForm({...signupForm, fullName: e.target.value})}
+                          required
+                          disabled={isLoading}
+                          className="pl-12 pr-4 py-4 border-2 border-[#758bfd]/20 rounded-2xl bg-white/80 backdrop-blur-md focus:ring-2 focus:ring-[#758bfd]/50 focus:border-[#27187e] transition-all duration-300 hover:border-[#758bfd]/40 text-[#27187e] placeholder-[#758bfd]/60"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <Label htmlFor="signup-email" className="text-gray-700 font-medium">Email Address</Label>
-                      <Input
-                        id="signup-email"
-                        type="email"
-                        placeholder="Enter your email"
-                        value={signupForm.email}
-                        onChange={(e) => setSignupForm({...signupForm, email: e.target.value})}
-                        required
-                        disabled={isLoading}
-                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
-                      />
+                    <div className="group">
+                      <Label htmlFor="signup-email" className="text-[#27187e] font-semibold text-sm mb-2 block">Email Address</Label>
+                      <div className="relative">
+                        <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#758bfd] group-focus-within:text-[#27187e] transition-colors" />
+                        <Input
+                          id="signup-email"
+                          type="email"
+                          placeholder="Enter your email"
+                          value={signupForm.email}
+                          onChange={(e) => setSignupForm({...signupForm, email: e.target.value})}
+                          required
+                          disabled={isLoading}
+                          className="pl-12 pr-4 py-4 border-2 border-[#758bfd]/20 rounded-2xl bg-white/80 backdrop-blur-md focus:ring-2 focus:ring-[#758bfd]/50 focus:border-[#27187e] transition-all duration-300 hover:border-[#758bfd]/40 text-[#27187e] placeholder-[#758bfd]/60"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <Label htmlFor="signup-password" className="text-gray-700 font-medium">Password</Label>
-                      <Input
-                        id="signup-password"
-                        type="password"
-                        placeholder="Create a secure password (min. 6 characters)"
-                        value={signupForm.password}
-                        onChange={(e) => setSignupForm({...signupForm, password: e.target.value})}
-                        required
-                        disabled={isLoading}
-                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
-                      />
+                    <div className="group">
+                      <Label htmlFor="signup-password" className="text-[#27187e] font-semibold text-sm mb-2 block">Password</Label>
+                      <div className="relative">
+                        <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#758bfd] group-focus-within:text-[#27187e] transition-colors" />
+                        <Input
+                          id="signup-password"
+                          type="password"
+                          placeholder="Create a secure password (min. 6 characters)"
+                          value={signupForm.password}
+                          onChange={(e) => setSignupForm({...signupForm, password: e.target.value})}
+                          required
+                          disabled={isLoading}
+                          className="pl-12 pr-4 py-4 border-2 border-[#758bfd]/20 rounded-2xl bg-white/80 backdrop-blur-md focus:ring-2 focus:ring-[#758bfd]/50 focus:border-[#27187e] transition-all duration-300 hover:border-[#758bfd]/40 text-[#27187e] placeholder-[#758bfd]/60"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <Label htmlFor="signup-confirm" className="text-gray-700 font-medium">Confirm Password</Label>
-                      <Input
-                        id="signup-confirm"
-                        type="password"
-                        placeholder="Confirm your password"
-                        value={signupForm.confirmPassword}
-                        onChange={(e) => setSignupForm({...signupForm, confirmPassword: e.target.value})}
-                        required
-                        disabled={isLoading}
-                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
-                      />
+                    <div className="group">
+                      <Label htmlFor="signup-confirm" className="text-[#27187e] font-semibold text-sm mb-2 block">Confirm Password</Label>
+                      <div className="relative">
+                        <Shield className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#758bfd] group-focus-within:text-[#27187e] transition-colors" />
+                        <Input
+                          id="signup-confirm"
+                          type="password"
+                          placeholder="Confirm your password"
+                          value={signupForm.confirmPassword}
+                          onChange={(e) => setSignupForm({...signupForm, confirmPassword: e.target.value})}
+                          required
+                          disabled={isLoading}
+                          className="pl-12 pr-4 py-4 border-2 border-[#758bfd]/20 rounded-2xl bg-white/80 backdrop-blur-md focus:ring-2 focus:ring-[#758bfd]/50 focus:border-[#27187e] transition-all duration-300 hover:border-[#758bfd]/40 text-[#27187e] placeholder-[#758bfd]/60"
+                        />
+                      </div>
                     </div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 py-3 rounded-xl font-medium text-lg shadow-lg transform hover:scale-105 transition-all duration-300"
+                      className="w-full bg-gradient-to-r from-[#758bfd] via-[#ff8600] to-[#758bfd] hover:from-[#758bfd]/90 hover:via-[#ff8600]/90 hover:to-[#758bfd]/90 py-4 rounded-2xl font-semibold text-lg shadow-xl transform hover:scale-105 transition-all duration-300 border-0"
                       disabled={isLoading}
                     >
-                      {isLoading ? 'Creating your account...' : 'Start Your Journey'}
+                      {isLoading ? (
+                        <div className="flex items-center">
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          Creating your account...
+                        </div>
+                      ) : (
+                        <div className="flex items-center">
+                          <Sparkles className="h-5 w-5 mr-2" />
+                          Start Your Journey
+                        </div>
+                      )}
                     </Button>
                   </form>
                 </TabsContent>
               </Tabs>
             </CardContent>
           </Card>
+
+          {/* Additional Features */}
+          <div className="mt-8 text-center">
+            <div className="flex items-center justify-center space-x-8 text-[#758bfd]">
+              <div className="flex items-center text-sm font-medium">
+                <Shield className="h-4 w-4 mr-2" />
+                Secure & Private
+              </div>
+              <div className="flex items-center text-sm font-medium">
+                <Zap className="h-4 w-4 mr-2" />
+                Instant Access
+              </div>
+              <div className="flex items-center text-sm font-medium">
+                <Heart className="h-4 w-4 mr-2" />
+                Family Focused
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
