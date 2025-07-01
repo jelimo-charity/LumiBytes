@@ -1,14 +1,41 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Sparkles, Users, BookOpen, Heart, LogOut, Zap, Star, TrendingUp, Award } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { 
+  Sparkles, 
+  Users, 
+  BookOpen, 
+  Heart, 
+  LogOut, 
+  Zap, 
+  Star, 
+  TrendingUp, 
+  Award,
+  Menu,
+  X,
+  Shield,
+  Globe,
+  Rocket,
+  Target,
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram
+} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 
 const Index = () => {
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleGetStarted = () => {
     if (user) {
@@ -24,170 +51,465 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-orange-100 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-orange-300 to-yellow-300 rounded-full opacity-30 animate-bounce"></div>
-        <div className="absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-br from-blue-300 to-purple-300 rounded-full opacity-25 animate-pulse"></div>
-        <div className="absolute bottom-40 right-1/3 w-16 h-16 bg-gradient-to-br from-green-300 to-teal-300 rounded-full opacity-20 animate-bounce"></div>
-      </div>
-
-      {/* Header */}
-      <div className="relative z-10 container mx-auto px-4 py-6">
-        <div className="flex items-center justify-between bg-white/80 backdrop-blur-md rounded-2xl px-6 py-4 shadow-lg border border-white/20">
-          <div className="flex items-center">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
-              <Sparkles className="h-6 w-6 text-white" />
-            </div>
-            <h1 className="ml-3 text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
-              KidSpark
-            </h1>
-          </div>
-          {user && (
-            <Button 
-              variant="outline" 
-              onClick={handleSignOut}
-              className="border-purple-200 text-purple-600 hover:bg-purple-50 rounded-xl"
-            >
-              <LogOut className="h-4 w-4 mr-2" />
-              Sign Out
-            </Button>
-          )}
-        </div>
-      </div>
-
-      {/* Hero Section */}
-      <div className="relative z-10 container mx-auto px-4 py-12">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-6">
-            <div className="relative">
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-3xl flex items-center justify-center shadow-2xl">
-                <Sparkles className="h-10 w-10 text-white" />
+    <div className="min-h-screen bg-white">
+      {/* Navbar */}
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex items-center">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}>
+                <Sparkles className="h-6 w-6 text-white" />
               </div>
-              <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center">
-                <Star className="h-3 w-3 text-white" />
-              </div>
+              <span className="ml-3 text-2xl font-bold" style={{ color: '#27187e' }}>KidSpark</span>
             </div>
-          </div>
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
-            KidSpark
-          </h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Transform your parenting journey with expert guidance, engaging content, and a vibrant community 
-            dedicated to raising happy, healthy, and brilliant children.
-          </p>
-          
-          {user ? (
-            <div className="space-y-6">
-              <p className="text-lg text-gray-800 font-medium">
-                Welcome back! Ready to spark new discoveries?
-              </p>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#home" className="text-gray-700 hover:text-[#27187e] transition-colors">Home</a>
+              <a href="#features" className="text-gray-700 hover:text-[#27187e] transition-colors">Features</a>
+              <a href="#about" className="text-gray-700 hover:text-[#27187e] transition-colors">About Us</a>
+              <a href="#contact" className="text-gray-700 hover:text-[#27187e] transition-colors">Contact</a>
+              {user ? (
+                <div className="flex items-center space-x-4">
+                  <span className="text-gray-700">Welcome, {user.email}</span>
+                  <Button 
+                    variant="outline" 
+                    onClick={handleSignOut}
+                    className="border-[#758bfd] text-[#27187e] hover:bg-[#aeb8fe]/20"
+                  >
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Sign Out
+                  </Button>
+                </div>
+              ) : null}
               <Button 
                 onClick={handleGetStarted}
-                className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 hover:from-purple-700 hover:via-pink-700 hover:to-orange-700 text-lg px-10 py-4 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                className="text-white font-semibold px-6"
+                style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}
               >
-                <Zap className="h-5 w-5 mr-2" />
-                Continue Your Journey
+                Get Started
               </Button>
             </div>
-          ) : (
-            <Button 
-              onClick={handleGetStarted}
-              className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 hover:from-purple-700 hover:via-pink-700 hover:to-orange-700 text-lg px-10 py-4 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300"
-            >
-              <Zap className="h-5 w-5 mr-2" />
-              Start Your Adventure
-            </Button>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-[#27187e]"
+              >
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="md:hidden py-4 border-t border-gray-200">
+              <div className="flex flex-col space-y-4">
+                <a href="#home" className="text-gray-700 hover:text-[#27187e] transition-colors">Home</a>
+                <a href="#features" className="text-gray-700 hover:text-[#27187e] transition-colors">Features</a>
+                <a href="#about" className="text-gray-700 hover:text-[#27187e] transition-colors">About Us</a>
+                <a href="#contact" className="text-gray-700 hover:text-[#27187e] transition-colors">Contact</a>
+                {user && (
+                  <Button 
+                    variant="outline" 
+                    onClick={handleSignOut}
+                    className="border-[#758bfd] text-[#27187e] hover:bg-[#aeb8fe]/20 w-full"
+                  >
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Sign Out
+                  </Button>
+                )}
+                <Button 
+                  onClick={handleGetStarted}
+                  className="text-white font-semibold w-full"
+                  style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}
+                >
+                  Get Started
+                </Button>
+              </div>
+            </div>
           )}
         </div>
+      </nav>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <Card className="hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl transform hover:-translate-y-2">
-            <CardHeader className="pb-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                <BookOpen className="h-8 w-8 text-white" />
+      {/* Hero Section */}
+      <section id="home" className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f1f2f6 0%, #aeb8fe 100%)' }}>
+        <div className="container mx-auto px-4 py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#27187e' }}>
+                  Spark Your Child's 
+                  <span className="block text-[#ff8600]">Potential</span>
+                </h1>
+                <p className="text-xl text-gray-700 leading-relaxed">
+                  Transform your parenting journey with expert guidance, engaging content, and a supportive community dedicated to raising brilliant, happy children.
+                </p>
               </div>
-              <CardTitle className="text-2xl text-purple-800">Expert Content</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700 text-lg leading-relaxed">Discover curated articles, interactive guides, and learning resources crafted by child development experts.</p>
-            </CardContent>
-          </Card>
-
-          <Card className="hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-pink-50 to-orange-50 rounded-3xl transform hover:-translate-y-2">
-            <CardHeader className="pb-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-orange-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                <Users className="h-8 w-8 text-white" />
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  onClick={handleGetStarted}
+                  size="lg"
+                  className="text-white font-semibold px-8 py-6 text-lg"
+                  style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}
+                >
+                  <Zap className="h-5 w-5 mr-2" />
+                  {user ? 'Go to Dashboard' : 'Start Free Trial'}
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-[#27187e] text-[#27187e] hover:bg-[#27187e]/10 px-8 py-6 text-lg"
+                >
+                  Watch Demo
+                </Button>
               </div>
-              <CardTitle className="text-2xl text-pink-800">Vibrant Community</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700 text-lg leading-relaxed">Connect with passionate parents and share experiences in our supportive, encouraging community.</p>
-            </CardContent>
-          </Card>
 
-          <Card className="hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-3xl transform hover:-translate-y-2">
-            <CardHeader className="pb-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                <Heart className="h-8 w-8 text-white" />
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
+                <div className="text-center">
+                  <div className="text-3xl font-bold" style={{ color: '#27187e' }}>10K+</div>
+                  <div className="text-gray-600">Happy Families</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold" style={{ color: '#27187e' }}>500+</div>
+                  <div className="text-gray-600">Expert Articles</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold" style={{ color: '#27187e' }}>98%</div>
+                  <div className="text-gray-600">Success Rate</div>
+                </div>
               </div>
-              <CardTitle className="text-2xl text-orange-800">Personalized Path</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700 text-lg leading-relaxed">Receive tailored content based on your child's unique personality, interests, and developmental milestones.</p>
-            </CardContent>
-          </Card>
-        </div>
+            </div>
 
-        {/* Stats Section */}
-        <div className="grid md:grid-cols-4 gap-6 mb-16">
-          <div className="text-center bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/20">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <TrendingUp className="h-6 w-6 text-white" />
+            <div className="relative">
+              <div className="relative z-10">
+                <img 
+                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Happy family learning together"
+                  className="rounded-2xl shadow-2xl"
+                />
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-72 h-72 rounded-full opacity-20" style={{ background: 'linear-gradient(135deg, #ff8600 0%, #758bfd 100%)' }}></div>
+              <div className="absolute -bottom-4 -left-4 w-48 h-48 rounded-full opacity-30" style={{ background: 'linear-gradient(135deg, #27187e 0%, #aeb8fe 100%)' }}></div>
             </div>
-            <div className="text-3xl font-bold text-purple-600">10K+</div>
-            <div className="text-gray-600">Happy Families</div>
-          </div>
-          <div className="text-center bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/20">
-            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <BookOpen className="h-6 w-6 text-white" />
-            </div>
-            <div className="text-3xl font-bold text-pink-600">500+</div>
-            <div className="text-gray-600">Expert Articles</div>
-          </div>
-          <div className="text-center bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/20">
-            <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <Users className="h-6 w-6 text-white" />
-            </div>
-            <div className="text-3xl font-bold text-orange-600">25K+</div>
-            <div className="text-gray-600">Community Posts</div>
-          </div>
-          <div className="text-center bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/20">
-            <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-green-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <Award className="h-6 w-6 text-white" />
-            </div>
-            <div className="text-3xl font-bold text-yellow-600">98%</div>
-            <div className="text-gray-600">Success Rate</div>
           </div>
         </div>
+      </section>
 
-        {!user && (
-          <div className="text-center bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-lg border border-white/20">
-            <p className="text-gray-700 mb-6 text-lg">
-              Already part of our amazing community?
+      {/* About Us Section */}
+      <section id="about" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <h2 className="text-4xl font-bold" style={{ color: '#27187e' }}>About KidSpark</h2>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  We believe every child has unlimited potential waiting to be discovered. Founded by parents and child development experts, KidSpark combines cutting-edge research with practical parenting wisdom.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Our mission is to empower parents with the tools, knowledge, and community support needed to nurture confident, creative, and capable children who will shape tomorrow's world.
+                </p>
+              </div>
+              
+              <div className="bg-[#f1f2f6] p-6 rounded-2xl border-l-4" style={{ borderColor: '#ff8600' }}>
+                <blockquote className="text-lg italic text-gray-700">
+                  "Every child is a different kind of flower, and all together, they make this world a beautiful garden."
+                </blockquote>
+                <p className="mt-4 font-semibold" style={{ color: '#27187e' }}>- Dr. Sarah Chen, Founder & Child Psychologist</p>
+              </div>
+            </div>
+
+            <div className="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Team of experts"
+                className="rounded-2xl shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-20" style={{ backgroundColor: '#f1f2f6' }}>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4" style={{ color: '#27187e' }}>Why Choose KidSpark?</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Discover the comprehensive tools and resources that make KidSpark the trusted choice for modern parents worldwide.
             </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}>
+                  <BookOpen className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-xl" style={{ color: '#27187e' }}>Expert Content</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-700">Access curated articles, guides, and resources created by child development specialists and education experts.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #758bfd 0%, #aeb8fe 100%)' }}>
+                  <Users className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-xl" style={{ color: '#27187e' }}>Supportive Community</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-700">Connect with like-minded parents, share experiences, and get support from our vibrant global community.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #ff8600 0%, #758bfd 100%)' }}>
+                  <Heart className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-xl" style={{ color: '#27187e' }}>Personalized Journey</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-700">Get tailored content and recommendations based on your child's age, interests, and developmental milestones.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #27187e 0%, #ff8600 100%)' }}>
+                  <Target className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-xl" style={{ color: '#27187e' }}>Goal Tracking</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-700">Set and track developmental milestones, learning goals, and celebrate your child's achievements along the way.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #aeb8fe 0%, #27187e 100%)' }}>
+                  <Rocket className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-xl" style={{ color: '#27187e' }}>Interactive Activities</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-700">Engage your child with fun, educational activities designed to boost creativity, critical thinking, and confidence.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #ff8600 0%, #aeb8fe 100%)' }}>
+                  <Globe className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-xl" style={{ color: '#27187e' }}>24/7 Access</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-700">Access our platform anytime, anywhere. Get instant support and resources whenever you need them most.</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
             <Button 
-              variant="outline" 
-              onClick={() => navigate('/auth')}
-              className="border-purple-300 text-purple-600 hover:bg-purple-50 rounded-xl px-8 py-3 text-lg"
+              onClick={handleGetStarted}
+              size="lg"
+              className="text-white font-semibold px-8"
+              style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}
             >
-              Welcome Back
+              Explore All Features
             </Button>
           </div>
-        )}
-      </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-4" style={{ color: '#27187e' }}>Get In Touch</h2>
+              <p className="text-xl text-gray-700">
+                Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Contact Form */}
+              <Card className="bg-[#f1f2f6] border-0 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-2xl" style={{ color: '#27187e' }}>Send us a message</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="name" className="text-gray-700">Name</Label>
+                      <Input id="name" placeholder="Your name" className="mt-1" />
+                    </div>
+                    <div>
+                      <Label htmlFor="email" className="text-gray-700">Email</Label>
+                      <Input id="email" type="email" placeholder="your@email.com" className="mt-1" />
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="subject" className="text-gray-700">Subject</Label>
+                    <Input id="subject" placeholder="What's this about?" className="mt-1" />
+                  </div>
+                  <div>
+                    <Label htmlFor="message" className="text-gray-700">Message</Label>
+                    <Textarea id="message" placeholder="Tell us more..." rows={5} className="mt-1" />
+                  </div>
+                  <Button 
+                    className="w-full text-white font-semibold"
+                    style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}
+                  >
+                    Send Message
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Contact Info */}
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-2xl font-bold mb-6" style={{ color: '#27187e' }}>Contact Information</h3>
+                  <div className="space-y-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}>
+                        <Mail className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Email</h4>
+                        <p className="text-gray-700">hello@kidspark.com</p>
+                        <p className="text-gray-700">support@kidspark.com</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #758bfd 0%, #aeb8fe 100%)' }}>
+                        <Phone className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Phone</h4>
+                        <p className="text-gray-700">+1 (555) 123-4567</p>
+                        <p className="text-gray-700">Mon-Fri 9AM-6PM EST</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #ff8600 0%, #758bfd 100%)' }}>
+                        <MapPin className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Office</h4>
+                        <p className="text-gray-700">123 Innovation Drive</p>
+                        <p className="text-gray-700">San Francisco, CA 94107</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-[#f1f2f6] p-6 rounded-2xl">
+                  <h4 className="font-semibold mb-3" style={{ color: '#27187e' }}>Quick Response</h4>
+                  <p className="text-gray-700 text-sm">
+                    We typically respond to all inquiries within 24 hours. For urgent matters, please call our support line.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#27187e] text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {/* Company Info */}
+            <div className="space-y-4">
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
+                  <Sparkles className="h-6 w-6 text-[#27187e]" />
+                </div>
+                <span className="ml-3 text-2xl font-bold">KidSpark</span>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Empowering parents with expert guidance and community support to raise brilliant, confident children.
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
+                  <Twitter className="h-5 w-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
+                  <Instagram className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Navigation Links */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <div className="space-y-2">
+                <a href="#home" className="block text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="#features" className="block text-gray-300 hover:text-white transition-colors">Features</a>
+                <a href="#about" className="block text-gray-300 hover:text-white transition-colors">About Us</a>
+                <a href="#contact" className="block text-gray-300 hover:text-white transition-colors">Contact</a>
+              </div>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Resources</h4>
+              <div className="space-y-2">
+                <a href="#" className="block text-gray-300 hover:text-white transition-colors">Blog</a>
+                <a href="#" className="block text-gray-300 hover:text-white transition-colors">Help Center</a>
+                <a href="#" className="block text-gray-300 hover:text-white transition-colors">Community</a>
+                <a href="#" className="block text-gray-300 hover:text-white transition-colors">Webinars</a>
+              </div>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Legal</h4>
+              <div className="space-y-2">
+                <a href="#" className="block text-gray-300 hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" className="block text-gray-300 hover:text-white transition-colors">Terms of Service</a>
+                <a href="#" className="block text-gray-300 hover:text-white transition-colors">Cookie Policy</a>
+                <a href="#" className="block text-gray-300 hover:text-white transition-colors">GDPR</a>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="border-t border-white/10 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-300">
+                © 2024 KidSpark. All rights reserved.
+              </p>
+              <div className="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">Privacy</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">Terms</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">Sitemap</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
