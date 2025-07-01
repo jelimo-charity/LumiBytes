@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Sparkles, ArrowLeft } from 'lucide-react';
+import { Sparkles, ArrowLeft, Zap, Heart, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
@@ -64,8 +64,8 @@ const AuthPage = () => {
 
       if (data.user) {
         toast({
-          title: "Welcome back!",
-          description: "You've been successfully logged in.",
+          title: "Welcome back to KidSpark! ✨",
+          description: "Ready to continue your parenting adventure?",
         });
         navigate('/dashboard');
       }
@@ -134,8 +134,8 @@ const AuthPage = () => {
 
       if (data.user) {
         toast({
-          title: "Account Created!",
-          description: "Your account has been created successfully. Please check your email for verification.",
+          title: "Welcome to KidSpark! 🎉",
+          description: "Your parenting adventure begins now! Check your email for verification.",
         });
         
         // Auto-login after successful signup
@@ -155,48 +155,67 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-orange-100 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full opacity-20 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-orange-300 to-yellow-300 rounded-full opacity-30 animate-bounce"></div>
+        <div className="absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-br from-blue-300 to-purple-300 rounded-full opacity-25 animate-pulse"></div>
+        <div className="absolute bottom-40 right-1/3 w-16 h-16 bg-gradient-to-br from-green-300 to-teal-300 rounded-full opacity-20 animate-bounce"></div>
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 py-8">
         <div className="mb-8">
           <Button 
             variant="ghost" 
             onClick={() => navigate('/')}
-            className="mb-4"
+            className="mb-6 hover:bg-white/50 rounded-xl"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Home
           </Button>
           
           <div className="text-center">
-            <div className="flex items-center justify-center mb-4">
-              <Sparkles className="h-12 w-12 text-orange-500 mr-3" />
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
-                KidSpark
-              </h1>
+            <div className="flex items-center justify-center mb-6">
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-3xl flex items-center justify-center shadow-2xl">
+                  <Sparkles className="h-8 w-8 text-white" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center">
+                  <Star className="h-3 w-3 text-white" />
+                </div>
+              </div>
             </div>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Join our community of parents dedicated to nurturing happy, healthy children
+            <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
+              KidSpark
+            </h1>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+              Join thousands of parents creating magical moments and raising extraordinary children
             </p>
           </div>
         </div>
 
         <div className="max-w-md mx-auto">
-          <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-bold text-gray-800">Welcome</CardTitle>
-              <CardDescription>Sign in to your account or create a new one</CardDescription>
+          <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-md rounded-3xl">
+            <CardHeader className="text-center pb-6">
+              <div className="flex items-center justify-center mb-4">
+                <Heart className="h-6 w-6 text-pink-500 mr-2" />
+                <Zap className="h-6 w-6 text-purple-500" />
+              </div>
+              <CardTitle className="text-3xl font-bold text-gray-800 mb-2">Welcome</CardTitle>
+              <CardDescription className="text-lg text-gray-600">Ready to spark your parenting journey?</CardDescription>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="login" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-6">
-                  <TabsTrigger value="login">Sign In</TabsTrigger>
-                  <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-2 mb-8 bg-gray-100 rounded-2xl p-1">
+                  <TabsTrigger value="login" className="rounded-xl font-medium">Sign In</TabsTrigger>
+                  <TabsTrigger value="signup" className="rounded-xl font-medium">Join Us</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="login">
-                  <form onSubmit={handleLogin} className="space-y-4">
+                  <form onSubmit={handleLogin} className="space-y-6">
                     <div>
-                      <Label htmlFor="login-email">Email</Label>
+                      <Label htmlFor="login-email" className="text-gray-700 font-medium">Email Address</Label>
                       <Input
                         id="login-email"
                         type="email"
@@ -205,10 +224,11 @@ const AuthPage = () => {
                         onChange={(e) => setLoginForm({...loginForm, email: e.target.value})}
                         required
                         disabled={isLoading}
+                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="login-password">Password</Label>
+                      <Label htmlFor="login-password" className="text-gray-700 font-medium">Password</Label>
                       <Input
                         id="login-password"
                         type="password"
@@ -217,11 +237,12 @@ const AuthPage = () => {
                         onChange={(e) => setLoginForm({...loginForm, password: e.target.value})}
                         required
                         disabled={isLoading}
+                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
                       />
                     </div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600"
+                      className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 hover:from-purple-700 hover:via-pink-700 hover:to-orange-700 py-3 rounded-xl font-medium text-lg shadow-lg transform hover:scale-105 transition-all duration-300"
                       disabled={isLoading}
                     >
                       {isLoading ? 'Signing in...' : 'Sign In'}
@@ -230,9 +251,9 @@ const AuthPage = () => {
                 </TabsContent>
                 
                 <TabsContent value="signup">
-                  <form onSubmit={handleSignup} className="space-y-4">
+                  <form onSubmit={handleSignup} className="space-y-6">
                     <div>
-                      <Label htmlFor="signup-name">Full Name</Label>
+                      <Label htmlFor="signup-name" className="text-gray-700 font-medium">Full Name</Label>
                       <Input
                         id="signup-name"
                         type="text"
@@ -241,10 +262,11 @@ const AuthPage = () => {
                         onChange={(e) => setSignupForm({...signupForm, fullName: e.target.value})}
                         required
                         disabled={isLoading}
+                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="signup-email">Email</Label>
+                      <Label htmlFor="signup-email" className="text-gray-700 font-medium">Email Address</Label>
                       <Input
                         id="signup-email"
                         type="email"
@@ -253,22 +275,24 @@ const AuthPage = () => {
                         onChange={(e) => setSignupForm({...signupForm, email: e.target.value})}
                         required
                         disabled={isLoading}
+                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="signup-password">Password</Label>
+                      <Label htmlFor="signup-password" className="text-gray-700 font-medium">Password</Label>
                       <Input
                         id="signup-password"
                         type="password"
-                        placeholder="Create a password (min. 6 characters)"
+                        placeholder="Create a secure password (min. 6 characters)"
                         value={signupForm.password}
                         onChange={(e) => setSignupForm({...signupForm, password: e.target.value})}
                         required
                         disabled={isLoading}
+                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="signup-confirm">Confirm Password</Label>
+                      <Label htmlFor="signup-confirm" className="text-gray-700 font-medium">Confirm Password</Label>
                       <Input
                         id="signup-confirm"
                         type="password"
@@ -277,14 +301,15 @@ const AuthPage = () => {
                         onChange={(e) => setSignupForm({...signupForm, confirmPassword: e.target.value})}
                         required
                         disabled={isLoading}
+                        className="mt-2 border-gray-200 rounded-xl py-3 focus:ring-2 focus:ring-purple-300"
                       />
                     </div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
+                      className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 py-3 rounded-xl font-medium text-lg shadow-lg transform hover:scale-105 transition-all duration-300"
                       disabled={isLoading}
                     >
-                      {isLoading ? 'Creating account...' : 'Create Account'}
+                      {isLoading ? 'Creating your account...' : 'Start Your Journey'}
                     </Button>
                   </form>
                 </TabsContent>
