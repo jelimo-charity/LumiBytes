@@ -29,36 +29,112 @@ const ParentDashboard = () => {
       title: "Building Emotional Intelligence in Toddlers",
       category: "Development",
       author: "Dr. Sarah Johnson",
-      readTime: "5 min read",
+      readTime: "8 min read",
       likes: 234,
-      description: "Discover proven techniques to help your toddler navigate emotions with confidence and grace.",
-      tags: ["Toddlers", "Emotions", "Development"],
+      description: "Emotional intelligence is one of the most crucial skills your toddler can develop. This comprehensive guide explores proven techniques to help your little one identify, understand, and manage their emotions effectively. Learn how to create safe spaces for emotional expression, validate feelings without judgment, and teach healthy coping mechanisms that will serve them throughout life.",
+      tags: ["Toddlers", "Emotions", "Development", "Psychology"],
       gradient: "from-[#27187e] to-[#758bfd]",
-      image: "🧠"
+      image: "🧠",
+      excerpt: "Research shows that children with higher emotional intelligence perform better academically, have stronger relationships, and experience less anxiety. This article provides practical strategies you can implement today.",
+      keyPoints: ["Understanding emotional triggers", "Teaching empathy through play", "Creating emotional vocabulary", "Managing tantrums with compassion"]
     },
     {
       id: 2,
       title: "Healthy Screen Time Guidelines by Age",
       category: "Health",
       author: "Child Development Team",
-      readTime: "8 min read",
+      readTime: "12 min read",
       likes: 187,
-      description: "Expert-backed strategies for balanced screen time that supports healthy development.",
-      tags: ["Screen Time", "Health", "Guidelines"],
+      description: "Navigate the digital world with confidence using our comprehensive screen time guidelines. Based on the latest research from pediatric experts and child psychologists, this guide breaks down appropriate screen time limits by age group and provides practical strategies for creating a balanced digital diet for your family.",
+      tags: ["Screen Time", "Health", "Guidelines", "Digital Wellness"],
       gradient: "from-[#758bfd] to-[#aeb8fe]",
-      image: "📱"
+      image: "📱",
+      excerpt: "The American Academy of Pediatrics recommends specific screen time limits, but how do you implement them practically? This guide shows you how to create healthy digital boundaries.",
+      keyPoints: ["Age-appropriate screen time limits", "Quality content selection", "Co-viewing strategies", "Screen-free zones and times"]
     },
     {
       id: 3,
       title: "Creative Indoor Adventures for Every Season",
       category: "Activities",
       author: "Maria Rodriguez",
-      readTime: "6 min read",
+      readTime: "10 min read",
       likes: 312,
-      description: "Transform your home into a wonderland of learning with these engaging activities.",
-      tags: ["Activities", "Indoor", "Creativity"],
+      description: "Transform your home into a wonderland of learning and discovery with these engaging seasonal activities. From rainy day crafts to winter science experiments, this collection offers over 50 creative ideas that promote cognitive development, fine motor skills, and imaginative play while keeping your children entertained and learning.",
+      tags: ["Activities", "Indoor", "Creativity", "Seasonal"],
       gradient: "from-[#aeb8fe] to-[#ff8600]",
-      image: "🎨"
+      image: "🎨",
+      excerpt: "Don't let weather keep you indoors feeling bored! These activities use common household items to create extraordinary learning experiences for children of all ages.",
+      keyPoints: ["Seasonal craft projects", "Science experiments at home", "Imaginative play setups", "Educational games and puzzles"]
+    },
+    {
+      id: 4,
+      title: "Positive Discipline Strategies That Actually Work",
+      category: "Parenting",
+      author: "Dr. Michael Chen",
+      readTime: "15 min read",
+      likes: 428,
+      description: "Move beyond traditional punishment-based discipline to evidence-based positive parenting techniques that build cooperation, self-control, and mutual respect. This in-depth article explores the science behind positive discipline and provides step-by-step guidance for implementing these transformative approaches in your daily parenting routine.",
+      tags: ["Discipline", "Positive Parenting", "Behavior", "Communication"],
+      gradient: "from-[#27187e] to-[#ff8600]",
+      image: "🤝",
+      excerpt: "Positive discipline isn't permissive parenting - it's about setting clear boundaries while maintaining your child's dignity and teaching valuable life skills.",
+      keyPoints: ["Natural consequences vs. punishment", "Setting clear expectations", "Problem-solving with children", "Building intrinsic motivation"]
+    },
+    {
+      id: 5,
+      title: "Nutrition Essentials for Growing Minds",
+      category: "Health",
+      author: "Nutritionist Lisa Park",
+      readTime: "11 min read",
+      likes: 265,
+      description: "Fuel your child's developing brain with the right nutrients at the right time. This comprehensive nutrition guide covers essential vitamins, minerals, and food groups that support cognitive development, mood regulation, and physical growth. Includes meal planning tips, picky eater strategies, and brain-boosting recipe ideas.",
+      tags: ["Nutrition", "Brain Development", "Healthy Eating", "Meal Planning"],
+      gradient: "from-[#758bfd] to-[#27187e]",
+      image: "🥗",
+      excerpt: "The foods your child eats directly impact their learning ability, attention span, and emotional regulation. Learn which nutrients matter most and how to make healthy eating enjoyable.",
+      keyPoints: ["Brain-boosting superfoods", "Dealing with picky eaters", "Meal prep strategies", "Healthy snack alternatives"]
+    },
+    {
+      id: 6,
+      title: "Sleep Solutions for Better Family Rest",
+      category: "Sleep",
+      author: "Sleep Specialist Dr. Jennifer Lee",
+      readTime: "14 min read",
+      likes: 198,
+      description: "Quality sleep is fundamental to your child's physical growth, emotional regulation, and cognitive development. This expert guide addresses common sleep challenges at every age, from newborn sleep patterns to teenage circadian rhythms. Discover evidence-based strategies for creating healthy sleep habits that benefit the whole family.",
+      tags: ["Sleep", "Bedtime Routines", "Sleep Training", "Family Wellness"],
+      gradient: "from-[#ff8600] to-[#758bfd]",
+      image: "😴",
+      excerpt: "Poor sleep affects everything from academic performance to immune function. Learn how to create optimal sleep environments and routines for children of all ages.",
+      keyPoints: ["Age-appropriate sleep schedules", "Creating calming bedtime routines", "Addressing night fears", "Sleep environment optimization"]
+    },
+    {
+      id: 7,
+      title: "Building Strong Sibling Relationships",
+      category: "Family",
+      author: "Family Therapist Amanda White",
+      readTime: "9 min read",
+      likes: 156,
+      description: "Sibling relationships can be a source of joy or stress in family life. Learn how to foster cooperation, reduce rivalry, and help your children build lifelong bonds with each other. This article provides practical strategies for managing conflicts, celebrating differences, and creating family traditions that strengthen sibling connections.",
+      tags: ["Siblings", "Family Dynamics", "Conflict Resolution", "Relationships"],
+      gradient: "from-[#aeb8fe] to-[#27187e]",
+      image: "👫",
+      excerpt: "Strong sibling relationships provide children with their first lessons in cooperation, empathy, and conflict resolution - skills they'll use throughout life.",
+      keyPoints: ["Preventing sibling rivalry", "Teaching conflict resolution", "Celebrating individual strengths", "Creating shared experiences"]
+    },
+    {
+      id: 8,
+      title: "STEM Learning Through Everyday Play",
+      category: "Education",
+      author: "STEM Educator Dr. Robert Kim",
+      readTime: "13 min read",
+      likes: 289,
+      description: "Science, Technology, Engineering, and Math learning doesn't require expensive kits or formal lessons. Discover how everyday activities and simple materials can become powerful STEM learning opportunities. This guide shows parents how to nurture curiosity, critical thinking, and problem-solving skills through play-based exploration.",
+      tags: ["STEM", "Education", "Play-Based Learning", "Critical Thinking"],
+      gradient: "from-[#27187e] to-[#aeb8fe]",
+      image: "🔬",
+      excerpt: "From cooking chemistry to playground physics, STEM learning opportunities are everywhere. Learn to recognize and maximize these natural learning moments.",
+      keyPoints: ["Kitchen science experiments", "Building and engineering challenges", "Nature-based STEM activities", "Technology integration tips"]
     }
   ];
 
@@ -72,7 +148,8 @@ const ParentDashboard = () => {
   const filteredContent = featuredContent.filter(content =>
     content.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     content.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    content.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+    content.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    content.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -170,8 +247,8 @@ const ParentDashboard = () => {
         {/* Featured Content */}
         <div className="mb-12">
           <div className="text-center mb-10">
-            <h2 className="text-4xl font-bold text-[#27187e] mb-4">Handpicked Just for You</h2>
-            <p className="text-lg text-[#758bfd] max-w-xl mx-auto">Expert-curated content to support your parenting journey at every stage.</p>
+            <h2 className="text-4xl font-bold text-[#27187e] mb-4">Expert Parenting Resources</h2>
+            <p className="text-lg text-[#758bfd] max-w-xl mx-auto">Comprehensive guides and insights from child development experts, pediatricians, and experienced parents.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredContent.map((content) => (
@@ -190,7 +267,25 @@ const ParentDashboard = () => {
                   <CardTitle className="group-hover:text-[#27187e] transition-colors text-xl leading-snug text-[#27187e] mb-3">
                     {content.title}
                   </CardTitle>
-                  <CardDescription className="text-[#758bfd] text-base leading-relaxed">{content.description}</CardDescription>
+                  <CardDescription className="text-[#758bfd] text-base leading-relaxed mb-4">{content.description}</CardDescription>
+                  
+                  {/* Excerpt */}
+                  <div className="bg-gradient-to-r from-[#aeb8fe]/20 to-[#758bfd]/10 rounded-2xl p-4 mb-4 border border-[#758bfd]/20">
+                    <p className="text-sm text-[#27187e] italic font-medium">{content.excerpt}</p>
+                  </div>
+
+                  {/* Key Points */}
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold text-[#27187e] mb-2">What you'll learn:</h4>
+                    <ul className="space-y-1">
+                      {content.keyPoints.map((point, index) => (
+                        <li key={index} className="text-xs text-[#758bfd] flex items-start">
+                          <span className="w-1.5 h-1.5 bg-[#ff8600] rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between text-sm text-[#758bfd] mb-4">
@@ -208,7 +303,7 @@ const ParentDashboard = () => {
                     ))}
                   </div>
                   <Button className="w-full bg-gradient-to-r from-[#27187e] to-[#758bfd] hover:from-[#758bfd] hover:to-[#ff8600] text-white rounded-2xl group-hover:scale-105 transition-all duration-300">
-                    Read Article <ChevronRight className="ml-2 h-4 w-4" />
+                    Read Full Article <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
