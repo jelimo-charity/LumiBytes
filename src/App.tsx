@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import AuthPage from "./pages/AuthPage";
 import ParentDashboard from "./pages/ParentDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import ArticlePage from "./pages/ArticlePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,11 @@ const App = () => (
             <Route path="/dashboard" element={
               <AuthGuard requiredRole="parent">
                 <ParentDashboard />
+              </AuthGuard>
+            } />
+            <Route path="/article/:id" element={
+              <AuthGuard requiredRole="parent">
+                <ArticlePage />
               </AuthGuard>
             } />
             <Route path="/admin" element={

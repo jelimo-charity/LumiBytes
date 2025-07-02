@@ -23,12 +23,7 @@ const ParentDashboard = () => {
   };
 
   const handleReadArticle = (articleId: number, articleTitle: string) => {
-    toast({
-      title: "Opening Article",
-      description: `Reading: ${articleTitle}`,
-    });
-    // For now, we'll show a toast. In a real app, this would navigate to the article page
-    console.log(`Opening article ${articleId}: ${articleTitle}`);
+    navigate(`/article/${articleId}`);
   };
 
   const featuredContent = [
