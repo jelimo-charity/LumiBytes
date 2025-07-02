@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,6 +20,15 @@ const ParentDashboard = () => {
       description: "Thanks for being part of our community!",
     });
     navigate('/');
+  };
+
+  const handleReadArticle = (articleId: number, articleTitle: string) => {
+    toast({
+      title: "Opening Article",
+      description: `Reading: ${articleTitle}`,
+    });
+    // For now, we'll show a toast. In a real app, this would navigate to the article page
+    console.log(`Opening article ${articleId}: ${articleTitle}`);
   };
 
   const featuredContent = [
@@ -302,7 +310,10 @@ const ParentDashboard = () => {
                       </Badge>
                     ))}
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-[#27187e] to-[#758bfd] hover:from-[#758bfd] hover:to-[#ff8600] text-white rounded-2xl group-hover:scale-105 transition-all duration-300">
+                  <Button 
+                    onClick={() => handleReadArticle(content.id, content.title)}
+                    className="w-full bg-gradient-to-r from-[#27187e] to-[#758bfd] hover:from-[#758bfd] hover:to-[#ff8600] text-white rounded-2xl group-hover:scale-105 transition-all duration-300"
+                  >
                     Read Full Article <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
