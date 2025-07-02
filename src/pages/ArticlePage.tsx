@@ -359,14 +359,8 @@ const ArticlePage = () => {
         <Card className="border-2 border-[#758bfd]/20 bg-white/80 backdrop-blur-md rounded-3xl shadow-xl">
           <CardContent className="p-8">
             <div 
-              className="prose prose-lg max-w-none text-[#27187e] leading-relaxed"
+              className="prose prose-lg max-w-none text-[#27187e] leading-relaxed prose-headings:text-[#27187e] prose-p:text-[#27187e] prose-strong:text-[#27187e] prose-a:text-[#758bfd]"
               dangerouslySetInnerHTML={{ __html: article.fullContent }}
-              style={{
-                '--tw-prose-headings': '#27187e',
-                '--tw-prose-body': '#27187e',
-                '--tw-prose-bold': '#27187e',
-                '--tw-prose-links': '#758bfd',
-              }}
             />
           </CardContent>
         </Card>
