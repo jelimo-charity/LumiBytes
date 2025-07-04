@@ -35,7 +35,7 @@ const AdminDashboard = () => {
     await signOut();
     toast({
       title: "Admin session ended",
-      description: "Thanks for keeping Bright Bytes amazing!",
+      description: "Thanks for keeping LumiBytes amazing!",
     });
     navigate('/');
   };
@@ -72,7 +72,7 @@ const AdminDashboard = () => {
               </div>
               <div>
                 <div className="flex items-center">
-                  <span className="text-3xl font-bold bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent">Bright Bytes</span>
+                  <span className="text-3xl font-bold bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent">LumiBytes</span>
                   <span className="ml-3 text-[#27187e] font-bold text-xl">Admin</span>
                 </div>
                 <p className="text-sm text-[#758bfd] font-medium">Content Management System</p>
