@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -61,7 +60,7 @@ const Index = () => {
               <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}>
                 <Sparkles className="h-6 w-6 text-white" />
               </div>
-              <span className="ml-3 text-2xl font-bold" style={{ color: '#27187e' }}>KidSpark</span>
+              <span className="ml-3 text-2xl font-bold" style={{ color: '#27187e' }}>Bright Bytes</span>
             </div>
 
             {/* Desktop Navigation */}
@@ -142,8 +141,8 @@ const Index = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#27187e' }}>
-                  Spark Your Child's 
-                  <span className="block text-[#ff8600]">Potential</span>
+                  Bright Learning 
+                  <span className="block text-[#ff8600]">Bright Future</span>
                 </h1>
                 <p className="text-xl text-gray-700 leading-relaxed">
                   Transform your parenting journey with expert guidance, engaging content, and a supportive community dedicated to raising brilliant, happy children.
@@ -208,9 +207,9 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="space-y-4">
-                <h2 className="text-4xl font-bold" style={{ color: '#27187e' }}>About KidSpark</h2>
+                <h2 className="text-4xl font-bold" style={{ color: '#27187e' }}>About Bright Bytes</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  We believe every child has unlimited potential waiting to be discovered. Founded by parents and child development experts, KidSpark combines cutting-edge research with practical parenting wisdom.
+                  We believe every child has unlimited potential waiting to be discovered. Founded by parents and child development experts, Bright Bytes combines cutting-edge research with practical parenting wisdom.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Our mission is to empower parents with the tools, knowledge, and community support needed to nurture confident, creative, and capable children who will shape tomorrow's world.
@@ -240,9 +239,9 @@ const Index = () => {
       <section id="features" className="py-20" style={{ backgroundColor: '#f1f2f6' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4" style={{ color: '#27187e' }}>Why Choose KidSpark?</h2>
+            <h2 className="text-4xl font-bold mb-4" style={{ color: '#27187e' }}>Why Choose Bright Bytes?</h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Discover the comprehensive tools and resources that make KidSpark the trusted choice for modern parents worldwide.
+              Discover the comprehensive tools and resources that make Bright Bytes the trusted choice for modern parents worldwide.
             </p>
           </div>
 
@@ -440,7 +439,7 @@ const Index = () => {
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
                   <Sparkles className="h-6 w-6 text-[#27187e]" />
                 </div>
-                <span className="ml-3 text-2xl font-bold">KidSpark</span>
+                <span className="ml-3 text-2xl font-bold">Bright Bytes</span>
               </div>
               <p className="text-gray-300 leading-relaxed">
                 Empowering parents with expert guidance and community support to raise brilliant, confident children.
@@ -499,7 +498,7 @@ const Index = () => {
           <div className="border-t border-white/10 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-300">
-                © 2024 KidSpark. All rights reserved.
+                © 2024 Bright Bytes. All rights reserved.
               </p>
               <div className="flex space-x-6 mt-4 md:mt-0">
                 <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">Privacy</a>
