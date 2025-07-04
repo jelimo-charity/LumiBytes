@@ -171,12 +171,12 @@ const ParentDashboard = () => {
             <div className="flex items-center space-x-4">
               <div className="relative group">
                 <div className="w-14 h-14 bg-gradient-to-br from-[#27187e] via-[#758bfd] to-[#aeb8fe] rounded-2xl flex items-center justify-center shadow-xl transform group-hover:scale-105 transition-transform duration-300">
-                  <span className="text-white font-bold text-xl">K</span>
+                  <span className="text-white font-bold text-xl">L</span>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-[#27187e] to-[#758bfd] rounded-2xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </div>
               <div>
-                <span className="text-3xl font-bold bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent">KidSpark</span>
+                <span className="text-3xl font-bold bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent">LumiBytes</span>
                 <p className="text-sm text-[#758bfd] font-medium">Parent Dashboard</p>
               </div>
             </div>

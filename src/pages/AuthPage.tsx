@@ -64,7 +64,7 @@ const AuthPage = () => {
 
       if (data.user) {
         toast({
-          title: "Welcome back to KidSpark! ✨",
+          title: "Welcome back to LumiBytes! ✨",
           description: "Ready to continue your parenting adventure?",
         });
         navigate('/dashboard');
@@ -134,7 +134,7 @@ const AuthPage = () => {
 
       if (data.user) {
         toast({
-          title: "Welcome to KidSpark! 🎉",
+          title: "Welcome to LumiBytes! 🎉",
           description: "Your parenting adventure begins now! Check your email for verification.",
         });
         
@@ -189,7 +189,7 @@ const AuthPage = () => {
               </div>
             </div>
             <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent">
-              KidSpark
+              LumiBytes
             </h1>
             <p className="text-xl text-[#758bfd] max-w-2xl mx-auto leading-relaxed font-medium">
               Join thousands of parents creating magical moments and raising extraordinary children ✨
@@ -218,19 +218,19 @@ const AuthPage = () => {
             </CardHeader>
             <CardContent className="p-8">
               <Tabs defaultValue="login" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-8 bg-gradient-to-r from-[#f1f2f6] to-[#aeb8fe]/30 rounded-2xl p-2 border-2 border-[#758bfd]/20">
+                <TabsList className="grid w-full grid-cols-2 mb-8 bg-gradient-to-r from-[#f1f2f6] to-[#aeb8fe]/30 rounded-2xl p-1 border-2 border-[#758bfd]/20">
                   <TabsTrigger 
                     value="login" 
-                    className="rounded-xl font-semibold text-[#27187e] data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#27187e] data-[state=active]:to-[#758bfd] data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="rounded-xl font-semibold text-[#27187e] data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#27187e] data-[state=active]:to-[#758bfd] data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 py-3"
                   >
-                    <Lock className="h-4 w-4 mr-1" />
+                    <Lock className="h-4 w-4 mr-2" />
                     Sign In
                   </TabsTrigger>
                   <TabsTrigger 
                     value="signup" 
-                    className="rounded-xl font-semibold text-[#27187e] data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#758bfd] data-[state=active]:to-[#ff8600] data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="rounded-xl font-semibold text-[#27187e] data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#758bfd] data-[state=active]:to-[#ff8600] data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 hover:scale-105 py-3"
                   >
-                    <User className="h-4 w-4 mr-1" />
+                    <User className="h-4 w-4 mr-2" />
                     Join Us
                   </TabsTrigger>
                 </TabsList>
@@ -282,7 +282,7 @@ const AuthPage = () => {
                       ) : (
                         <div className="flex items-center">
                           <Lock className="h-5 w-5 mr-2" />
-                          Sign In to KidSpark
+                          Sign In to LumiBytes
                         </div>
                       )}
                     </Button>
