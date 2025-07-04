@@ -235,7 +235,7 @@ const AuthPage = () => {
                   </TabsTrigger>
                 </TabsList>
                 
-                <TabsContent value="login">
+                <TabsContent value="login" className="space-y-0">
                   <form onSubmit={handleLogin} className="space-y-6">
                     <div className="group">
                       <Label htmlFor="login-email" className="text-[#27187e] font-semibold text-sm mb-2 block">Email Address</Label>
@@ -269,27 +269,29 @@ const AuthPage = () => {
                         />
                       </div>
                     </div>
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#aeb8fe] hover:from-[#27187e]/90 hover:via-[#758bfd]/90 hover:to-[#aeb8fe]/90 py-4 rounded-2xl font-semibold text-lg shadow-xl transform hover:scale-105 transition-all duration-300 border-0"
-                      disabled={isLoading}
-                    >
-                      {isLoading ? (
-                        <div className="flex items-center">
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Signing in...
-                        </div>
-                      ) : (
-                        <div className="flex items-center">
-                          <Lock className="h-5 w-5 mr-2" />
-                          Sign In to LumiBytes
-                        </div>
-                      )}
-                    </Button>
+                    <div className="pt-2">
+                      <Button 
+                        type="submit" 
+                        className="w-full bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#aeb8fe] hover:from-[#27187e]/90 hover:via-[#758bfd]/90 hover:to-[#aeb8fe]/90 py-4 rounded-2xl font-semibold text-lg shadow-xl transform hover:scale-105 transition-all duration-300 border-0 min-h-[56px]"
+                        disabled={isLoading}
+                      >
+                        {isLoading ? (
+                          <div className="flex items-center justify-center">
+                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                            Signing in...
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-center">
+                            <Lock className="h-5 w-5 mr-2" />
+                            Sign In to LumiBytes
+                          </div>
+                        )}
+                      </Button>
+                    </div>
                   </form>
                 </TabsContent>
                 
-                <TabsContent value="signup">
+                <TabsContent value="signup" className="space-y-0">
                   <form onSubmit={handleSignup} className="space-y-6">
                     <div className="group">
                       <Label htmlFor="signup-name" className="text-[#27187e] font-semibold text-sm mb-2 block">Full Name</Label>
@@ -355,23 +357,25 @@ const AuthPage = () => {
                         />
                       </div>
                     </div>
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-gradient-to-r from-[#758bfd] via-[#ff8600] to-[#758bfd] hover:from-[#758bfd]/90 hover:via-[#ff8600]/90 hover:to-[#758bfd]/90 py-4 rounded-2xl font-semibold text-lg shadow-xl transform hover:scale-105 transition-all duration-300 border-0"
-                      disabled={isLoading}
-                    >
-                      {isLoading ? (
-                        <div className="flex items-center">
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Creating your account...
-                        </div>
-                      ) : (
-                        <div className="flex items-center">
-                          <Sparkles className="h-5 w-5 mr-2" />
-                          Start Your Journey
-                        </div>
-                      )}
-                    </Button>
+                    <div className="pt-2">
+                      <Button 
+                        type="submit" 
+                        className="w-full bg-gradient-to-r from-[#758bfd] via-[#ff8600] to-[#758bfd] hover:from-[#758bfd]/90 hover:via-[#ff8600]/90 hover:to-[#758bfd]/90 py-4 rounded-2xl font-semibold text-lg shadow-xl transform hover:scale-105 transition-all duration-300 border-0 min-h-[56px]"
+                        disabled={isLoading}
+                      >
+                        {isLoading ? (
+                          <div className="flex items-center justify-center">
+                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                            Creating your account...
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-center">
+                            <Sparkles className="h-5 w-5 mr-2" />
+                            Start Your Journey
+                          </div>
+                        )}
+                      </Button>
+                    </div>
                   </form>
                 </TabsContent>
               </Tabs>
