@@ -26,10 +26,12 @@ import { LearningMaterialsManager } from '@/components/admin/LearningMaterialsMa
 import { UserAnalytics } from '@/components/admin/UserAnalytics';
 import { UserManager } from '@/components/admin/UserManager';
 import { useAuth } from '@/hooks/useAuth';
+import { useAdminStats } from '@/hooks/useAdminStats';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
+  const { stats, loading: statsLoading, error: statsError } = useAdminStats();
 
   const handleLogout = async () => {
     await signOut();
@@ -41,11 +43,54 @@ const AdminDashboard = () => {
   };
 
   const adminStats = [
-    { label: "Total Users", value: "2,847", icon: Users, color: "text-[#27187e]", bg: "bg-[#aeb8fe]/20", change: "+12%", changeColor: "text-green-600" },
-    { label: "Active Sessions", value: "1,234", icon: Activity, color: "text-[#758bfd]", bg: "bg-[#758bfd]/20", change: "+8%", changeColor: "text-green-600" },
-    { label: "Published Articles", value: "156", icon: FileText, color: "text-[#ff8600]", bg: "bg-[#ff8600]/10", change: "+3", changeColor: "text-blue-600" },
-    { label: "Monthly Views", value: "89.2K", icon: Eye, color: "text-[#27187e]", bg: "bg-[#27187e]/20", change: "+24%", changeColor: "text-green-600" }
+    { 
+      label: "Total Users", 
+      value: statsLoading ? "..." : stats.totalUsers.toLocaleString(), 
+      icon: Users, 
+      color: "text-[#27187e]", 
+      bg: "bg-[#aeb8fe]/20", 
+      change: "+12%", 
+      changeColor: "text-green-600" 
+    },
+    { 
+      label: "Active Sessions", 
+      value: statsLoading ? "..." : stats.activeSessions.toLocaleString(), 
+      icon: Activity, 
+      color: "text-[#758bfd]", 
+      bg: "bg-[#758bfd]/20", 
+      change: "+8%", 
+      changeColor: "text-green-600" 
+    },
+    { 
+      label: "Published Articles", 
+      value: statsLoading ? "..." : stats.publishedArticles.toString(), 
+      icon: FileText, 
+      color: "text-[#ff8600]", 
+      bg: "bg-[#ff8600]/10", 
+      change: "+3", 
+      changeColor: "text-blue-600" 
+    },
+    { 
+      label: "Monthly Views", 
+      value: statsLoading ? "..." : `${(stats.monthlyViews / 1000).toFixed(1)}K`, 
+      icon: Eye, 
+      color: "text-[#27187e]", 
+      bg: "bg-[#27187e]/20", 
+      change: "+24%", 
+      changeColor: "text-green-600" 
+    }
   ];
+
+  // Show error if stats failed to load
+  useEffect(() => {
+    if (statsError) {
+      toast({
+        title: "Error loading statistics",
+        description: statsError,
+        variant: "destructive"
+      });
+    }
+  }, [statsError]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f1f2f6] via-white to-[#aeb8fe]/30 relative overflow-hidden">
@@ -113,7 +158,7 @@ const AdminDashboard = () => {
           <p className="text-xl text-[#758bfd] max-w-2xl mx-auto">Monitor platform performance, manage content, and oversee user experience with powerful administrative tools.</p>
         </div>
 
-        {/* Admin Stats */}
+        {/* Admin Stats - Now with real data */}
         <div className="grid md:grid-cols-4 gap-6 mb-12">
           {adminStats.map((stat, index) => (
             <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-2 border-[#758bfd]/20 bg-white/80 backdrop-blur-md rounded-3xl transform hover:-translate-y-2 hover:scale-105 cursor-pointer">

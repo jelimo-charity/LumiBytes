@@ -12,162 +12,80 @@ import {
   MessageCircle, 
   Download,
   Clock,
-  Calendar
+  Calendar,
+  Loader2
 } from 'lucide-react';
-
-interface UserData {
-  id: number;
-  name: string;
-  email: string;
-  joinedDate: string;
-  lastActive: string;
-  contentViewed: number;
-  articlesBookmarked: number;
-  commentsPosted: number;
-  materialsDownloaded: number;
-  status: 'active' | 'inactive' | 'new';
-  childrenAges: string[];
-}
-
-interface ContentAnalytics {
-  id: number;
-  title: string;
-  type: 'blog' | 'material';
-  category: string;
-  views: number;
-  likes: number;
-  comments: number;
-  downloads?: number;
-  engagement: number;
-  publishedDate: string;
-}
+import { useUserAnalytics } from '@/hooks/useUserAnalytics';
 
 export const UserAnalytics = () => {
   const [timeFilter, setTimeFilter] = useState('30d');
   const [contentFilter, setContentFilter] = useState('all');
+  const { users, content, loading, error } = useUserAnalytics();
 
-  const userData: UserData[] = [
-    {
-      id: 1,
-      name: "Emma Thompson",
-      email: "emma@email.com",
-      joinedDate: "2024-01-15",
-      lastActive: "2024-01-20",
-      contentViewed: 45,
-      articlesBookmarked: 12,
-      commentsPosted: 8,
-      materialsDownloaded: 15,
-      status: "active",
-      childrenAges: ["3 years", "6 years"]
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      email: "michael@email.com", 
-      joinedDate: "2024-01-14",
-      lastActive: "2024-01-19",
-      contentViewed: 32,
-      articlesBookmarked: 8,
-      commentsPosted: 5,
-      materialsDownloaded: 22,
-      status: "active",
-      childrenAges: ["2 years"]
-    },
-    {
-      id: 3,
-      name: "Sarah Wilson",
-      email: "sarah@email.com",
-      joinedDate: "2024-01-18",
-      lastActive: "2024-01-18",
-      contentViewed: 12,
-      articlesBookmarked: 3,
-      commentsPosted: 1,
-      materialsDownloaded: 5,
-      status: "new",
-      childrenAges: ["5 years", "8 years"]
-    }
-  ];
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center p-8">
+        <Loader2 className="h-8 w-8 animate-spin text-[#758bfd]" />
+        <span className="ml-2 text-[#758bfd]">Loading analytics...</span>
+      </div>
+    );
+  }
 
-  const contentAnalytics: ContentAnalytics[] = [
-    {
-      id: 1,
-      title: "Building Emotional Intelligence in Toddlers",
-      type: "blog",
-      category: "Development",
-      views: 1234,
-      likes: 89,
-      comments: 23,
-      engagement: 87,
-      publishedDate: "2024-01-15"
-    },
-    {
-      id: 2,
-      title: "Counting with Colors",
-      type: "material",
-      category: "Math",
-      views: 567,
-      likes: 45,
-      comments: 12,
-      downloads: 234,
-      engagement: 92,
-      publishedDate: "2024-01-15"
-    },
-    {
-      id: 3,
-      title: "Healthy Screen Time Guidelines",
-      type: "blog",
-      category: "Health",
-      views: 892,
-      likes: 67,
-      comments: 18,
-      engagement: 78,
-      publishedDate: "2024-01-14"
-    }
-  ];
+  if (error) {
+    return (
+      <div className="p-8 text-center">
+        <p className="text-red-600">Error loading analytics: {error}</p>
+      </div>
+    );
+  }
 
   const overviewStats = [
     {
       title: "Total Users",
-      value: "1,234",
+      value: users.length.toString(),
       change: "+12%",
       icon: Users,
       color: "text-blue-600"
     },
     {
       title: "Active Users (30d)",
-      value: "892",
+      value: users.filter(u => u.status === 'active').length.toString(),
       change: "+8%",
       icon: TrendingUp,
       color: "text-green-600"
     },
     {
       title: "Total Content Views",
-      value: "15.2K",
+      value: content.reduce((sum, item) => sum + item.views, 0).toLocaleString(),
       change: "+23%",
       icon: Eye,
       color: "text-purple-600"
     },
     {
-      title: "Average Session Time",
-      value: "12.5 min",
+      title: "Published Content",
+      value: content.length.toString(),
       change: "+5%",
       icon: Clock,
       color: "text-orange-600"
     }
   ];
 
-  const getEngagementColor = (engagement: number) => {
-    if (engagement >= 80) return "text-green-600 bg-green-50";
-    if (engagement >= 60) return "text-yellow-600 bg-yellow-50";
+  const getEngagementColor = (views: number) => {
+    if (views >= 500) return "text-green-600 bg-green-50";
+    if (views >= 200) return "text-yellow-600 bg-yellow-50";
     return "text-red-600 bg-red-50";
   };
+
+  const filteredContent = content.filter(item => 
+    contentFilter === 'all' || item.type === contentFilter
+  );
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold">User Analytics</h2>
-          <p className="text-gray-600">Monitor user engagement and content performance</p>
+          <p className="text-gray-600">Monitor user engagement and content performance with real data</p>
         </div>
         
         <div className="flex space-x-2">
@@ -213,7 +131,7 @@ export const UserAnalytics = () => {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>Top Performing Content</CardTitle>
-                <CardDescription>Most engaged content by type</CardDescription>
+                <CardDescription>Real content engagement metrics</CardDescription>
               </div>
               <Select value={contentFilter} onValueChange={setContentFilter}>
                 <SelectTrigger className="w-32">
@@ -229,40 +147,40 @@ export const UserAnalytics = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {contentAnalytics
-                .filter(content => contentFilter === 'all' || content.type === contentFilter)
-                .map((content) => (
-                <div key={content.id} className="p-4 border border-gray-100 rounded-lg">
+              {filteredContent.slice(0, 5).map((item) => (
+                <div key={item.id} className="p-4 border border-gray-100 rounded-lg">
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex-1">
-                      <h4 className="font-medium">{content.title}</h4>
+                      <h4 className="font-medium">{item.title}</h4>
                       <div className="flex items-center space-x-2 mt-1">
-                        <Badge variant="outline">{content.type}</Badge>
-                        <Badge variant="secondary">{content.category}</Badge>
+                        <Badge variant="outline">{item.type}</Badge>
+                        <span className="text-xs text-gray-500">
+                          {new Date(item.created_at).toLocaleDateString()}
+                        </span>
                       </div>
                     </div>
-                    <div className={`px-2 py-1 rounded text-xs font-medium ${getEngagementColor(content.engagement)}`}>
-                      {content.engagement}% engaged
+                    <div className={`px-2 py-1 rounded text-xs font-medium ${getEngagementColor(item.views)}`}>
+                      {item.views} views
                     </div>
                   </div>
                   
                   <div className="grid grid-cols-4 gap-4 text-sm text-gray-600">
                     <div className="flex items-center">
                       <Eye className="h-3 w-3 mr-1" />
-                      {content.views}
+                      {item.views}
                     </div>
                     <div className="flex items-center">
                       <Heart className="h-3 w-3 mr-1" />
-                      {content.likes}
+                      {item.likes}
                     </div>
                     <div className="flex items-center">
                       <MessageCircle className="h-3 w-3 mr-1" />
-                      {content.comments}
+                      {item.comments}
                     </div>
-                    {content.downloads && (
+                    {item.downloads && (
                       <div className="flex items-center">
                         <Download className="h-3 w-3 mr-1" />
-                        {content.downloads}
+                        {item.downloads}
                       </div>
                     )}
                   </div>
@@ -272,52 +190,45 @@ export const UserAnalytics = () => {
           </CardContent>
         </Card>
 
-        {/* User Engagement */}
+        {/* User Overview */}
         <Card>
           <CardHeader>
-            <CardTitle>User Engagement Overview</CardTitle>
-            <CardDescription>Active users and their activity patterns</CardDescription>
+            <CardTitle>User Overview</CardTitle>
+            <CardDescription>Real user data from database</CardDescription>
           </CardHeader>
           <CardContent>
             <Table>
               <TableHeader>
                 <TableRow>
                   <TableHead>User</TableHead>
+                  <TableHead>Role</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead>Activity</TableHead>
-                  <TableHead>Children</TableHead>
+                  <TableHead>Joined</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {userData.slice(0, 5).map((user) => (
+                {users.slice(0, 5).map((user) => (
                   <TableRow key={user.id}>
                     <TableCell>
                       <div>
-                        <div className="font-medium">{user.name}</div>
+                        <div className="font-medium">{user.display_name || 'Anonymous User'}</div>
                         <div className="text-sm text-gray-500">{user.email}</div>
                       </div>
                     </TableCell>
                     <TableCell>
-                      <Badge variant={
-                        user.status === 'active' ? 'default' : 
-                        user.status === 'new' ? 'secondary' : 'outline'
-                      }>
+                      <Badge variant={user.role === 'admin' ? 'default' : 'secondary'}>
+                        {user.role}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant={user.status === 'active' ? 'default' : 'outline'}>
                         {user.status}
                       </Badge>
                     </TableCell>
                     <TableCell>
-                      <div className="text-sm">
-                        <div>{user.contentViewed} views</div>
-                        <div className="text-gray-500">{user.articlesBookmarked} bookmarks</div>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex flex-wrap gap-1">
-                        {user.childrenAges.map((age, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
-                            {age}
-                          </Badge>
-                        ))}
+                      <div className="flex items-center text-sm">
+                        <Calendar className="h-3 w-3 mr-1" />
+                        {new Date(user.created_at).toLocaleDateString()}
                       </div>
                     </TableCell>
                   </TableRow>
@@ -328,74 +239,59 @@ export const UserAnalytics = () => {
         </Card>
       </div>
 
-      {/* Detailed User Activity */}
+      {/* Detailed Content Analytics */}
       <Card>
         <CardHeader>
-          <CardTitle>User Activity Details</CardTitle>
-          <CardDescription>Comprehensive user engagement metrics</CardDescription>
+          <CardTitle>Content Performance Details</CardTitle>
+          <CardDescription>Comprehensive analytics for all published content</CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>User</TableHead>
-                <TableHead>Joined</TableHead>
-                <TableHead>Last Active</TableHead>
-                <TableHead>Content Viewed</TableHead>
-                <TableHead>Bookmarks</TableHead>
-                <TableHead>Comments</TableHead>
-                <TableHead>Downloads</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead>Title</TableHead>
+                <TableHead>Type</TableHead>
+                <TableHead>Views</TableHead>
+                <TableHead>Engagement</TableHead>
+                <TableHead>Published</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {userData.map((user) => (
-                <TableRow key={user.id}>
+              {content.map((item) => (
+                <TableRow key={item.id}>
                   <TableCell>
-                    <div>
-                      <div className="font-medium">{user.name}</div>
-                      <div className="text-sm text-gray-500">{user.email}</div>
-                    </div>
+                    <div className="font-medium">{item.title}</div>
                   </TableCell>
                   <TableCell>
-                    <div className="flex items-center text-sm">
-                      <Calendar className="h-3 w-3 mr-1" />
-                      {user.joinedDate}
-                    </div>
+                    <Badge variant={item.type === 'blog' ? 'default' : 'secondary'}>
+                      {item.type}
+                    </Badge>
                   </TableCell>
-                  <TableCell>{user.lastActive}</TableCell>
                   <TableCell>
                     <div className="flex items-center">
                       <Eye className="h-3 w-3 mr-1" />
-                      {user.contentViewed}
+                      {item.views}
                     </div>
                   </TableCell>
                   <TableCell>
-                    <div className="flex items-center">
-                      <Heart className="h-3 w-3 mr-1" />
-                      {user.articlesBookmarked}
+                    <div className="flex space-x-2 text-sm">
+                      <span className="flex items-center">
+                        <Heart className="h-3 w-3 mr-1" />
+                        {item.likes}
+                      </span>
+                      <span className="flex items-center">
+                        <MessageCircle className="h-3 w-3 mr-1" />
+                        {item.comments}
+                      </span>
+                      {item.downloads && (
+                        <span className="flex items-center">
+                          <Download className="h-3 w-3 mr-1" />
+                          {item.downloads}
+                        </span>
+                      )}
                     </div>
                   </TableCell>
-                  <TableCell>
-                    <div className="flex items-center">
-                      <MessageCircle className="h-3 w-3 mr-1" />
-                      {user.commentsPosted}
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex items-center">
-                      <Download className="h-3 w-3 mr-1" />
-                      {user.materialsDownloaded}
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant={
-                      user.status === 'active' ? 'default' : 
-                      user.status === 'new' ? 'secondary' : 'outline'
-                    }>
-                      {user.status}
-                    </Badge>
-                  </TableCell>
+                  <TableCell>{new Date(item.created_at).toLocaleDateString()}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

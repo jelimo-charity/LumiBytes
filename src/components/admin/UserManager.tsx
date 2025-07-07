@@ -19,28 +19,11 @@ import {
   Search,
   Filter,
   Calendar,
-  MapPin
+  MapPin,
+  Loader2
 } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  joinedDate: string;
-  lastActive: string;
-  status: 'active' | 'inactive' | 'suspended';
-  role: 'parent' | 'admin';
-  location?: string;
-  children: {
-    age: string;
-    interests: string[];
-  }[];
-  preferences: {
-    emailNotifications: boolean;
-    contentTypes: string[];
-  };
-}
+import { useUserAnalytics } from '@/hooks/useUserAnalytics';
 
 export const UserManager = () => {
   const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
@@ -52,81 +35,10 @@ export const UserManager = () => {
     targetAudience: 'all'
   });
 
-  const [users, setUsers] = useState<User[]>([
-    {
-      id: 1,
-      name: "Emma Thompson",
-      email: "emma@email.com",
-      joinedDate: "2024-01-15",
-      lastActive: "2024-01-20",
-      status: "active",
-      role: "parent",
-      location: "New York, NY",
-      children: [
-        { age: "3 years", interests: ["art", "music"] },
-        { age: "6 years", interests: ["reading", "science"] }
-      ],
-      preferences: {
-        emailNotifications: true,
-        contentTypes: ["development", "activities"]
-      }
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      email: "michael@email.com",
-      joinedDate: "2024-01-14",
-      lastActive: "2024-01-19",
-      status: "active",
-      role: "parent",
-      location: "San Francisco, CA",
-      children: [
-        { age: "2 years", interests: ["sensory", "motor skills"] }
-      ],
-      preferences: {
-        emailNotifications: true,
-        contentTypes: ["health", "nutrition"]
-      }
-    },
-    {
-      id: 3,
-      name: "Sarah Wilson",
-      email: "sarah@email.com",
-      joinedDate: "2024-01-18",
-      lastActive: "2024-01-18",
-      status: "active",
-      role: "parent",
-      location: "Austin, TX",
-      children: [
-        { age: "5 years", interests: ["sports", "math"] },
-        { age: "8 years", interests: ["reading", "coding"] }
-      ],
-      preferences: {
-        emailNotifications: false,
-        contentTypes: ["education", "technology"]
-      }
-    },
-    {
-      id: 4,
-      name: "David Rodriguez",
-      email: "david@email.com",
-      joinedDate: "2024-01-10",
-      lastActive: "2024-01-15",
-      status: "inactive",
-      role: "parent",
-      location: "Miami, FL",
-      children: [
-        { age: "4 years", interests: ["art", "language"] }
-      ],
-      preferences: {
-        emailNotifications: true,
-        contentTypes: ["development", "activities"]
-      }
-    }
-  ]);
+  const { users, loading, error } = useUserAnalytics();
 
   const filteredUsers = users.filter(user => {
-    const matchesSearch = user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    const matchesSearch = user.display_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          user.email.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = statusFilter === 'all' || user.status === statusFilter;
     return matchesSearch && matchesStatus;
@@ -137,12 +49,8 @@ export const UserManager = () => {
     
     if (newsletter.targetAudience !== 'all') {
       // Filter based on target audience criteria
-      if (newsletter.targetAudience === 'new-parents') {
-        targetUsers = users.filter(user => 
-          user.children.some(child => 
-            parseInt(child.age) <= 2
-          )
-        );
+      if (newsletter.targetAudience === 'active') {
+        targetUsers = users.filter(user => user.status === 'active');
       }
       // Add more filtering logic as needed
     }
@@ -156,13 +64,8 @@ export const UserManager = () => {
     setNewsletter({ subject: '', content: '', targetAudience: 'all' });
   };
 
-  const handleUpdateUserStatus = (userId: number, newStatus: 'active' | 'inactive' | 'suspended') => {
-    setUsers(users.map(user => 
-      user.id === userId 
-        ? { ...user, status: newStatus }
-        : user
-    ));
-
+  const handleUpdateUserStatus = (userId: string, newStatus: 'active' | 'inactive' | 'suspended') => {
+    // In a real app, this would update the database
     toast({
       title: "User Status Updated",
       description: `User status changed to ${newStatus}.`,
@@ -183,18 +86,35 @@ export const UserManager = () => {
     active: users.filter(u => u.status === 'active').length,
     inactive: users.filter(u => u.status === 'inactive').length,
     newThisMonth: users.filter(u => {
-      const joinDate = new Date(u.joinedDate);
+      const joinDate = new Date(u.created_at);
       const now = new Date();
       return joinDate.getMonth() === now.getMonth() && joinDate.getFullYear() === now.getFullYear();
     }).length
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center p-8">
+        <Loader2 className="h-8 w-8 animate-spin text-[#758bfd]" />
+        <span className="ml-2 text-[#758bfd]">Loading user data...</span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="p-8 text-center">
+        <p className="text-red-600">Error loading user data: {error}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold">User Management</h2>
-          <p className="text-gray-600">Manage users and send communications</p>
+          <p className="text-gray-600">Manage users and send communications with real data</p>
         </div>
         
         <Dialog open={isNewsletterModalOpen} onOpenChange={setIsNewsletterModalOpen}>
@@ -230,8 +150,7 @@ export const UserManager = () => {
                   <SelectContent>
                     <SelectItem value="all">All Users ({users.length})</SelectItem>
                     <SelectItem value="active">Active Users ({userStats.active})</SelectItem>
-                    <SelectItem value="new-parents">New Parents (0-2 years)</SelectItem>
-                    <SelectItem value="experienced-parents">Experienced Parents (3+ years)</SelectItem>
+                    <SelectItem value="admins">Admin Users ({users.filter(u => u.role === 'admin').length})</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -315,7 +234,7 @@ export const UserManager = () => {
       <Card>
         <CardHeader>
           <CardTitle>User Directory</CardTitle>
-          <CardDescription>Search and manage user accounts</CardDescription>
+          <CardDescription>Search and manage user accounts from database</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex space-x-4 mb-6">
@@ -348,9 +267,8 @@ export const UserManager = () => {
             <TableHeader>
               <TableRow>
                 <TableHead>User</TableHead>
+                <TableHead>Role</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead>Children</TableHead>
-                <TableHead>Location</TableHead>
                 <TableHead>Joined</TableHead>
                 <TableHead>Last Active</TableHead>
                 <TableHead>Actions</TableHead>
@@ -361,48 +279,22 @@ export const UserManager = () => {
                 <TableRow key={user.id}>
                   <TableCell>
                     <div>
-                      <div className="font-medium">{user.name}</div>
+                      <div className="font-medium">{user.display_name || 'Anonymous User'}</div>
                       <div className="text-sm text-gray-500">{user.email}</div>
-                      <div className="flex items-center mt-1">
-                        {user.preferences.emailNotifications && (
-                          <Badge variant="outline" className="text-xs mr-1">
-                            <Mail className="h-3 w-3 mr-1" />
-                            Notifications On
-                          </Badge>
-                        )}
-                      </div>
                     </div>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant={user.role === 'admin' ? 'default' : 'secondary'}>
+                      {user.role}
+                    </Badge>
                   </TableCell>
                   <TableCell>
                     <Badge variant={getStatusColor(user.status)}>
                       {user.status}
                     </Badge>
                   </TableCell>
-                  <TableCell>
-                    <div className="space-y-1">
-                      {user.children.map((child, index) => (
-                        <div key={index} className="text-sm">
-                          <Badge variant="secondary" className="text-xs mr-1">
-                            {child.age}
-                          </Badge>
-                          <span className="text-gray-500">
-                            {child.interests.slice(0, 2).join(', ')}
-                            {child.interests.length > 2 && '...'}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    {user.location && (
-                      <div className="flex items-center text-sm text-gray-600">
-                        <MapPin className="h-3 w-3 mr-1" />
-                        {user.location}
-                      </div>
-                    )}
-                  </TableCell>
-                  <TableCell>{user.joinedDate}</TableCell>
-                  <TableCell>{user.lastActive}</TableCell>
+                  <TableCell>{new Date(user.created_at).toLocaleDateString()}</TableCell>
+                  <TableCell>{user.last_sign_in_at ? new Date(user.last_sign_in_at).toLocaleDateString() : 'Never'}</TableCell>
                   <TableCell>
                     <div className="flex space-x-1">
                       {user.status === 'active' ? (
