@@ -14,6 +14,87 @@ export type Database = {
   }
   public: {
     Tables: {
+      articles: {
+        Row: {
+          author_id: string
+          comments_count: number
+          content: string | null
+          created_at: string
+          excerpt: string | null
+          id: string
+          likes_count: number
+          published: boolean
+          title: string
+          updated_at: string
+          views_count: number
+        }
+        Insert: {
+          author_id: string
+          comments_count?: number
+          content?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          likes_count?: number
+          published?: boolean
+          title: string
+          updated_at?: string
+          views_count?: number
+        }
+        Update: {
+          author_id?: string
+          comments_count?: number
+          content?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          likes_count?: number
+          published?: boolean
+          title?: string
+          updated_at?: string
+          views_count?: number
+        }
+        Relationships: []
+      }
+      learning_materials: {
+        Row: {
+          author_id: string
+          content: string | null
+          created_at: string
+          description: string | null
+          downloads_count: number
+          id: string
+          published: boolean
+          title: string
+          updated_at: string
+          views_count: number
+        }
+        Insert: {
+          author_id: string
+          content?: string | null
+          created_at?: string
+          description?: string | null
+          downloads_count?: number
+          id?: string
+          published?: boolean
+          title: string
+          updated_at?: string
+          views_count?: number
+        }
+        Update: {
+          author_id?: string
+          content?: string | null
+          created_at?: string
+          description?: string | null
+          downloads_count?: number
+          id?: string
+          published?: boolean
+          title?: string
+          updated_at?: string
+          views_count?: number
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -64,7 +145,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_active_sessions: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
+      get_total_users: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
     }
     Enums: {
       app_role: "admin" | "parent"
