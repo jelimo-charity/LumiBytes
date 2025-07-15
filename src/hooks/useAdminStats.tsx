@@ -24,13 +24,41 @@ export const useAdminStats = () => {
       try {
         setLoading(true);
         
-        // For now, use mock data until types are updated
-        // TODO: Replace with actual database calls once types are generated
+        // Get total users count
+        const { data: totalUsersData, error: usersError } = await supabase
+          .rpc('get_total_users');
+        
+        if (usersError) throw usersError;
+
+        // Get active sessions count
+        const { data: activeSessionsData, error: sessionsError } = await supabase
+          .rpc('get_active_sessions');
+        
+        if (sessionsError) throw sessionsError;
+
+        // Get published articles count
+        const { count: articlesCount, error: articlesError } = await supabase
+          .from('articles')
+          .select('*', { count: 'exact', head: true })
+          .eq('published', true);
+        
+        if (articlesError) throw articlesError;
+
+        // Get monthly views (sum of all article views)
+        const { data: viewsData, error: viewsError } = await supabase
+          .from('articles')
+          .select('views_count')
+          .eq('published', true);
+        
+        if (viewsError) throw viewsError;
+
+        const monthlyViews = viewsData?.reduce((sum, article) => sum + (article.views_count || 0), 0) || 0;
+
         setStats({
-          totalUsers: 125,
-          activeSessions: 23,
-          publishedArticles: 15,
-          monthlyViews: 2847
+          totalUsers: totalUsersData || 0,
+          activeSessions: activeSessionsData || 0,
+          publishedArticles: articlesCount || 0,
+          monthlyViews
         });
       } catch (err) {
         console.error('Error fetching admin stats:', err);
