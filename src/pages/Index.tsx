@@ -141,11 +141,11 @@ const Index = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#27187e' }}>
-                  Bright Learning 
-                  <span className="block text-[#ff8600]">Bright Future</span>
+                  Raising Digital
+                  <span className="block text-[#ff8600]">Citizens</span>
                 </h1>
                 <p className="text-xl text-gray-700 leading-relaxed">
-                  Transform your parenting journey with expert guidance, engaging content, and a supportive community dedicated to raising brilliant, happy children.
+                  Navigate the digital era with confidence. Expert guidance and practical tools to help you raise responsible, tech-savvy children who thrive in our connected world.
                 </p>
               </div>
               
