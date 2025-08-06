@@ -120,7 +120,7 @@ const AdminDashboard = () => {
                   <span className="text-3xl font-bold bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent">LumiBytes</span>
                   <span className="ml-3 text-[#27187e] font-bold text-xl">Admin</span>
                 </div>
-                <p className="text-sm text-[#758bfd] font-medium">Content Management System</p>
+                <p className="text-sm text-[#758bfd] font-medium">Digital Citizenship Hub</p>
               </div>
             </div>
             
@@ -154,8 +154,8 @@ const AdminDashboard = () => {
       <div className="relative z-10 container mx-auto px-6 py-8">
         {/* Dashboard Header */}
         <div className="mb-12 text-center">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent mb-4">Admin Command Center</h1>
-          <p className="text-xl text-[#758bfd] max-w-2xl mx-auto">Monitor platform performance, manage content, and oversee user experience with powerful administrative tools.</p>
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent mb-4">Digital Citizenship Command Center</h1>
+          <p className="text-xl text-[#758bfd] max-w-2xl mx-auto">Manage content and resources to guide families in raising responsible digital citizens for tomorrow's world.</p>
         </div>
 
         {/* Admin Stats - Now with real data */}
@@ -188,14 +188,14 @@ const AdminDashboard = () => {
               className="flex items-center text-[#27187e] data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#27187e] data-[state=active]:to-[#758bfd] data-[state=active]:text-white rounded-2xl py-4 px-6 transition-all duration-300 font-semibold hover:bg-[#aeb8fe]/20"
             >
               <FileText className="h-5 w-5 mr-2" />
-              Blog Management
+              Digital Parenting Articles
             </TabsTrigger>
             <TabsTrigger 
               value="materials" 
               className="flex items-center text-[#27187e] data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#758bfd] data-[state=active]:to-[#ff8600] data-[state=active]:text-white rounded-2xl py-4 px-6 transition-all duration-300 font-semibold hover:bg-[#aeb8fe]/20"
             >
               <BookOpen className="h-5 w-5 mr-2" />
-              Learning Materials
+              Digital Citizenship Resources
             </TabsTrigger>
             <TabsTrigger 
               value="analytics" 

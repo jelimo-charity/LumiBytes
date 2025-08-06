@@ -65,7 +65,7 @@ const AuthPage = () => {
       if (data.user) {
         toast({
           title: "Welcome back to LumiBytes! ✨",
-          description: "Ready to continue your parenting adventure?",
+          description: "Ready to continue raising digital citizens?",
         });
         navigate('/dashboard');
       }
@@ -135,7 +135,7 @@ const AuthPage = () => {
       if (data.user) {
         toast({
           title: "Welcome to LumiBytes! 🎉",
-          description: "Your parenting adventure begins now! Check your email for verification.",
+          description: "Your digital citizenship journey begins now! Check your email for verification.",
         });
         
         // Auto-login after successful signup
@@ -192,7 +192,7 @@ const AuthPage = () => {
               LumiBytes
             </h1>
             <p className="text-xl text-[#758bfd] max-w-2xl mx-auto leading-relaxed font-medium">
-              Join thousands of parents creating magical moments and raising extraordinary children ✨
+              Join thousands of families raising responsible, tech-savvy digital citizens ✨
             </p>
           </div>
         </div>
@@ -213,8 +213,8 @@ const AuthPage = () => {
                   </div>
                 </div>
               </div>
-              <CardTitle className="text-4xl font-bold text-[#27187e] mb-3">Welcome to Your Journey</CardTitle>
-              <CardDescription className="text-lg text-[#758bfd] font-medium">Ready to spark your parenting adventure?</CardDescription>
+              <CardTitle className="text-4xl font-bold text-[#27187e] mb-3">Welcome to Digital Citizenship</CardTitle>
+              <CardDescription className="text-lg text-[#758bfd] font-medium">Ready to guide the next generation of digital citizens?</CardDescription>
             </CardHeader>
             <CardContent className="p-8">
               <Tabs defaultValue="login" className="w-full">

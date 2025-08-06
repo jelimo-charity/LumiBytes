@@ -29,45 +29,45 @@ const ParentDashboard = () => {
   const featuredContent = [
     {
       id: 1,
-      title: "Building Emotional Intelligence in Toddlers",
-      category: "Development",
+      title: "Digital Empathy: Teaching Kindness Online",
+      category: "Digital Citizenship",
       author: "Dr. Sarah Johnson",
       readTime: "8 min read",
       likes: 234,
-      description: "Emotional intelligence is one of the most crucial skills your toddler can develop. This comprehensive guide explores proven techniques to help your little one identify, understand, and manage their emotions effectively. Learn how to create safe spaces for emotional expression, validate feelings without judgment, and teach healthy coping mechanisms that will serve them throughout life.",
-      tags: ["Toddlers", "Emotions", "Development", "Psychology"],
+      description: "In our digital world, empathy is more important than ever. This guide explores how to help children understand the human impact of their online actions and develop compassionate digital communication skills that will serve them throughout their connected lives.",
+      tags: ["Digital Empathy", "Online Kindness", "Cyberbullying Prevention", "Digital Communication"],
       gradient: "from-[#27187e] to-[#758bfd]",
-      image: "🧠",
-      excerpt: "Research shows that children with higher emotional intelligence perform better academically, have stronger relationships, and experience less anxiety. This article provides practical strategies you can implement today.",
-      keyPoints: ["Understanding emotional triggers", "Teaching empathy through play", "Creating emotional vocabulary", "Managing tantrums with compassion"]
+      image: "💝",
+      excerpt: "Children who learn digital empathy early are less likely to engage in cyberbullying and more likely to become positive digital leaders in their communities.",
+      keyPoints: ["Recognizing emotions in digital communication", "Teaching respectful online behavior", "Building empathy through technology", "Addressing cyberbullying prevention"]
     },
     {
       id: 2,
-      title: "Healthy Screen Time Guidelines by Age",
-      category: "Health",
-      author: "Child Development Team",
+      title: "Healthy Digital Habits for Growing Minds",
+      category: "Digital Wellness",
+      author: "Digital Wellness Team",
       readTime: "12 min read",
       likes: 187,
-      description: "Navigate the digital world with confidence using our comprehensive screen time guidelines. Based on the latest research from pediatric experts and child psychologists, this guide breaks down appropriate screen time limits by age group and provides practical strategies for creating a balanced digital diet for your family.",
-      tags: ["Screen Time", "Health", "Guidelines", "Digital Wellness"],
+      description: "Build a foundation of healthy technology use from an early age. This comprehensive guide covers age-appropriate screen time, digital boundaries, and strategies for creating a balanced relationship with technology that supports your child's development in our connected world.",
+      tags: ["Digital Wellness", "Screen Time", "Tech Balance", "Healthy Habits"],
       gradient: "from-[#758bfd] to-[#aeb8fe]",
-      image: "📱",
-      excerpt: "The American Academy of Pediatrics recommends specific screen time limits, but how do you implement them practically? This guide shows you how to create healthy digital boundaries.",
-      keyPoints: ["Age-appropriate screen time limits", "Quality content selection", "Co-viewing strategies", "Screen-free zones and times"]
+      image: "⚖️",
+      excerpt: "Children who develop healthy digital habits early are better equipped to navigate technology responsibly and maintain well-being in our increasingly connected world.",
+      keyPoints: ["Age-appropriate digital boundaries", "Quality vs quantity in digital consumption", "Creating tech-free family time", "Building self-regulation skills"]
     },
     {
       id: 3,
-      title: "Creative Indoor Adventures for Every Season",
-      category: "Activities",
+      title: "Creating Digital Content Together",
+      category: "Digital Creativity",
       author: "Maria Rodriguez",
       readTime: "10 min read",
       likes: 312,
-      description: "Transform your home into a wonderland of learning and discovery with these engaging seasonal activities. From rainy day crafts to winter science experiments, this collection offers over 50 creative ideas that promote cognitive development, fine motor skills, and imaginative play while keeping your children entertained and learning.",
-      tags: ["Activities", "Indoor", "Creativity", "Seasonal"],
+      description: "Turn screen time into creative time! Learn how to collaborate with your children to create meaningful digital content, from family videos to educational presentations. This guide shows how technology can become a tool for creativity, learning, and family bonding.",
+      tags: ["Digital Creation", "Family Projects", "Creative Technology", "Digital Storytelling"],
       gradient: "from-[#aeb8fe] to-[#ff8600]",
-      image: "🎨",
-      excerpt: "Don't let weather keep you indoors feeling bored! These activities use common household items to create extraordinary learning experiences for children of all ages.",
-      keyPoints: ["Seasonal craft projects", "Science experiments at home", "Imaginative play setups", "Educational games and puzzles"]
+      image: "🎬",
+      excerpt: "When children become creators rather than just consumers of digital content, they develop critical thinking, technical skills, and a deeper understanding of how technology works.",
+      keyPoints: ["Family video projects", "Digital storytelling techniques", "Age-appropriate creation tools", "Sharing content safely online"]
     },
     {
       id: 4,
@@ -127,17 +127,17 @@ const ParentDashboard = () => {
     },
     {
       id: 8,
-      title: "STEM Learning Through Everyday Play",
-      category: "Education",
-      author: "STEM Educator Dr. Robert Kim",
+      title: "Teaching Privacy and Digital Footprints",
+      category: "Digital Safety",
+      author: "Privacy Expert Dr. Robert Kim",
       readTime: "13 min read",
       likes: 289,
-      description: "Science, Technology, Engineering, and Math learning doesn't require expensive kits or formal lessons. Discover how everyday activities and simple materials can become powerful STEM learning opportunities. This guide shows parents how to nurture curiosity, critical thinking, and problem-solving skills through play-based exploration.",
-      tags: ["STEM", "Education", "Play-Based Learning", "Critical Thinking"],
+      description: "Help your children understand the importance of privacy in the digital age. Learn how to teach concepts of digital footprints, data protection, and personal information security in age-appropriate ways that empower them to make smart choices online.",
+      tags: ["Digital Privacy", "Online Safety", "Digital Footprint", "Data Protection"],
       gradient: "from-[#27187e] to-[#aeb8fe]",
-      image: "🔬",
-      excerpt: "From cooking chemistry to playground physics, STEM learning opportunities are everywhere. Learn to recognize and maximize these natural learning moments.",
-      keyPoints: ["Kitchen science experiments", "Building and engineering challenges", "Nature-based STEM activities", "Technology integration tips"]
+      image: "🔒",
+      excerpt: "Children who understand privacy from an early age develop better judgment about what to share online and how to protect themselves in digital spaces.",
+      keyPoints: ["Understanding digital footprints", "Age-appropriate privacy settings", "Safe information sharing", "Building digital decision-making skills"]
     }
   ];
 
@@ -177,7 +177,7 @@ const ParentDashboard = () => {
               </div>
               <div>
                 <span className="text-3xl font-bold bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent">LumiBytes</span>
-                <p className="text-sm text-[#758bfd] font-medium">Parent Dashboard</p>
+                <p className="text-sm text-[#758bfd] font-medium">Digital Citizenship Hub</p>
               </div>
             </div>
             
@@ -211,8 +211,8 @@ const ParentDashboard = () => {
       <div className="relative z-10 container mx-auto px-6 py-8">
         {/* Welcome Section */}
         <div className="mb-12 text-center">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent mb-4">Your Parenting Journey</h1>
-          <p className="text-xl text-[#758bfd] max-w-2xl mx-auto leading-relaxed">Discover personalized resources, track your progress, and connect with a community of supportive parents.</p>
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#27187e] via-[#758bfd] to-[#ff8600] bg-clip-text text-transparent mb-4">Raising Digital Citizens</h1>
+          <p className="text-xl text-[#758bfd] max-w-2xl mx-auto leading-relaxed">Discover expert guidance for navigating the digital world with your children and building responsible technology habits.</p>
         </div>
 
         {/* Quick Stats */}
@@ -239,7 +239,7 @@ const ParentDashboard = () => {
           <div className="relative max-w-2xl mx-auto">
             <Search className="absolute left-6 top-1/2 transform -translate-y-1/2 text-[#758bfd] h-6 w-6" />
             <Input
-              placeholder="Search articles, topics, or discover new parenting insights..."
+              placeholder="Search digital citizenship topics, technology guides, and parenting insights..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-16 pr-6 py-4 border-2 border-[#758bfd]/20 bg-white/80 backdrop-blur-md rounded-3xl shadow-lg text-lg focus:ring-4 focus:ring-[#758bfd]/20 focus:border-[#758bfd]/40 transition-all duration-300"
@@ -250,8 +250,8 @@ const ParentDashboard = () => {
         {/* Featured Content */}
         <div className="mb-12">
           <div className="text-center mb-10">
-            <h2 className="text-4xl font-bold text-[#27187e] mb-4">Expert Parenting Resources</h2>
-            <p className="text-lg text-[#758bfd] max-w-xl mx-auto">Comprehensive guides and insights from child development experts, pediatricians, and experienced parents.</p>
+            <h2 className="text-4xl font-bold text-[#27187e] mb-4">Digital Citizenship Resources</h2>
+            <p className="text-lg text-[#758bfd] max-w-xl mx-auto">Expert guidance on technology, digital safety, and raising responsible citizens for our connected world.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredContent.map((content) => (
