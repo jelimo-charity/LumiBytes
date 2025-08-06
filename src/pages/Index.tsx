@@ -60,14 +60,14 @@ const Index = () => {
               <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}>
                 <Sparkles className="h-6 w-6 text-white" />
               </div>
-              <span className="ml-3 text-2xl font-bold" style={{ color: '#27187e' }}>LumiBytes</span>
+              <span className="ml-3 text-2xl font-bold" style={{ color: '#27187e' }}>Charity Jelimo</span>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <a href="#home" className="text-gray-700 hover:text-[#27187e] transition-colors">Home</a>
-              <a href="#features" className="text-gray-700 hover:text-[#27187e] transition-colors">Features</a>
-              <a href="#about" className="text-gray-700 hover:text-[#27187e] transition-colors">About Us</a>
+              <a href="#features" className="text-gray-700 hover:text-[#27187e] transition-colors">My Work</a>
+              <a href="#about" className="text-gray-700 hover:text-[#27187e] transition-colors">About Me</a>
               <a href="#contact" className="text-gray-700 hover:text-[#27187e] transition-colors">Contact</a>
               {user ? (
                 <div className="flex items-center space-x-4">
@@ -108,8 +108,8 @@ const Index = () => {
             <div className="md:hidden py-4 border-t border-gray-200">
               <div className="flex flex-col space-y-4">
                 <a href="#home" className="text-gray-700 hover:text-[#27187e] transition-colors">Home</a>
-                <a href="#features" className="text-gray-700 hover:text-[#27187e] transition-colors">Features</a>
-                <a href="#about" className="text-gray-700 hover:text-[#27187e] transition-colors">About Us</a>
+                <a href="#features" className="text-gray-700 hover:text-[#27187e] transition-colors">My Work</a>
+                <a href="#about" className="text-gray-700 hover:text-[#27187e] transition-colors">About Me</a>
                 <a href="#contact" className="text-gray-700 hover:text-[#27187e] transition-colors">Contact</a>
                 {user && (
                   <Button 
@@ -141,11 +141,11 @@ const Index = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#27187e' }}>
-                  Raising Digital
-                  <span className="block text-[#ff8600]">Citizens</span>
+                  Hi, I'm
+                  <span className="block text-[#ff8600]">Charity Jelimo</span>
                 </h1>
                 <p className="text-xl text-gray-700 leading-relaxed">
-                  Navigate the digital era with confidence. Expert guidance and practical tools to help you raise responsible, tech-savvy children who thrive in our connected world.
+                  Digital Citizenship Advocate & Parent Educator. I help families navigate the digital era with confidence, empowering parents to raise responsible, tech-savvy children who thrive in our connected world.
                 </p>
               </div>
               
@@ -207,20 +207,20 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="space-y-4">
-                <h2 className="text-4xl font-bold" style={{ color: '#27187e' }}>About LumiBytes</h2>
+                <h2 className="text-4xl font-bold" style={{ color: '#27187e' }}>About Me</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  We believe every child has unlimited potential waiting to be discovered. Founded by parents and child development experts, LumiBytes combines cutting-edge research with practical parenting wisdom.
+                  I'm passionate about helping families navigate the complexities of raising children in our digital world. With years of experience in education and child development, I combine research-backed strategies with real-world parenting insights.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Our mission is to empower parents with the tools, knowledge, and community support needed to nurture confident, creative, and capable children who will shape tomorrow's world.
+                  My mission is to empower parents with the knowledge, tools, and confidence needed to raise digitally literate, responsible, and thriving children who will become positive contributors to our connected society.
                 </p>
               </div>
               
               <div className="bg-[#f1f2f6] p-6 rounded-2xl border-l-4" style={{ borderColor: '#ff8600' }}>
                 <blockquote className="text-lg italic text-gray-700">
-                  "Every child is a different kind of flower, and all together, they make this world a beautiful garden."
+                  "In this digital age, our children need guides who understand both technology and humanity. Let's raise digital citizens who lead with empathy, think critically, and use technology to make the world better."
                 </blockquote>
-                <p className="mt-4 font-semibold" style={{ color: '#27187e' }}>- Dr. Sarah Chen, Founder & Child Psychologist</p>
+                <p className="mt-4 font-semibold" style={{ color: '#27187e' }}>- Charity Jelimo</p>
               </div>
             </div>
 
@@ -239,9 +239,9 @@ const Index = () => {
       <section id="features" className="py-20" style={{ backgroundColor: '#f1f2f6' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4" style={{ color: '#27187e' }}>Why Choose LumiBytes?</h2>
+            <h2 className="text-4xl font-bold mb-4" style={{ color: '#27187e' }}>What I Offer</h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Discover the comprehensive tools and resources that make LumiBytes the trusted choice for modern parents worldwide.
+              Comprehensive resources and expert guidance to help you navigate digital parenting with confidence and raise responsible digital citizens.
             </p>
           </div>
 
@@ -338,16 +338,16 @@ const Index = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4" style={{ color: '#27187e' }}>Get In Touch</h2>
-              <p className="text-xl text-gray-700">
-                Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-              </p>
+                <p className="text-xl text-gray-700">
+                  Have questions about digital parenting or want to collaborate? I'd love to hear from you. Send me a message and I'll respond as soon as possible.
+                </p>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Form */}
               <Card className="bg-[#f1f2f6] border-0 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-2xl" style={{ color: '#27187e' }}>Send us a message</CardTitle>
+                  <CardTitle className="text-2xl" style={{ color: '#27187e' }}>Send me a message</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
@@ -439,10 +439,10 @@ const Index = () => {
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
                   <Sparkles className="h-6 w-6 text-[#27187e]" />
                 </div>
-                <span className="ml-3 text-2xl font-bold">LumiBytes</span>
+                <span className="ml-3 text-2xl font-bold">Charity Jelimo</span>
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Empowering parents with expert guidance and community support to raise brilliant, confident children.
+                Digital Citizenship Advocate helping parents raise responsible, tech-savvy children who thrive in our digital world.
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
@@ -497,8 +497,8 @@ const Index = () => {
           {/* Copyright */}
           <div className="border-t border-white/10 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-300">
-                © 2024 LumiBytes. All rights reserved.
+                <p className="text-gray-300">
+                © 2024 Charity Jelimo. All rights reserved.
               </p>
               <div className="flex space-x-6 mt-4 md:mt-0">
                 <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">Privacy</a>
