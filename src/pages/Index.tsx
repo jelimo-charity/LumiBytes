@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -26,7 +27,8 @@ import {
   Facebook,
   Twitter,
   Linkedin,
-  Instagram
+  Instagram,
+  ArrowRight
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
@@ -235,88 +237,137 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-20" style={{ backgroundColor: '#f1f2f6' }}>
+      {/* My Work Section */}
+      <section id="work" className="py-20" style={{ backgroundColor: '#f1f2f6' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4" style={{ color: '#27187e' }}>What I Offer</h2>
+            <h2 className="text-4xl font-bold mb-4" style={{ color: '#27187e' }}>My Work</h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Comprehensive resources and expert guidance to help you navigate digital parenting with confidence and raise responsible digital citizens.
+              Featured articles and resources on digital citizenship, parenting, and child development that help families thrive in our connected world.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}>
-                  <BookOpen className="h-8 w-8 text-white" />
+          <div className="grid gap-8 mb-12">
+            {[
+              {
+                id: 1,
+                title: "Digital Empathy: Teaching Kindness Online",
+                category: "Digital Citizenship",
+                author: "Dr. Sarah Johnson",
+                readTime: "8 min read",
+                likes: 234,
+                description: "In our digital world, empathy is more important than ever. This guide explores how to help children understand the human impact of their online actions and develop compassionate digital communication skills that will serve them throughout their connected lives.",
+                tags: ["Digital Empathy", "Online Kindness", "Cyberbullying Prevention", "Digital Communication"],
+                gradient: "from-[#27187e] to-[#758bfd]",
+                image: "💝",
+                excerpt: "Children who learn digital empathy early are less likely to engage in cyberbullying and more likely to become positive digital leaders in their communities.",
+                keyPoints: ["Recognizing emotions in digital communication", "Teaching respectful online behavior", "Building empathy through technology", "Addressing cyberbullying prevention"]
+              },
+              {
+                id: 2,
+                title: "Healthy Digital Habits for Growing Minds",
+                category: "Digital Wellness",
+                author: "Digital Wellness Team",
+                readTime: "12 min read",
+                likes: 187,
+                description: "Build a foundation of healthy technology use from an early age. This comprehensive guide covers age-appropriate screen time, digital boundaries, and strategies for creating a balanced relationship with technology that supports your child's development in our connected world.",
+                tags: ["Digital Wellness", "Screen Time", "Tech Balance", "Healthy Habits"],
+                gradient: "from-[#758bfd] to-[#aeb8fe]",
+                image: "⚖️",
+                excerpt: "Children who develop healthy digital habits early are better equipped to navigate technology responsibly and maintain well-being in our increasingly connected world.",
+                keyPoints: ["Age-appropriate digital boundaries", "Quality vs quantity in digital consumption", "Creating tech-free family time", "Building self-regulation skills"]
+              },
+              {
+                id: 3,
+                title: "Creating Digital Content Together",
+                category: "Digital Creativity",
+                author: "Maria Rodriguez",
+                readTime: "10 min read",
+                likes: 312,
+                description: "Turn screen time into creative time! Learn how to collaborate with your children to create meaningful digital content, from family videos to educational presentations. This guide shows how technology can become a tool for creativity, learning, and family bonding.",
+                tags: ["Digital Creation", "Family Projects", "Creative Technology", "Digital Storytelling"],
+                gradient: "from-[#aeb8fe] to-[#ff8600]",
+                image: "🎬",
+                excerpt: "When children become creators rather than just consumers of digital content, they develop critical thinking, technical skills, and a deeper understanding of how technology works.",
+                keyPoints: ["Family video projects", "Digital storytelling techniques", "Age-appropriate creation tools", "Sharing content safely online"]
+              },
+              {
+                id: 4,
+                title: "Teaching Privacy and Digital Footprints",
+                category: "Digital Safety",
+                author: "Privacy Expert Dr. Robert Kim",
+                readTime: "13 min read",
+                likes: 289,
+                description: "Help your children understand the importance of privacy in the digital age. Learn how to teach concepts of digital footprints, data protection, and personal information security in age-appropriate ways that empower them to make smart choices online.",
+                tags: ["Digital Privacy", "Online Safety", "Digital Footprint", "Data Protection"],
+                gradient: "from-[#27187e] to-[#aeb8fe]",
+                image: "🔒",
+                excerpt: "Children who understand privacy from an early age develop better judgment about what to share online and how to protect themselves in digital spaces.",
+                keyPoints: ["Understanding digital footprints", "Age-appropriate privacy settings", "Safe information sharing", "Building digital decision-making skills"]
+              }
+            ].map((article, index) => (
+              <Card key={article.id} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                <div className="flex flex-col lg:flex-row">
+                  <div className="lg:w-1/3 relative">
+                    <div className={`h-48 lg:h-full bg-gradient-to-br ${article.gradient} flex items-center justify-center text-6xl`}>
+                      {article.image}
+                    </div>
+                    <div className="absolute top-4 left-4">
+                      <Badge className="bg-white/20 text-white border-white/30 backdrop-blur-sm">
+                        {article.category}
+                      </Badge>
+                    </div>
+                  </div>
+                  
+                  <div className="lg:w-2/3 p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold mb-2 group-hover:text-[#758bfd] transition-colors" style={{ color: '#27187e' }}>
+                          {article.title}
+                        </h3>
+                        <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
+                          <span className="font-medium">{article.author}</span>
+                          <span>•</span>
+                          <span>{article.readTime}</span>
+                          <span>•</span>
+                          <div className="flex items-center gap-1">
+                            <Heart className="h-4 w-4" />
+                            <span>{article.likes}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      {article.description}
+                    </p>
+                    
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        {article.tags.map((tag, tagIndex) => (
+                          <Badge key={tagIndex} variant="secondary" className="text-xs">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="border-l-4 border-[#ff8600] pl-4 mb-4">
+                      <p className="text-sm italic text-gray-600">{article.excerpt}</p>
+                    </div>
+                    
+                    <Button 
+                      onClick={() => navigate(`/article/${article.id}`)}
+                      className="text-white font-semibold"
+                      style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}
+                    >
+                      Read Full Article
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
-                <CardTitle className="text-xl" style={{ color: '#27187e' }}>Expert Content</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-700">Access curated articles, guides, and resources created by child development specialists and education experts.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #758bfd 0%, #aeb8fe 100%)' }}>
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-xl" style={{ color: '#27187e' }}>Supportive Community</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-700">Connect with like-minded parents, share experiences, and get support from our vibrant global community.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #ff8600 0%, #758bfd 100%)' }}>
-                  <Heart className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-xl" style={{ color: '#27187e' }}>Personalized Journey</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-700">Get tailored content and recommendations based on your child's age, interests, and developmental milestones.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #27187e 0%, #ff8600 100%)' }}>
-                  <Target className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-xl" style={{ color: '#27187e' }}>Goal Tracking</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-700">Set and track developmental milestones, learning goals, and celebrate your child's achievements along the way.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #aeb8fe 0%, #27187e 100%)' }}>
-                  <Rocket className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-xl" style={{ color: '#27187e' }}>Interactive Activities</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-700">Engage your child with fun, educational activities designed to boost creativity, critical thinking, and confidence.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #ff8600 0%, #aeb8fe 100%)' }}>
-                  <Globe className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-xl" style={{ color: '#27187e' }}>24/7 Access</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-700">Access our platform anytime, anywhere. Get instant support and resources whenever you need them most.</p>
-              </CardContent>
-            </Card>
+              </Card>
+            ))}
           </div>
 
           <div className="text-center">
@@ -326,7 +377,7 @@ const Index = () => {
               className="text-white font-semibold px-8"
               style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}
             >
-              Explore All Features
+              View All Articles
             </Button>
           </div>
         </div>
