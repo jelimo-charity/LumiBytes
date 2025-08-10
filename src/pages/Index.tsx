@@ -372,7 +372,7 @@ const Index = () => {
 
           <div className="text-center">
             <Button 
-              onClick={handleGetStarted}
+              onClick={() => navigate('/articles')}
               size="lg"
               className="text-white font-semibold px-8"
               style={{ background: 'linear-gradient(135deg, #27187e 0%, #758bfd 100%)' }}

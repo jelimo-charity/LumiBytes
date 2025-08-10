@@ -8,7 +8,7 @@ import { AuthProvider } from "./hooks/useAuth";
 import { AuthGuard } from "./components/AuthGuard";
 import Index from "./pages/Index";
 import AuthPage from "./pages/AuthPage";
-import ParentDashboard from "./pages/ParentDashboard";
+import ArticlesPage from "./pages/ArticlesPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import ArticlePage from "./pages/ArticlePage";
 import NotFound from "./pages/NotFound";
@@ -25,16 +25,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<AuthPage />} />
-            <Route path="/dashboard" element={
-              <AuthGuard requiredRole="parent">
-                <ParentDashboard />
-              </AuthGuard>
-            } />
-            <Route path="/article/:id" element={
-              <AuthGuard requiredRole="parent">
-                <ArticlePage />
-              </AuthGuard>
-            } />
+            <Route path="/articles" element={<ArticlesPage />} />
+            <Route path="/article/:id" element={<ArticlePage />} />
             <Route path="/admin" element={
               <AuthGuard requiredRole="admin">
                 <AdminDashboard />
