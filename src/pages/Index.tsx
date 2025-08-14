@@ -9,22 +9,7 @@ const Index = () => {
       <header className="container mx-auto px-6 py-8 max-w-4xl">
         <div className="flex flex-col items-center text-center space-y-4">
           <h1 className="text-4xl font-bold text-foreground">Charity Jelimo</h1>
-          <div className="space-y-1">
-            <p className="text-lg text-foreground">Software Engineer</p>
-            <p className="text-lg text-foreground">Digital Citizenship Advocate</p>
-          </div>
-          <nav className="flex items-center space-x-6 text-sm">
-            <Link to="/" className="text-foreground hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link to="/articles" className="text-foreground hover:text-primary transition-colors">
-              Articles
-            </Link>
-            <Link to="/admin" className="text-foreground hover:text-primary transition-colors flex items-center gap-1">
-              <Shield className="h-4 w-4" />
-              Admin
-            </Link>
-          </nav>
+          <p className="text-lg text-foreground">Software Engineer | Digital Citizenship Advocate</p>
         </div>
       </header>
 
