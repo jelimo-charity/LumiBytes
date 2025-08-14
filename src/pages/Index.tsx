@@ -38,31 +38,31 @@ const Index = () => {
       {/* Gallery Section */}
       <section className="container mx-auto px-6 py-12 max-w-4xl">
         <h2 className="text-2xl font-semibold text-foreground mb-8 text-center">Gallery</h2>
-        <div className="relative">
-          {/* Creative grid layout */}
-          <div className="grid grid-cols-12 gap-4 h-96">
-            {/* Large main image */}
-            <div className="col-span-6 row-span-2 rounded-lg overflow-hidden">
+        <div className="relative min-h-[500px]">
+          {/* Creative masonry-style layout */}
+          <div className="absolute inset-0">
+            {/* Large featured image - center left */}
+            <div className="absolute top-0 left-0 w-72 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-3xl hover:rotate-1 z-10">
               <img src={galleryPortrait} alt="Professional portrait" className="w-full h-full object-cover" />
             </div>
             
-            {/* Small top right */}
-            <div className="col-span-3 rounded-lg overflow-hidden">
+            {/* Workspace - top right, slightly overlapping */}
+            <div className="absolute top-8 right-0 w-56 h-36 rounded-xl overflow-hidden shadow-lg transform hover:scale-110 transition-all duration-300 hover:shadow-2xl hover:-rotate-2 z-20">
               <img src={galleryWorkspace} alt="Workspace" className="w-full h-full object-cover" />
             </div>
             
-            {/* Medium right */}
-            <div className="col-span-3 row-span-2 rounded-lg overflow-hidden mt-2">
+            {/* Advocacy - middle right */}
+            <div className="absolute top-48 right-16 w-48 h-64 rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:rotate-2 z-15">
               <img src={galleryAdvocacy} alt="Digital citizenship advocacy" className="w-full h-full object-cover" />
             </div>
             
-            {/* Bottom left small */}
-            <div className="col-span-2 rounded-lg overflow-hidden">
+            {/* Teamwork - bottom left */}
+            <div className="absolute bottom-0 left-16 w-40 h-28 rounded-lg overflow-hidden shadow-lg transform hover:scale-110 transition-all duration-300 hover:shadow-xl hover:-rotate-1 z-20">
               <img src={galleryTeamwork} alt="Team collaboration" className="w-full h-full object-cover" />
             </div>
             
-            {/* Bottom center */}
-            <div className="col-span-4 rounded-lg overflow-hidden -mt-4">
+            {/* Speaking - bottom center/right */}
+            <div className="absolute bottom-8 right-0 w-60 h-40 rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:rotate-1 z-10">
               <img src={gallerySpeaking} alt="Speaking at conference" className="w-full h-full object-cover" />
             </div>
           </div>
