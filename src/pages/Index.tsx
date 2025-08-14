@@ -33,11 +33,24 @@ const Index = () => {
       {/* Gallery Section */}
       <section className="container mx-auto px-6 py-12 max-w-4xl">
         <h2 className="text-2xl font-semibold text-foreground mb-8 text-center">Gallery</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="aspect-square bg-muted rounded-lg"></div>
-          <div className="aspect-square bg-muted rounded-lg"></div>
-          <div className="aspect-square bg-muted rounded-lg"></div>
-          <div className="aspect-square bg-muted rounded-lg"></div>
+        <div className="relative">
+          {/* Creative grid layout */}
+          <div className="grid grid-cols-12 gap-4 h-96">
+            {/* Large main image */}
+            <div className="col-span-6 row-span-2 bg-muted rounded-lg"></div>
+            
+            {/* Small top right */}
+            <div className="col-span-3 bg-muted rounded-lg"></div>
+            
+            {/* Medium right */}
+            <div className="col-span-3 row-span-2 bg-muted rounded-lg mt-2"></div>
+            
+            {/* Bottom left small */}
+            <div className="col-span-2 bg-muted rounded-lg"></div>
+            
+            {/* Bottom center */}
+            <div className="col-span-4 bg-muted rounded-lg -mt-4"></div>
+          </div>
         </div>
       </section>
 
