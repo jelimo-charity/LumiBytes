@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { Code, Globe, ArrowRight, Shield } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import galleryPortrait from "@/assets/gallery-portrait.jpg";
+import galleryWorkspace from "@/assets/gallery-workspace.jpg";
+import galleryAdvocacy from "@/assets/gallery-advocacy.jpg";
+import gallerySpeaking from "@/assets/gallery-speaking.jpg";
+import galleryTeamwork from "@/assets/gallery-teamwork.jpg";
 
 const Index = () => {
   return (
@@ -37,19 +42,29 @@ const Index = () => {
           {/* Creative grid layout */}
           <div className="grid grid-cols-12 gap-4 h-96">
             {/* Large main image */}
-            <div className="col-span-6 row-span-2 bg-muted rounded-lg"></div>
+            <div className="col-span-6 row-span-2 rounded-lg overflow-hidden">
+              <img src={galleryPortrait} alt="Professional portrait" className="w-full h-full object-cover" />
+            </div>
             
             {/* Small top right */}
-            <div className="col-span-3 bg-muted rounded-lg"></div>
+            <div className="col-span-3 rounded-lg overflow-hidden">
+              <img src={galleryWorkspace} alt="Workspace" className="w-full h-full object-cover" />
+            </div>
             
             {/* Medium right */}
-            <div className="col-span-3 row-span-2 bg-muted rounded-lg mt-2"></div>
+            <div className="col-span-3 row-span-2 rounded-lg overflow-hidden mt-2">
+              <img src={galleryAdvocacy} alt="Digital citizenship advocacy" className="w-full h-full object-cover" />
+            </div>
             
             {/* Bottom left small */}
-            <div className="col-span-2 bg-muted rounded-lg"></div>
+            <div className="col-span-2 rounded-lg overflow-hidden">
+              <img src={galleryTeamwork} alt="Team collaboration" className="w-full h-full object-cover" />
+            </div>
             
             {/* Bottom center */}
-            <div className="col-span-4 bg-muted rounded-lg -mt-4"></div>
+            <div className="col-span-4 rounded-lg overflow-hidden -mt-4">
+              <img src={gallerySpeaking} alt="Speaking at conference" className="w-full h-full object-cover" />
+            </div>
           </div>
         </div>
       </section>
