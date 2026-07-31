@@ -497,7 +497,9 @@ const SoftwareEngineerPage = () => {
                     <p className="text-secondary text-sm leading-relaxed">
                       At Griffin Global Technologies, I also contribute to the development and maintenance of internal platforms across both frontend and backend systems. I work on implementing features, improving APIs and services, and enhancing user interfaces to support system functionality and usability. I collaborate with engineers across the team and participate in testing, code reviews, and documentation to maintain high engineering standards.
                     </p>
-                    <p className="text-xs text-muted-foreground italic">Full-time</p>
+                    <p className="text-xs text-muted-foreground italic">
+                      TypeScript, React, API Development, SQL, Testing, Git/GitHub, Agile
+                    </p>
                   </div>
                 </div>
               </div>
@@ -511,7 +513,12 @@ const SoftwareEngineerPage = () => {
                       <p className="text-primary font-medium">GRIFFIN Global Technologies, LLC</p>
                       <p className="text-sm text-muted-foreground">Dec 2024 - Feb 2025 · 3 mos · Internship · Nyeri, Kenya · On-site</p>
                     </div>
-                    {/* <p className="text-xs text-muted-foreground italic">Node.js, Git and +8 skills</p> */}
+                    <p className="text-secondary text-sm leading-relaxed">
+                      Supported the engineering team by working on small features, bug fixes, and internal tools. Collaborated with teammates to troubleshoot issues, improve UI flows, and contribute to clean, maintainable code.
+                    </p>
+                    <p className="text-xs text-muted-foreground italic">
+                      JavaScript/TypeScript, React, Node.js, SQL, Git/GitHub
+                    </p>
                   </div>
                 </div>
               </div>
@@ -528,7 +535,9 @@ const SoftwareEngineerPage = () => {
                     <p className="text-secondary text-sm leading-relaxed">
                       Participated in a 3-month full-stack training program where I enhanced my expertise in React, TypeScript, PostgreSQL, and Hono(Node.js). Successfully developed a car rental application, applying my skills in creating scalable solutions and improving my technical and soft skills.
                     </p>
-                    {/* <p className="text-xs text-muted-foreground italic">Drizzle ORM, Node.js and +11 skills</p> */}
+                    <p className="text-xs text-muted-foreground italic">
+                      React, TypeScript, PostgreSQL, Hono (Node.js), REST APIs, Git
+                    </p>
                   </div>
                 </div>
               </div>
@@ -542,7 +551,12 @@ const SoftwareEngineerPage = () => {
                       <p className="text-primary font-medium">THE Jitu</p>
                       <p className="text-sm text-muted-foreground">May 2023 - Jul 2023 · 3 mos · Apprenticeship · On-site</p>
                     </div>
-                    {/* <p className="text-xs text-muted-foreground italic">Teamwork, Node.js and +12 skills</p> */}
+                    <p className="text-secondary text-sm leading-relaxed">
+                      Contributed to web application development as part of a collaborative team environment. Worked on building and refining features, improving responsiveness, and learning best practices for delivering production-quality software.
+                    </p>
+                    <p className="text-xs text-muted-foreground italic">
+                      JavaScript, React, Node.js, UI Development, Git, Team Collaboration
+                    </p>
                   </div>
                 </div>
               </div>

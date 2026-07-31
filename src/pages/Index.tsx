@@ -66,6 +66,9 @@ const Index = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-accent px-4">
                 Charity Jelimo Kipruto
               </h1>
+            <p className="text-sm sm:text-base text-secondary font-light">
+              Data Engineer <span className="text-muted-foreground">·</span> Software Engineer
+            </p>
               {/* <p className="text-lg md:text-xl text-gray-600 font-light">
                 Software Engineer <span className="text-gray-300">·</span> Digital Storyteller
               </p> */}
