@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Moon, Sun } from "lucide-react";
+import { ArrowRight, ExternalLink, Moon, Sun } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState, useEffect } from "react";
-import { blogs, Blog } from "@/data/blogs";
+import { blogs } from "@/data/blogs";
+import type { Blog } from "@/data/blogs";
 import ReactMarkdown from "react-markdown";
 
 const ArticlesPage = () => {
   const [selectedArticle, setSelectedArticle] = useState<Blog | null>(null);
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [activeType, setActiveType] = useState<"all" | "technical" | "personal">("all");
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' || 'dark';
@@ -60,12 +62,55 @@ const ArticlesPage = () => {
             Exploring software development, leadership, and lessons learned along the way
           </p>
         </div>
+
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex bg-card border border-border rounded-xl p-1 shadow-sm">
+            <button
+              onClick={() => setActiveType("all")}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                activeType === "all"
+                  ? "bg-primary/10 text-primary border border-primary/30"
+                  : "text-secondary hover:text-primary"
+              }`}
+            >
+              All
+            </button>
+            <button
+              onClick={() => setActiveType("technical")}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                activeType === "technical"
+                  ? "bg-primary/10 text-primary border border-primary/30"
+                  : "text-secondary hover:text-primary"
+              }`}
+            >
+              Technical
+            </button>
+            <button
+              onClick={() => setActiveType("personal")}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                activeType === "personal"
+                  ? "bg-primary/10 text-primary border border-primary/30"
+                  : "text-secondary hover:text-primary"
+              }`}
+            >
+              Personal
+            </button>
+          </div>
+        </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
+          {blogs
+            .filter((blog) => (activeType === "all" ? true : blog.type === activeType))
+            .map((blog) => (
             <button
               key={blog.id}
-              onClick={() => setSelectedArticle(blog)}
+              onClick={() => {
+                if (blog.externalUrl) {
+                  window.open(blog.externalUrl, "_blank", "noopener,noreferrer");
+                  return;
+                }
+                setSelectedArticle(blog);
+              }}
               className="group text-left border border-border rounded-xl hover:border-primary hover:shadow-xl transition-all duration-300 bg-card overflow-hidden h-full flex flex-col"
             >
               {blog.coverImage && (
@@ -108,8 +153,18 @@ const ArticlesPage = () => {
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <span className="text-xs text-muted-foreground">{blog.readTime}</span>
                   <div className="flex items-center text-primary group-hover:translate-x-1 transition-transform">
-                    <span className="text-xs font-medium">Read article</span>
-                    <ArrowRight className="h-4 w-4 ml-1" />
+                    <span className="text-xs font-medium">
+                      {blog.externalUrl
+                        ? blog.externalUrl.includes("medium.com")
+                          ? "Read on Medium"
+                          : "Read on DEV"
+                        : "Read article"}
+                    </span>
+                    {blog.externalUrl ? (
+                      <ExternalLink className="h-4 w-4 ml-1" />
+                    ) : (
+                      <ArrowRight className="h-4 w-4 ml-1" />
+                    )}
                   </div>
                 </div>
               </div>

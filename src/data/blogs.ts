@@ -8,9 +8,136 @@ export interface Blog {
   category: string;
   tags: string[];
   coverImage?: string;
+  externalUrl?: string;
+  type: "technical" | "personal";
 }
 
 export const blogs: Blog[] = [
+  {
+    id: "dev-warehouse",
+    title: "What's a data warehouse?",
+    excerpt:
+      "A simple, practical explanation of what a data warehouse is, why businesses need it, and how it differs from operational databases, data lakes, and lakehouses.",
+    coverImage:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    content: `This article is published on DEV.\n\n[Read on DEV](https://dev.to/data_with_jelimo/whats-a-data-warehouse-7f0)`,
+    date: "March 29, 2026",
+    readTime: "Read on DEV",
+    category: "Data Engineering",
+    tags: ["Data Warehouse", "Data Engineering", "Analytics", "Beginners"],
+    externalUrl: "https://dev.to/data_with_jelimo/whats-a-data-warehouse-7f0",
+    type: "technical",
+  },
+  {
+    id: "medium-good-things-are-here",
+    title: "Good things are here.",
+    excerpt:
+      "A reflection on showing up through uncertainty—learning to trust the process, loosen control, and keep moving forward in the middle of becoming.",
+    coverImage:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80",
+    content: `This article is published on Medium.\n\n[Read on Medium](https://medium.com/@charityjelimo/good-things-are-here-8254c9d2c096)`,
+    date: "Apr 7, 2026",
+    readTime: "3 min read",
+    category: "Personal Growth",
+    tags: ["Becoming", "Faith", "Courage", "Growth"],
+    externalUrl: "https://medium.com/@charityjelimo/good-things-are-here-8254c9d2c096",
+    type: "personal",
+  },
+  {
+    id: "medium-when-the-world-quietly-changes",
+    title: "When the World Quietly Changes",
+    excerpt:
+      "Stepping into adulthood and learning to live in the in-between—balancing responsibility, identity, and the questions that shape a new season.",
+    coverImage:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=800&q=80",
+    content: `This article is published on Medium.\n\n[Read on Medium](https://medium.com/@charityjelimo/when-the-world-quietly-changes-8e2cbb51bf42)`,
+    date: "Jul 3, 2025",
+    readTime: "2 min read",
+    category: "Life",
+    tags: ["Adulthood", "Change", "Reflection", "Twenties"],
+    externalUrl:
+      "https://medium.com/@charityjelimo/when-the-world-quietly-changes-8e2cbb51bf42",
+    type: "personal",
+  },
+  {
+    id: "medium-breaking-free-from-denial",
+    title: "Breaking Free from Denial: How Embracing Truth Fuels Personal Growth",
+    excerpt:
+      "On how denial delays progress—and why facing uncomfortable truth, listening to feedback, and taking small steps forward unlocks growth.",
+    coverImage:
+      "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=800&q=80",
+    content: `This article is published on Medium.\n\n[Read on Medium](https://medium.com/@charityjelimo/breaking-free-from-denial-how-embracing-truth-fuels-personal-growth-0094e3ee68a4)`,
+    date: "Oct 29, 2024",
+    readTime: "2 min read",
+    category: "Personal Growth",
+    tags: ["Growth", "Truth", "Mindset", "Self-Reflection"],
+    externalUrl:
+      "https://medium.com/@charityjelimo/breaking-free-from-denial-how-embracing-truth-fuels-personal-growth-0094e3ee68a4",
+    type: "personal",
+  },
+  {
+    id: "medium-aftermath-of-graduation",
+    title: "“In the Aftermath of Graduation”",
+    excerpt:
+      "A post-graduation reflection on uncertainty, gratitude, and entering a new chapter—learning to trust the path even without all the answers.",
+    coverImage:
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80",
+    content: `This article is published on Medium.\n\n[Read on Medium](https://medium.com/@charityjelimo/in-the-aftermath-of-graduation-f04ad8624af2)`,
+    date: "Sep 30, 2024",
+    readTime: "3 min read",
+    category: "Life",
+    tags: ["Graduation", "New Chapter", "Reflection", "Courage"],
+    externalUrl:
+      "https://medium.com/@charityjelimo/in-the-aftermath-of-graduation-f04ad8624af2",
+    type: "personal",
+  },
+  {
+    id: "medium-whispers-of-serenity",
+    title: "Whispers of serenity .",
+    excerpt:
+      "A quiet Sunday morning—birds, church songs, and stillness. A moment to breathe, reconnect, and feel grounded in who you are.",
+    coverImage:
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
+    content: `This article is published on Medium.\n\n[Read on Medium](https://medium.com/@charityjelimo/whispers-of-serenity-bc5c5c840bd2)`,
+    date: "Jul 21, 2024",
+    readTime: "1 min read",
+    category: "Mindfulness",
+    tags: ["Mindfulness", "Peace", "Nature", "Stillness"],
+    externalUrl:
+      "https://medium.com/@charityjelimo/whispers-of-serenity-bc5c5c840bd2",
+    type: "personal",
+  },
+  {
+    id: "dev-matviews",
+    title: "Refreshing PostgreSQL Materialized Views Without Downtime",
+    excerpt:
+      "A practical guide to refreshing materialized views safely in production—covering lock behavior, concurrent refresh caveats, and a blue/green swap strategy for minimizing downtime.",
+    coverImage:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
+    content: `This article is published on DEV.\n\n[Read on DEV](https://dev.to/data_with_jelimo/refreshing-postgresql-materialized-views-without-downtime-28n6)`,
+    date: "May 14, 2026",
+    readTime: "Read on DEV",
+    category: "PostgreSQL",
+    tags: ["PostgreSQL", "Performance", "SQL", "Materialized Views"],
+    externalUrl:
+      "https://dev.to/data_with_jelimo/refreshing-postgresql-materialized-views-without-downtime-28n6",
+    type: "technical",
+  },
+  {
+    id: "dev-cte",
+    title: "Common Table Expressions",
+    excerpt:
+      "A beginner-friendly introduction to SQL CTEs—what they are, why they matter, and how they can make complex queries easier to read and maintain.",
+    coverImage:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+    content: `This article is published on DEV.\n\n[Read on DEV](https://dev.to/data_with_jelimo/common-table-expressions-59bd)`,
+    date: "February 25, 2026",
+    readTime: "Read on DEV",
+    category: "SQL",
+    tags: ["SQL", "CTE", "PostgreSQL", "Beginners"],
+    externalUrl: "https://dev.to/data_with_jelimo/common-table-expressions-59bd",
+    type: "technical",
+  },
   {
     id: "1",
     title: "What is Progress Really Like?",
@@ -46,7 +173,8 @@ The work is not wasted. It's being stored. And one day, when we least expect it,
     date: "April 23, 2023",
     readTime: "3 min read",
     category: "Personal Growth",
-    tags: ["Growth", "Habits", "Mindset", "Positivity"]
+    tags: ["Growth", "Habits", "Mindset", "Positivity"],
+    type: "personal",
   },
   {
     id: "2",
@@ -71,7 +199,8 @@ This awareness becomes our foundation—a place where we can breathe, reset, and
     date: "April 18, 2023",
     readTime: "1 min read",
     category: "Mindfulness",
-    tags: ["Mindfulness", "Personal Growth", "Balance", "Presence"]
+    tags: ["Mindfulness", "Personal Growth", "Balance", "Presence"],
+    type: "personal",
   },
   {
     id: "3",
@@ -112,7 +241,8 @@ By pouring myself into positivity, putting my goals on paper, and backing them w
     date: "February 16, 2024",
     readTime: "3 min read",
     category: "Life Lessons",
-    tags: ["Self-Improvement", "Resilience", "Goals", "Positivity"]
+    tags: ["Self-Improvement", "Resilience", "Goals", "Positivity"],
+    type: "personal",
   },
   {
     id: "4",
@@ -177,6 +307,7 @@ I hope these insights help us all as we work on building our careers in tech. Le
     date: "November 11, 2022",
     readTime: "3 min read",
     category: "Career Advice",
-    tags: ["Web Development", "Mentorship", "Career Growth", "Beginners"]
+    tags: ["Web Development", "Mentorship", "Career Growth", "Beginners"],
+    type: "personal",
   }
 ];

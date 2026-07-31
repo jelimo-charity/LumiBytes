@@ -2,7 +2,9 @@
 import { useState, useEffect } from "react";
 import { Moon, Sun, ExternalLink, Github, X } from "lucide-react";
 import smartphoneImg from "@/assets/smartphone.jpg";
-import foodfilterImg from "@/assets/foodfilter.jpg";
+import farmlensImg from "@/assets/farmlens.png";
+import airflowOpenskyImg from "@/assets/airflow-opensky.png";
+import dbtOpenskyImg from "@/assets/dbt-opensky.png";
 import {
   Dialog,
   DialogContent,
@@ -90,33 +92,33 @@ const SoftwareEngineerPage = () => {
                 </div>
               </div>
 
-              {/* Project 2: Food Filtering App */}
+              {/* Project 2: FarmLens */}
               <div className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all hover:shadow-xl group">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src={foodfilterImg} 
-                    alt="Food Filtering Application" 
+                    src={farmlensImg} 
+                    alt="FarmLens" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
                 </div>
                 <div className="p-6 space-y-4">
                   <div className="space-y-2">
-                    <h3 className="text-xl font-medium text-accent">Food Filtering Application</h3>
-                    <p className="text-sm text-muted-foreground">Full-stack Development · React · 2024</p>
+                    <h3 className="text-xl font-medium text-accent">FarmLens</h3>
+                    <p className="text-sm text-muted-foreground">Full-stack · Climate Tech · Mapping & Analytics · 2026</p>
                   </div>
                   <p className="text-secondary text-sm leading-relaxed">
-                    Interactive web application for filtering and discovering food options. Built with modern React, featuring dynamic filtering, responsive design, and intuitive user experience.
+                    Website to report climate-related crop impacts, visualize trends across regions, and support faster, data-driven decisions for farmers, organizations, and policymakers.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">React</span>
                     <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">TypeScript</span>
                     <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">TailwindCSS</span>
-                    <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">Vercel</span>
+                    <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">Leaflet</span>
                   </div>
                   <div className="flex gap-3 pt-2">
                     <a 
-                      href="https://github.com/jelimo-charity/food-filtering-app"
+                      href="https://github.com/jelimo-charity/farmlens"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 px-4 py-2 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all text-sm text-secondary"
@@ -124,17 +126,96 @@ const SoftwareEngineerPage = () => {
                       <Github className="w-4 h-4" />
                       GitHub
                     </a>
+                    <button 
+                      onClick={() => setSelectedProject('farmlens')}
+                      className="flex items-center gap-1.5 px-4 py-2 bg-primary/10 border border-primary rounded-lg hover:bg-primary/20 transition-all text-sm text-accent font-medium"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project 3: OpenSky Flight Data Pipeline (Airflow) */}
+              <div className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all hover:shadow-xl group">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={airflowOpenskyImg} 
+                    alt="OpenSky Flight Data Pipeline (Airflow)" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                </div>
+                <div className="p-6 space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-medium text-accent">OpenSky Flight Data Pipeline (Airflow)</h3>
+                    <p className="text-sm text-muted-foreground">Data Engineering · Airflow · PostgreSQL · Docker · 2026</p>
+                  </div>
+                  <p className="text-secondary text-sm leading-relaxed">
+                    End-to-end pipeline that ingests live aircraft state vectors from the OpenSky Network API, transforms them, and loads into PostgreSQL (bronze) on a schedule using Apache Airflow.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">Python</span>
+                    <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">Airflow</span>
+                    <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">PostgreSQL</span>
+                    <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">Docker Compose</span>
+                  </div>
+                  <div className="flex gap-3 pt-2">
                     <a 
-                      href="https://food-filtering-app.vercel.app/"
+                      href="https://github.com/jelimo-charity/opensky-flight-data-pipeline"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 px-4 py-2 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all text-sm text-secondary"
                     >
-                      <ExternalLink className="w-4 h-4" />
-                      Live Site
+                      <Github className="w-4 h-4" />
+                      GitHub
                     </a>
                     <button 
-                      onClick={() => setSelectedProject('foodfilter')}
+                      onClick={() => setSelectedProject('opensky-airflow')}
+                      className="flex items-center gap-1.5 px-4 py-2 bg-primary/10 border border-primary rounded-lg hover:bg-primary/20 transition-all text-sm text-accent font-medium"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project 4: OpenSky dbt (Analytics Modeling) */}
+              <div className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all hover:shadow-xl group">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={dbtOpenskyImg} 
+                    alt="OpenSky dbt Project" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                </div>
+                <div className="p-6 space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-medium text-accent">OpenSky dbt Project</h3>
+                    <p className="text-sm text-muted-foreground">Analytics Engineering · dbt · SQL · Medallion Modeling · 2026</p>
+                  </div>
+                  <p className="text-secondary text-sm leading-relaxed">
+                    dbt project for modeling OpenSky flight data into cleaner, analytics-ready layers (silver/gold) to enable reliable reporting and downstream dashboards.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">dbt</span>
+                    <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">SQL</span>
+                    <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">PostgreSQL</span>
+                    <span className="px-2 py-1 bg-background border border-primary/30 rounded text-xs text-secondary">Data Modeling</span>
+                  </div>
+                  <div className="flex gap-3 pt-2">
+                    <a 
+                      href="https://github.com/jelimo-charity/opensky-flight-data-pipeline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-4 py-2 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all text-sm text-secondary"
+                    >
+                      <Github className="w-4 h-4" />
+                      GitHub
+                    </a>
+                    <button 
+                      onClick={() => setSelectedProject('opensky-dbt')}
                       className="flex items-center gap-1.5 px-4 py-2 bg-primary/10 border border-primary rounded-lg hover:bg-primary/20 transition-all text-sm text-accent font-medium"
                     >
                       View Details
@@ -212,36 +293,35 @@ const SoftwareEngineerPage = () => {
               </DialogContent>
             </Dialog>
 
-            <Dialog open={selectedProject === 'foodfilter'} onOpenChange={() => setSelectedProject(null)}>
+            <Dialog open={selectedProject === 'farmlens'} onOpenChange={() => setSelectedProject(null)}>
               <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto bg-card border-border">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl text-accent">Food Filtering Application</DialogTitle>
+                  <DialogTitle className="text-2xl text-accent">FarmLens</DialogTitle>
                   <DialogDescription className="text-muted-foreground">
-                    Full-stack Web Application · React, TypeScript, TailwindCSS
+                    Full-stack Platform · Climate Impacts Reporting · Mapping & Analytics
                   </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-6">
                   <div className="relative h-72 rounded-lg overflow-hidden">
                     <img 
-                      src={foodfilterImg} 
-                      alt="Food Filtering Application" 
+                      src={farmlensImg} 
+                      alt="FarmLens" 
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="space-y-4 text-secondary">
                     <h3 className="text-lg font-medium text-accent">Project Overview</h3>
                     <p className="leading-relaxed">
-                      A modern, responsive web application designed to help users discover and filter food options based on various criteria. The application features an intuitive interface, real-time filtering capabilities, and smooth animations for an enhanced user experience.
+                      FarmLens is a community-powered platform that enables farmers to report climate-related crop impacts while helping organizations and policymakers visualize trends across regions and make faster, data-driven decisions.
                     </p>
                     
                     <h3 className="text-lg font-medium text-accent pt-2">Key Features</h3>
                     <ul className="list-disc list-inside space-y-2 leading-relaxed">
-                      <li>Dynamic filtering system with multiple criteria</li>
-                      <li>Responsive design optimized for all device sizes</li>
-                      <li>Modern UI with smooth animations and transitions</li>
-                      <li>Fast performance with optimized React components</li>
-                      <li>Clean and maintainable code architecture</li>
-                      <li>Deployed on Vercel with continuous integration</li>
+                      <li>Submit climate impact reports (drought, floods, pests, etc.)</li>
+                      <li>Interactive map view of reported incidents</li>
+                      <li>Dashboards and filters for trend exploration</li>
+                      <li>Basic analytics by region, crop, and event type</li>
+                      <li>Verification workflow for report quality</li>
                     </ul>
 
                     <h3 className="text-lg font-medium text-accent pt-2">Technologies Used</h3>
@@ -249,14 +329,16 @@ const SoftwareEngineerPage = () => {
                       <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">React</span>
                       <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">TypeScript</span>
                       <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">TailwindCSS</span>
-                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">Vite</span>
-                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">Vercel</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">React Leaflet</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">NestJS</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">Drizzle ORM</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">PostgreSQL</span>
                       <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">Git</span>
                     </div>
 
                     <div className="flex gap-3 pt-4">
                       <a 
-                        href="https://github.com/jelimo-charity/food-filtering-app"
+                        href="https://github.com/jelimo-charity/farmlens"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-5 py-2.5 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all font-medium"
@@ -264,14 +346,113 @@ const SoftwareEngineerPage = () => {
                         <Github className="w-5 h-5" />
                         View on GitHub
                       </a>
+                    </div>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+
+            <Dialog open={selectedProject === 'opensky-airflow'} onOpenChange={() => setSelectedProject(null)}>
+              <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto bg-card border-border">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl text-accent">OpenSky Flight Data Pipeline (Airflow)</DialogTitle>
+                  <DialogDescription className="text-muted-foreground">
+                    Data Engineering · Live API Ingestion · Orchestration with Airflow
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="space-y-6">
+                  <div className="relative h-72 rounded-lg overflow-hidden">
+                    <img 
+                      src={airflowOpenskyImg} 
+                      alt="OpenSky Flight Data Pipeline (Airflow)" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="space-y-4 text-secondary">
+                    <h3 className="text-lg font-medium text-accent">Project Overview</h3>
+                    <p className="leading-relaxed">
+                      An end-to-end pipeline that extracts live aircraft state vectors from the OpenSky Network API, performs light transformations (timestamps, null handling), and loads them into PostgreSQL (bronze layer) on a scheduled Airflow DAG.
+                    </p>
+                    
+                    <h3 className="text-lg font-medium text-accent pt-2">Key Features</h3>
+                    <ul className="list-disc list-inside space-y-2 leading-relaxed">
+                      <li>Scheduled ingestion with retries and logging via Airflow</li>
+                      <li>Bulk inserts of large global snapshots into PostgreSQL</li>
+                      <li>Config and secrets via environment variables</li>
+                      <li>Containerized local stack using Docker Compose</li>
+                    </ul>
+
+                    <h3 className="text-lg font-medium text-accent pt-2">Technologies Used</h3>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">Python</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">Apache Airflow</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">PostgreSQL</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">SQLAlchemy</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">Docker Compose</span>
+                    </div>
+
+                    <div className="flex gap-3 pt-4">
                       <a 
-                        href="https://food-filtering-app.vercel.app/"
+                        href="https://github.com/jelimo-charity/opensky-flight-data-pipeline"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-5 py-2.5 bg-primary/10 border border-primary rounded-lg hover:bg-primary/20 transition-all text-accent font-medium"
+                        className="flex items-center gap-2 px-5 py-2.5 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all font-medium"
                       >
-                        <ExternalLink className="w-5 h-5" />
-                        Visit Live Site
+                        <Github className="w-5 h-5" />
+                        View on GitHub
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+
+            <Dialog open={selectedProject === 'opensky-dbt'} onOpenChange={() => setSelectedProject(null)}>
+              <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto bg-card border-border">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl text-accent">OpenSky dbt Project</DialogTitle>
+                  <DialogDescription className="text-muted-foreground">
+                    Analytics Engineering · dbt Modeling · Silver/Gold Layers
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="space-y-6">
+                  <div className="relative h-72 rounded-lg overflow-hidden">
+                    <img 
+                      src={dbtOpenskyImg} 
+                      alt="OpenSky dbt Project" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="space-y-4 text-secondary">
+                    <h3 className="text-lg font-medium text-accent">Project Overview</h3>
+                    <p className="leading-relaxed">
+                      A dbt modeling layer for OpenSky data to turn raw ingested snapshots into consistent, analytics-ready tables and views, following a medallion approach (bronze → silver → gold).
+                    </p>
+                    
+                    <h3 className="text-lg font-medium text-accent pt-2">Focus Areas</h3>
+                    <ul className="list-disc list-inside space-y-2 leading-relaxed">
+                      <li>Cleaned and typed models for downstream analytics</li>
+                      <li>Reusable marts for reporting (by country/region, altitude bands, on-ground ratio)</li>
+                      <li>Foundations for data quality checks and documentation</li>
+                    </ul>
+
+                    <h3 className="text-lg font-medium text-accent pt-2">Technologies Used</h3>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">dbt</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">SQL</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">PostgreSQL</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs">Dimensional Modeling</span>
+                    </div>
+
+                    <div className="flex gap-3 pt-4">
+                      <a 
+                        href="https://github.com/jelimo-charity/opensky-flight-data-pipeline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-5 py-2.5 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all font-medium"
+                      >
+                        <Github className="w-5 h-5" />
+                        View on GitHub
                       </a>
                     </div>
                   </div>
@@ -286,30 +467,44 @@ const SoftwareEngineerPage = () => {
             <h2 className="text-3xl font-light text-accent mb-8 text-center">Experience & Work</h2>
             
             <div className="space-y-12 max-w-4xl mx-auto">
-              {/* GRIFFIN Global Technologies - Associate Engineer - LEFT */}
+              {/* GRIFFIN Global Technologies - Data Engineer - LEFT */}
               <div className="flex">
                 <div className="w-full md:w-10/12">
                   <div className="border-l-2 border-primary pl-6 space-y-3">
                     <div>
-                      <h3 className="text-xl font-medium text-accent">Associate Engineer</h3>
+                      <h3 className="text-xl font-medium text-accent">Data Engineer</h3>
                       <p className="text-primary font-medium">GRIFFIN Global Technologies, LLC</p>
-                      <p className="text-sm text-muted-foreground">Mar 2025 - Present · 1 year 1 mos · Full-time · Hybrid</p>
+                      <p className="text-sm text-muted-foreground">Mar 2026 - Present · 5 mos · Full-time · Hybrid</p>
                     </div>
-                    <ul className="text-secondary space-y-2 text-sm leading-relaxed">
-                      <li>• Participated in the full software development lifecycle, from requirements gathering to deployment and maintenance.</li>
-                      <li>• Collaborated with senior engineers and stakeholders to deliver high-quality solutions under tight deadlines.</li>
-                      <li>• Contributed to testing efforts, code reviews, and documentation to uphold engineering best practices.</li>
-                      <li>• Supported the integration of new technologies and tools to improve system performance and team productivity.</li>
-                    </ul>
-                    {/* <p className="text-xs text-muted-foreground italic">Docker Products, Microsoft Power BI and +15 skills</p> */}
+                    <p className="text-secondary text-sm leading-relaxed">
+                      I currently work with the client Cerebri AI where I collaborate with a team of engineers to maintain and improve data-driven systems. My work focuses on maintaining and enhancing data pipelines that ingest, transform, and validate large datasets used for analytics and AI applications. I help ensure reliable data flow across systems while working closely with backend and data engineers to improve pipeline efficiency and system stability.
+                    </p>
+                    <p className="text-xs text-muted-foreground italic">Git, GitHub, Docker, PostgreSQL, Python, Apache Airflow, dbt, SQL</p>
                   </div>
                 </div>
               </div>
 
-              {/* GRIFFIN Global Technologies - Engineer Intern - RIGHT */}
+              {/* GRIFFIN Global Technologies - Associate Software Engineer - RIGHT */}
               <div className="flex justify-end">
                 <div className="w-full md:w-10/12">
                   <div className="border-r-2 border-primary pr-6 space-y-3 text-right">
+                    <div>
+                      <h3 className="text-xl font-medium text-accent">Associate Software Engineer</h3>
+                      <p className="text-primary font-medium">GRIFFIN Global Technologies, LLC</p>
+                      <p className="text-sm text-muted-foreground">Mar 2025 - Feb 2026 · 1 yr · Full-time · Hybrid</p>
+                    </div>
+                    <p className="text-secondary text-sm leading-relaxed">
+                      At Griffin Global Technologies, I also contribute to the development and maintenance of internal platforms across both frontend and backend systems. I work on implementing features, improving APIs and services, and enhancing user interfaces to support system functionality and usability. I collaborate with engineers across the team and participate in testing, code reviews, and documentation to maintain high engineering standards.
+                    </p>
+                    <p className="text-xs text-muted-foreground italic">Full-time</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* GRIFFIN Global Technologies - Engineer Intern - LEFT */}
+              <div className="flex">
+                <div className="w-full md:w-10/12">
+                  <div className="border-l-2 border-primary pl-6 space-y-3">
                     <div>
                       <h3 className="text-xl font-medium text-accent">Engineer Intern</h3>
                       <p className="text-primary font-medium">GRIFFIN Global Technologies, LLC</p>
@@ -459,7 +654,22 @@ const SoftwareEngineerPage = () => {
                     </div>
                   </div>
 
-                  {/* Row 2: Frameworks & Libraries (Full Width) */}
+                  {/* Row 2: Data Engineering (Full Width) */}
+                  <div>
+                    <p className="text-sm text-accent mb-2 font-medium">Data Engineering</p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs text-secondary">Data Pipelines</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs text-secondary">ETL/ELT</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs text-secondary">Data Validation</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs text-secondary">Data Loading</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs text-secondary">Data Maintenance</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs text-secondary">Apache Airflow</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs text-secondary">dbt</span>
+                      <span className="px-3 py-1.5 bg-background border border-primary/50 rounded-md text-xs text-secondary">SQL</span>
+                    </div>
+                  </div>
+
+                  {/* Row 3: Frameworks & Libraries (Full Width) */}
                   <div>
                     <p className="text-sm text-accent mb-2 font-medium">Frameworks & Libraries</p>
                     <div className="flex flex-wrap gap-2">
@@ -472,7 +682,7 @@ const SoftwareEngineerPage = () => {
                     </div>
                   </div>
 
-                  {/* Row 3: Cloud & DevOps, Tools & Platforms */}
+                  {/* Row 4: Cloud & DevOps, Tools & Platforms */}
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
                       <p className="text-sm text-accent mb-2 font-medium">Cloud & DevOps</p>
@@ -496,7 +706,7 @@ const SoftwareEngineerPage = () => {
                     </div>
                   </div>
 
-                  {/* Row 4: Development Practices, AI & Data Science */}
+                  {/* Row 5: Development Practices, AI & Data Science */}
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
                       <p className="text-sm text-accent mb-2 font-medium">Development Practices</p>
@@ -517,7 +727,7 @@ const SoftwareEngineerPage = () => {
                     </div>
                   </div>
 
-                  {/* Row 5: Leadership & Soft Skills (Full Width) */}
+                  {/* Row 6: Leadership & Soft Skills (Full Width) */}
                   <div>
                     <p className="text-sm text-accent mb-2 font-medium">Leadership & Soft Skills</p>
                     <div className="flex flex-wrap gap-2">
@@ -532,7 +742,7 @@ const SoftwareEngineerPage = () => {
                     </div>
                   </div>
 
-                  {/* Row 6: Professional Development & Additional Skills */}
+                  {/* Row 7: Professional Development & Additional Skills */}
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
                       <p className="text-sm text-accent mb-2 font-medium">Professional Development</p>
