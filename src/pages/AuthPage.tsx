@@ -9,6 +9,7 @@ import { Sparkles, ArrowLeft, Zap, Heart, Star, Lock, Mail, User, Shield } from 
 import { useNavigate } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { Seo } from "@/components/Seo";
 
 const AuthPage = () => {
   const navigate = useNavigate();
@@ -156,6 +157,13 @@ const AuthPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f1f2f6] via-white to-[#aeb8fe]/30 relative overflow-hidden">
+      <Seo
+        title="Sign in | Charity Jelimo"
+        description="Sign in page for Charity Jelimo."
+        path="/auth"
+        imageUrl="https://charityjelimo.com/og-image.svg"
+        noindex
+      />
       {/* Enhanced Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-[#27187e]/10 to-[#758bfd]/20 rounded-full blur-3xl animate-pulse"></div>

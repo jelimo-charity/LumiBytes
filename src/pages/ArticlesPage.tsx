@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { blogs } from "@/data/blogs";
 import type { Blog } from "@/data/blogs";
 import ReactMarkdown from "react-markdown";
+import { Seo } from "@/components/Seo";
 
 const ArticlesPage = () => {
   const [selectedArticle, setSelectedArticle] = useState<Blog | null>(null);
@@ -26,6 +27,12 @@ const ArticlesPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Articles | Charity Jelimo"
+        description="Articles and insights by Charity Jelimo, a Data Engineer working with Python, SQL, ETL pipelines, and backend development."
+        path="/articles"
+        imageUrl="https://charityjelimo.com/og-image.svg"
+      />
       {/* Sticky Top Navigation */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border shadow-sm">
         <div className="container mx-auto px-6 py-4 max-w-6xl">
@@ -57,6 +64,7 @@ const ArticlesPage = () => {
       {/* Articles Section */}
       <section className="container mx-auto px-6 py-12 max-w-6xl">
         <div className="mb-12 text-center">
+          <h1 className="sr-only">Articles by Charity Jelimo</h1>
           <h2 className="text-4xl font-light text-accent mb-4">Writings & Insights</h2>
           <p className="text-secondary max-w-2xl mx-auto text-lg">
             Exploring software development, leadership, and lessons learned along the way
@@ -247,7 +255,7 @@ const ArticlesPage = () => {
       <footer className="container mx-auto px-6 py-8 max-w-6xl border-t border-border mt-12">
         <div className="text-center">
           <p className="text-sm text-muted-foreground">
-            © 2025 Charity Jelimo
+            © 2026 Charity Jelimo
           </p>
         </div>
       </footer>

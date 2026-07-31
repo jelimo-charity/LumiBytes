@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Seo } from "@/components/Seo";
 
 const NotFound = () => {
   const location = useLocation();
@@ -13,6 +14,13 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f1f2f6] via-white to-[#aeb8fe]/30">
+      <Seo
+        title="Page not found | Charity Jelimo"
+        description="The page you requested could not be found."
+        path={location.pathname || "/"}
+        imageUrl="https://charityjelimo.com/og-image.svg"
+        noindex
+      />
       <div className="text-center bg-white/80 backdrop-blur-md rounded-3xl p-12 border-2 border-[#758bfd]/20 shadow-xl">
         <div className="text-8xl mb-6">🧭</div>
         <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-[#27187e] to-[#758bfd] bg-clip-text text-transparent">404</h1>

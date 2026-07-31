@@ -5,6 +5,7 @@ import smartphoneImg from "@/assets/smartphone.jpg";
 import farmlensImg from "@/assets/farmlens.png";
 import airflowOpenskyImg from "@/assets/airflow-opensky.png";
 import dbtOpenskyImg from "@/assets/dbt-opensky.png";
+import { Seo } from "@/components/Seo";
 import {
   Dialog,
   DialogContent,
@@ -816,6 +817,12 @@ const SoftwareEngineerPage = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <Seo
+        title="Work Portfolio | Charity Jelimo"
+        description="Work portfolio for Charity Jelimo, a Data Engineer focused on Python, SQL, ETL pipelines, and backend development. Explore featured data engineering projects and experience."
+        path="/software-engineer"
+        imageUrl="https://charityjelimo.com/og-image.svg"
+      />
       {/* Sticky Top Navigation */}
       <nav className="sticky top-0 z-50 bg-background border-b border-border">
         <div className="container mx-auto px-6 py-4 max-w-6xl">
@@ -906,6 +913,7 @@ const SoftwareEngineerPage = () => {
       </nav>
 
       <main className="flex-1 overflow-y-auto">
+        <h1 className="sr-only">Work portfolio of Charity Jelimo</h1>
         <div className="container mx-auto px-6 py-8 max-w-6xl">
           {renderContent()}
         </div>

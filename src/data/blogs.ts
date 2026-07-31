@@ -51,7 +51,7 @@ export const blogs: Blog[] = [
     coverImage:
       "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=800&q=80",
     content: `This article is published on Medium.\n\n[Read on Medium](https://medium.com/@charityjelimo/when-the-world-quietly-changes-8e2cbb51bf42)`,
-    date: "Jul 3, 2025",
+    date: "Jul 3, 202",
     readTime: "2 min read",
     category: "Life",
     tags: ["Adulthood", "Change", "Reflection", "Twenties"],
