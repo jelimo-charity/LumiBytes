@@ -1,5 +1,11 @@
 import { Helmet } from "react-helmet-async";
-import { SITE_URL, DEFAULT_DESCRIPTION, DEFAULT_OG_TYPE, DEFAULT_TITLE } from "@/seo/site";
+import {
+  SITE_URL,
+  DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_OG_TYPE,
+  DEFAULT_TITLE,
+} from "@/seo/site";
 
 type SeoProps = {
   title?: string;
@@ -32,7 +38,7 @@ export function Seo({
   title = DEFAULT_TITLE,
   description = DEFAULT_DESCRIPTION,
   path = "/",
-  imageUrl,
+  imageUrl = DEFAULT_OG_IMAGE,
   noindex = false,
   includePersonJsonLd = false,
 }: SeoProps) {

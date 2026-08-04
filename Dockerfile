@@ -28,6 +28,7 @@ FROM nginx:alpine
 # Copy the built application code from the previous stage to the
 # current stage
 COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80 from the container to the host
 EXPOSE 80

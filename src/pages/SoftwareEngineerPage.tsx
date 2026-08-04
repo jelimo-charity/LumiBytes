@@ -1,4 +1,4 @@
-ï»¿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Moon, Sun, ExternalLink, Github, X } from "lucide-react";
 import smartphoneImg from "@/assets/smartphone.jpg";
@@ -53,7 +53,7 @@ const SoftwareEngineerPage = () => {
                 <div className="p-6 space-y-4">
                   <div className="space-y-2">
                     <h3 className="text-xl font-medium text-accent">Smartphone Usage Analysis</h3>
-                    <p className="text-sm text-muted-foreground">Data Science Â· Python Â· 2024</p>
+                    <p className="text-sm text-muted-foreground">Data Science · Python · 2024</p>
                   </div>
                   <p className="text-secondary text-sm leading-relaxed">
                     Comprehensive analysis of mobile device usage patterns and user behavior. Utilized Python, Pandas, and data visualization libraries to extract insights from usage data.
@@ -106,7 +106,7 @@ const SoftwareEngineerPage = () => {
                 <div className="p-6 space-y-4">
                   <div className="space-y-2">
                     <h3 className="text-xl font-medium text-accent">FarmLens</h3>
-                    <p className="text-sm text-muted-foreground">Full-stack Â· Climate Tech Â· Mapping & Analytics Â· 2026</p>
+                    <p className="text-sm text-muted-foreground">Full-stack · Climate Tech · Mapping & Analytics · 2026</p>
                   </div>
                   <p className="text-secondary text-sm leading-relaxed">
                     Website to report climate-related crop impacts, visualize trends across regions, and support faster, data-driven decisions for farmers, organizations, and policymakers.
@@ -150,7 +150,7 @@ const SoftwareEngineerPage = () => {
                 <div className="p-6 space-y-4">
                   <div className="space-y-2">
                     <h3 className="text-xl font-medium text-accent">OpenSky Flight Data Pipeline (Airflow)</h3>
-                    <p className="text-sm text-muted-foreground">Data Engineering Â· Airflow Â· PostgreSQL Â· Docker Â· 2026</p>
+                    <p className="text-sm text-muted-foreground">Data Engineering · Airflow · PostgreSQL · Docker · 2026</p>
                   </div>
                   <p className="text-secondary text-sm leading-relaxed">
                     End-to-end pipeline that ingests live aircraft state vectors from the OpenSky Network API, transforms them, and loads into PostgreSQL (bronze) on a schedule using Apache Airflow.
@@ -194,7 +194,7 @@ const SoftwareEngineerPage = () => {
                 <div className="p-6 space-y-4">
                   <div className="space-y-2">
                     <h3 className="text-xl font-medium text-accent">OpenSky dbt Project</h3>
-                    <p className="text-sm text-muted-foreground">Analytics Engineering Â· dbt Â· SQL Â· Medallion Modeling Â· 2026</p>
+                    <p className="text-sm text-muted-foreground">Analytics Engineering · dbt · SQL · Medallion Modeling · 2026</p>
                   </div>
                   <p className="text-secondary text-sm leading-relaxed">
                     dbt project for modeling OpenSky flight data into cleaner, analytics-ready layers (silver/gold) to enable reliable reporting and downstream dashboards.
@@ -232,7 +232,7 @@ const SoftwareEngineerPage = () => {
                 <DialogHeader>
                   <DialogTitle className="text-2xl text-accent">Smartphone Usage Analysis</DialogTitle>
                   <DialogDescription className="text-muted-foreground">
-                    Data Science Project Â· Python, Pandas, Jupyter Notebook
+                    Data Science Project · Python, Pandas, Jupyter Notebook
                   </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-6">
@@ -299,7 +299,7 @@ const SoftwareEngineerPage = () => {
                 <DialogHeader>
                   <DialogTitle className="text-2xl text-accent">FarmLens</DialogTitle>
                   <DialogDescription className="text-muted-foreground">
-                    Full-stack Platform Â· Climate Impacts Reporting Â· Mapping & Analytics
+                    Full-stack Platform · Climate Impacts Reporting · Mapping & Analytics
                   </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-6">
@@ -358,7 +358,7 @@ const SoftwareEngineerPage = () => {
                 <DialogHeader>
                   <DialogTitle className="text-2xl text-accent">OpenSky Flight Data Pipeline (Airflow)</DialogTitle>
                   <DialogDescription className="text-muted-foreground">
-                    Data Engineering Â· Live API Ingestion Â· Orchestration with Airflow
+                    Data Engineering · Live API Ingestion · Orchestration with Airflow
                   </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-6">
@@ -413,7 +413,7 @@ const SoftwareEngineerPage = () => {
                 <DialogHeader>
                   <DialogTitle className="text-2xl text-accent">OpenSky dbt Project</DialogTitle>
                   <DialogDescription className="text-muted-foreground">
-                    Analytics Engineering Â· dbt Modeling Â· Silver/Gold Layers
+                    Analytics Engineering · dbt Modeling · Silver/Gold Layers
                   </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-6">
@@ -427,7 +427,7 @@ const SoftwareEngineerPage = () => {
                   <div className="space-y-4 text-secondary">
                     <h3 className="text-lg font-medium text-accent">Project Overview</h3>
                     <p className="leading-relaxed">
-                      A dbt modeling layer for OpenSky data to turn raw ingested snapshots into consistent, analytics-ready tables and views, following a medallion approach (bronze â†’ silver â†’ gold).
+                      A dbt modeling layer for OpenSky data to turn raw ingested snapshots into consistent, analytics-ready tables and views, following a medallion approach (bronze ? silver ? gold).
                     </p>
                     
                     <h3 className="text-lg font-medium text-accent pt-2">Focus Areas</h3>
@@ -475,7 +475,7 @@ const SoftwareEngineerPage = () => {
                     <div>
                       <h3 className="text-xl font-medium text-accent">Data Engineer</h3>
                       <p className="text-primary font-medium">GRIFFIN Global Technologies, LLC</p>
-                      <p className="text-sm text-muted-foreground">Mar 2026 - Present Â· 5 mos Â· Full-time Â· Hybrid</p>
+                      <p className="text-sm text-muted-foreground">Mar 2026 - Present · 5 mos · Full-time · Hybrid</p>
                     </div>
                     <p className="text-secondary text-sm leading-relaxed">
                       I currently work with the client Cerebri AI where I collaborate with a team of engineers to maintain and improve data-driven systems. My work focuses on maintaining and enhancing data pipelines that ingest, transform, and validate large datasets used for analytics and AI applications. I help ensure reliable data flow across systems while working closely with backend and data engineers to improve pipeline efficiency and system stability.
@@ -492,7 +492,7 @@ const SoftwareEngineerPage = () => {
                     <div>
                       <h3 className="text-xl font-medium text-accent">Associate Software Engineer</h3>
                       <p className="text-primary font-medium">GRIFFIN Global Technologies, LLC</p>
-                      <p className="text-sm text-muted-foreground">Mar 2025 - Feb 2026 Â· 1 yr Â· Full-time Â· Hybrid</p>
+                      <p className="text-sm text-muted-foreground">Mar 2025 - Feb 2026 · 1 yr · Full-time · Hybrid</p>
                     </div>
                     <p className="text-secondary text-sm leading-relaxed">
                       At Griffin Global Technologies, I also contribute to the development and maintenance of internal platforms across both frontend and backend systems. I work on implementing features, improving APIs and services, and enhancing user interfaces to support system functionality and usability. I collaborate with engineers across the team and participate in testing, code reviews, and documentation to maintain high engineering standards.
@@ -511,7 +511,7 @@ const SoftwareEngineerPage = () => {
                     <div>
                       <h3 className="text-xl font-medium text-accent">Engineer Intern</h3>
                       <p className="text-primary font-medium">GRIFFIN Global Technologies, LLC</p>
-                      <p className="text-sm text-muted-foreground">Dec 2024 - Feb 2025 Â· 3 mos Â· Internship Â· Nyeri, Kenya Â· On-site</p>
+                      <p className="text-sm text-muted-foreground">Dec 2024 - Feb 2025 · 3 mos · Internship · Nyeri, Kenya · On-site</p>
                     </div>
                     <p className="text-secondary text-sm leading-relaxed">
                       Supported the engineering team by working on small features, bug fixes, and internal tools. Collaborated with teammates to troubleshoot issues, improve UI flows, and contribute to clean, maintainable code.
@@ -530,7 +530,7 @@ const SoftwareEngineerPage = () => {
                     <div>
                       <h3 className="text-xl font-medium text-accent">Full-stack Developer</h3>
                       <p className="text-primary font-medium">TEACH2GIVE</p>
-                      <p className="text-sm text-muted-foreground">May 2024 - Jul 2024 Â· 3 mos Â· Apprenticeship Â· Nyeri, Kenya Â· On-site</p>
+                      <p className="text-sm text-muted-foreground">May 2024 - Jul 2024 · 3 mos · Apprenticeship · Nyeri, Kenya · On-site</p>
                     </div>
                     <p className="text-secondary text-sm leading-relaxed">
                       Participated in a 3-month full-stack training program where I enhanced my expertise in React, TypeScript, PostgreSQL, and Hono(Node.js). Successfully developed a car rental application, applying my skills in creating scalable solutions and improving my technical and soft skills.
@@ -549,7 +549,7 @@ const SoftwareEngineerPage = () => {
                     <div>
                       <h3 className="text-xl font-medium text-accent">Full Stack Developer</h3>
                       <p className="text-primary font-medium">THE Jitu</p>
-                      <p className="text-sm text-muted-foreground">May 2023 - Jul 2023 Â· 3 mos Â· Apprenticeship Â· On-site</p>
+                      <p className="text-sm text-muted-foreground">May 2023 - Jul 2023 · 3 mos · Apprenticeship · On-site</p>
                     </div>
                     <p className="text-secondary text-sm leading-relaxed">
                       Contributed to web application development as part of a collaborative team environment. Worked on building and refining features, improving responsiveness, and learning best practices for delivering production-quality software.
@@ -574,7 +574,7 @@ const SoftwareEngineerPage = () => {
                 <div className="space-y-2">
                   <h3 className="text-lg font-medium text-accent">Beta Microsoft Learn Student Ambassador</h3>
                   <p className="text-primary text-sm font-medium">Microsoft</p>
-                  <p className="text-xs text-muted-foreground">Apr 2023 - Sep 2024 Â· 1 yr 6 mos</p>
+                  <p className="text-xs text-muted-foreground">Apr 2023 - Sep 2024 · 1 yr 6 mos</p>
                 </div>
                 <p className="text-secondary text-sm leading-relaxed">
                   Engaged with the tech community through workshops, webinars, and study groups, promoting Microsoft technologies and fostering continuous learning. Led and contributed to technical projects and hackathons, mentored students, and organized tech events to enhance participants' skills. Strengthened leadership, communication, and project management abilities while making a positive impact on the community.
@@ -586,9 +586,9 @@ const SoftwareEngineerPage = () => {
                 <div className="space-y-2">
                   <h3 className="text-lg font-medium text-accent">Peer Mentor</h3>
                   <p className="text-primary text-sm font-medium">KamiLimu</p>
-                  <p className="text-xs text-muted-foreground">Mar 2025 - Oct 2025 Â· 8 mos</p>
+                  <p className="text-xs text-muted-foreground">Mar 2025 - Oct 2025 · 8 mos</p>
                   <p className="text-secondary text-sm leading-relaxed">
-                 As a Peer Mentor at KamiLimu, I had the privilege of guiding three students through their intensive 8-month learning and professional development journey. I supported them in strengthening their technical skills, refining their personal branding, and navigating opportunities within the tech ecosystem. Throughout the mentorship, I provided consistent feedback, accountability, and career guidanceâ€”helping each mentee identify their strengths and grow with confidence. This experience strengthened my leadership, communication, and coaching abilities while allowing me to give back to a community that has significantly shaped my own growth.
+                 As a Peer Mentor at KamiLimu, I had the privilege of guiding three students through their intensive 8-month learning and professional development journey. I supported them in strengthening their technical skills, refining their personal branding, and navigating opportunities within the tech ecosystem. Throughout the mentorship, I provided consistent feedback, accountability, and career guidance—helping each mentee identify their strengths and grow with confidence. This experience strengthened my leadership, communication, and coaching abilities while allowing me to give back to a community that has significantly shaped my own growth.
                 </p>
                 </div>
               </div>
@@ -598,7 +598,7 @@ const SoftwareEngineerPage = () => {
                 <div className="space-y-2">
                   <h3 className="text-lg font-medium text-accent">KamiLimu Mentee</h3>
                   <p className="text-primary text-sm font-medium">KamiLimu</p>
-                  <p className="text-xs text-muted-foreground">Sep 2021 - May 2022 Â· 9 mos Â· Nairobi County, Kenya Â· Hybrid</p>
+                  <p className="text-xs text-muted-foreground">Sep 2021 - May 2022 · 9 mos · Nairobi County, Kenya · Hybrid</p>
                 </div>
                 <p className="text-secondary text-sm leading-relaxed">
                   Completed the KamiLimu premier 8-month program designed to enhance the global competitiveness of tech-aligned university students. Gained advanced skills in personal and professional development, innovation, ICT, and community engagement. The program provided a comprehensive approach to fostering growth and leadership in the tech industry.
@@ -610,7 +610,7 @@ const SoftwareEngineerPage = () => {
                 <div className="space-y-2">
                   <h3 className="text-lg font-medium text-accent">Secretary General</h3>
                   <p className="text-primary text-sm font-medium">Computer Society Of Kirinyaga</p>
-                  <p className="text-xs text-muted-foreground">Sep 2022 - Apr 2024 Â· 1 yr 8 mos Â· Science and Technology</p>
+                  <p className="text-xs text-muted-foreground">Sep 2022 - Apr 2024 · 1 yr 8 mos · Science and Technology</p>
                 </div>
                 <p className="text-secondary text-sm leading-relaxed">
                   Managed the administrative and organizational functions of the Computer Society. Coordinated meetings, oversaw event planning, and facilitated communication within the society. Played a key role in organizing workshops, tech talks, and competitions, contributing to the development and engagement of the university's tech community. Championed initiatives for women in tech by founding a community to encourage and support female students in participating in tech activities and events.
@@ -798,7 +798,7 @@ const SoftwareEngineerPage = () => {
                 </p>
                 
                 <p className="text-secondary text-base leading-relaxed">
-                  I am a tech lover. I never interacted with computers until secondary school, where Computer Studies sparked my interest. But as a village girl, I was told Agriculture was the better fitâ€”that I couldn't compete with girls who had grown up with technology. I attended Agricultural class for one week before making the bold decision to pursue what I truly loved.
+                  I am a tech lover. I never interacted with computers until secondary school, where Computer Studies sparked my interest. But as a village girl, I was told Agriculture was the better fit—that I couldn't compete with girls who had grown up with technology. I attended Agricultural class for one week before making the bold decision to pursue what I truly loved.
                 </p>
 
                 <p className="text-secondary text-base leading-relaxed">
@@ -810,7 +810,7 @@ const SoftwareEngineerPage = () => {
                 </p>
 
                 <p className="text-secondary text-base leading-relaxed">
-                  Now, a year into my professional career, I'm still deeply in love with technology. The journey from a curious student to a working engineer has been one of continuous growth, discovery, and transformation. I've learned that bugs and errors are not disappointmentsâ€”they're puzzles waiting to be solved. From being mentored through KamiLimu's 8-month program to being challenged through Microsoft Game of Learners, and now navigating real-world engineering challenges at GRIFFIN, each experience has shaped me into who I am today.
+                  Now, a year into my professional career, I'm still deeply in love with technology. The journey from a curious student to a working engineer has been one of continuous growth, discovery, and transformation. I've learned that bugs and errors are not disappointments—they're puzzles waiting to be solved. From being mentored through KamiLimu's 8-month program to being challenged through Microsoft Game of Learners, and now navigating real-world engineering challenges at GRIFFIN, each experience has shaped me into who I am today.
                 </p>
 
                 <p className="text-secondary text-base leading-relaxed">
@@ -818,7 +818,7 @@ const SoftwareEngineerPage = () => {
                 </p>
 
                 <p className="text-secondary text-base leading-relaxed italic">
-                  Love is not hasty, but patient. This is my journeyâ€”the good, the bad, and the beautifulâ€”all coming together to make sense.
+                  Love is not hasty, but patient. This is my journey—the good, the bad, and the beautiful—all coming together to make sense.
                 </p>
               </div>
             </div>
@@ -835,7 +835,7 @@ const SoftwareEngineerPage = () => {
         title="Work Portfolio | Charity Jelimo"
         description="Work portfolio for Charity Jelimo, a Data Engineer focused on Python, SQL, ETL pipelines, and backend development. Explore featured data engineering projects and experience."
         path="/software-engineer"
-        imageUrl="https://charityjelimo.com/favicon.svg"
+        imageUrl="https://charityjelimo.com/favicon.png"
       />
       {/* Sticky Top Navigation */}
       <nav className="sticky top-0 z-50 bg-background border-b border-border">

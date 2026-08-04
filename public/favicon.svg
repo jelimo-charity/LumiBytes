@@ -1,5 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <!-- Wrapper SVG so we can use favicon.svg as a stable URL (e.g. for social previews) -->
-  <image href="/favicon.png" x="0" y="0" width="64" height="64" />
+  <rect width="64" height="64" rx="10" fill="#111827"/>
+  <text
+    x="32"
+    y="39"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="16"
+    font-weight="500"
+    fill="#d1d5db"
+  >CJ</text>
 </svg>
-
