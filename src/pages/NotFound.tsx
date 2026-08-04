@@ -18,7 +18,7 @@ const NotFound = () => {
         title="Page not found | Charity Jelimo"
         description="The page you requested could not be found."
         path={location.pathname || "/"}
-        imageUrl="https://charityjelimo.com/og-image.svg"
+        imageUrl="https://charityjelimo.com/favicon.svg"
         noindex
       />
       <div className="text-center bg-white/80 backdrop-blur-md rounded-3xl p-12 border-2 border-[#758bfd]/20 shadow-xl">

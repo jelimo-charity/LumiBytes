@@ -31,7 +31,7 @@ const ArticlesPage = () => {
         title="Articles | Charity Jelimo"
         description="Articles and insights by Charity Jelimo, a Data Engineer working with Python, SQL, ETL pipelines, and backend development."
         path="/articles"
-        imageUrl="https://charityjelimo.com/og-image.svg"
+        imageUrl="https://charityjelimo.com/favicon.svg"
       />
       {/* Sticky Top Navigation */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border shadow-sm">

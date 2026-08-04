@@ -161,7 +161,7 @@ const AuthPage = () => {
         title="Sign in | Charity Jelimo"
         description="Sign in page for Charity Jelimo."
         path="/auth"
-        imageUrl="https://charityjelimo.com/og-image.svg"
+        imageUrl="https://charityjelimo.com/favicon.svg"
         noindex
       />
       {/* Enhanced Animated Background Elements */}

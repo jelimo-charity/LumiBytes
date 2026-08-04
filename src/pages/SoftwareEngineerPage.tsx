@@ -835,7 +835,7 @@ const SoftwareEngineerPage = () => {
         title="Work Portfolio | Charity Jelimo"
         description="Work portfolio for Charity Jelimo, a Data Engineer focused on Python, SQL, ETL pipelines, and backend development. Explore featured data engineering projects and experience."
         path="/software-engineer"
-        imageUrl="https://charityjelimo.com/og-image.svg"
+        imageUrl="https://charityjelimo.com/favicon.svg"
       />
       {/* Sticky Top Navigation */}
       <nav className="sticky top-0 z-50 bg-background border-b border-border">

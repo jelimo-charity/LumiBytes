@@ -27,7 +27,7 @@ const Index = () => {
         title="Charity Jelimo | Data Engineer"
         description="Charity Jelimo is a Data Engineer specializing in Python, SQL, ETL pipelines, and backend development. Explore data engineering projects, portfolio work, and engineering experience."
         path="/"
-        imageUrl="https://charityjelimo.com/og-image.svg"
+        imageUrl="https://charityjelimo.com/favicon.svg"
         includePersonJsonLd
       />
       <div className="min-h-screen font-sans bg-background flex items-center justify-center py-8 px-4 relative overflow-hidden">
