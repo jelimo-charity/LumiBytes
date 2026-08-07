@@ -31,12 +31,12 @@ const Index = () => {
         includePersonJsonLd
       />
       <div className="min-h-screen font-sans bg-background flex items-center justify-center py-8 px-4 relative overflow-hidden">
-        {/* Enhanced light mode background with gradient mesh */}
-        <div className="dark:block hidden absolute inset-0 bg-gradient-to-br from-[hsl(45,35%,95%)] via-[hsl(42,30%,96%)] to-[hsl(38,25%,94%)]" />
-        <div className="dark:block hidden absolute inset-0 opacity-30">
-          <div className="absolute top-0 -left-4 w-96 h-96 bg-gradient-to-br from-[hsl(43,74%,70%)] to-transparent rounded-full blur-3xl" />
-          <div className="absolute top-1/2 right-0 w-96 h-96 bg-gradient-to-bl from-[hsl(38,70%,65%)] to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-gradient-to-tr from-[hsl(40,60%,75%)] to-transparent rounded-full blur-3xl" />
+        {/* Midnight orchid gradient mesh */}
+        <div className="dark:block hidden absolute inset-0 bg-[radial-gradient(circle_at_top_left,_#35135c_0%,_#160b29_38%,_#090612_78%)]" />
+        <div className="dark:block hidden absolute inset-0 opacity-40">
+          <div className="absolute top-0 -left-4 w-96 h-96 bg-gradient-to-br from-fuchsia-500/50 via-purple-600/25 to-transparent rounded-full blur-3xl" />
+          <div className="absolute top-1/2 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/40 via-violet-600/20 to-transparent rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-gradient-to-tr from-violet-500/35 via-cyan-400/10 to-transparent rounded-full blur-3xl" />
         </div>
         
         <ParticleBackground />
@@ -60,7 +60,7 @@ const Index = () => {
                 <img 
                   src={profilePic} 
                   alt="Charity Jelimo Kipruto" 
-                  className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full object-cover border-2 border-primary shadow-lg"
+                  className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full object-cover border-2 border-primary shadow-[0_0_45px_rgba(168,85,247,0.35)]"
                 />
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-accent px-4">
@@ -86,7 +86,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row items-stretch justify-center gap-3 pt-6 max-w-2xl mx-auto">
             <Link 
               to="/software-engineer" 
-              className="group relative w-full sm:flex-1 px-8 py-7 border-2 border-border rounded-2xl hover:border-primary hover:bg-primary/5 transition-all text-center flex items-center justify-center"
+              className="group relative w-full sm:flex-1 px-8 py-7 border-2 border-border rounded-2xl bg-card/30 backdrop-blur-sm hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_30px_rgba(168,85,247,0.18)] transition-all text-center flex items-center justify-center"
             >
               <div className="flex items-center justify-center gap-2">
                 <span className="font-medium text-accent text-base group-hover:text-primary transition-colors whitespace-nowrap">Work Portfolio</span>
@@ -96,7 +96,7 @@ const Index = () => {
 
             <Link 
               to="/articles" 
-              className="group relative w-full sm:flex-1 px-8 py-7 border-2 border-border rounded-2xl hover:border-primary hover:bg-primary/5 transition-all text-center flex items-center justify-center"
+              className="group relative w-full sm:flex-1 px-8 py-7 border-2 border-border rounded-2xl bg-card/30 backdrop-blur-sm hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_30px_rgba(244,114,182,0.18)] transition-all text-center flex items-center justify-center"
             >
               <div className="flex items-center justify-center gap-2">
                 <span className="font-medium text-accent text-base group-hover:text-primary transition-colors whitespace-nowrap">My Voice</span>
@@ -106,7 +106,7 @@ const Index = () => {
 
             <a 
               href="mailto:charityjelimo893@gmail.com" 
-              className="group relative w-full sm:flex-1 px-8 py-7 border-2 border-border rounded-2xl hover:border-primary hover:bg-primary/5 transition-all text-center flex items-center justify-center"
+              className="group relative w-full sm:flex-1 px-8 py-7 border-2 border-border rounded-2xl bg-card/30 backdrop-blur-sm hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_30px_rgba(168,85,247,0.18)] transition-all text-center flex items-center justify-center"
             >
               <div className="flex items-center justify-center gap-2">
                 <span className="font-medium text-accent text-base group-hover:text-primary transition-colors whitespace-nowrap">Get in touch</span>
@@ -148,14 +148,13 @@ const Index = () => {
               Medium
             </a>
             <a 
-              href="https://charityjelimo.hashnode.dev/" 
+              href="https://dev.to/data_with_jelimo" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-secondary hover:text-primary transition-colors"
             >
-              Hashnode
+              DEV
             </a>
-            
           </div>
         </div>
 

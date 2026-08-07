@@ -42,31 +42,31 @@ const ParticleBackground = () => {
       initParticles();
     };
 
-    // Tech-inspired color schemes with electric/neon feel
+    // Orchid coder palette; movement and interactions stay theme-independent
     const getThemeColors = () => {
       if (resolvedTheme === 'dark') {
         return {
           particles: [
-            'rgba(0, 242, 254, 0.7)',   // electric cyan
-            'rgba(127, 0, 255, 0.7)',   // electric purple
-            'rgba(57, 255, 20, 0.7)',   // matrix green
-            'rgba(255, 0, 110, 0.7)',   // neon pink
-            'rgba(255, 215, 0, 0.7)',   // electric gold
+            'rgba(168, 85, 247, 0.8)',   // vivid violet
+            'rgba(244, 114, 182, 0.8)',  // neon pink
+            'rgba(196, 181, 253, 0.75)', // lavender
+            'rgba(217, 70, 239, 0.7)',   // orchid
+            'rgba(103, 232, 249, 0.55)', // cyan accent
           ],
-          connections: 'rgba(0, 242, 254, 0.2)',
-          grid: 'rgba(0, 242, 254, 0.05)',
+          connections: 'rgba(196, 181, 253, 0.22)',
+          grid: 'rgba(168, 85, 247, 0.06)',
         };
       } else {
         return {
           particles: [
-            'rgba(0, 122, 204, 0.6)',   // tech blue
-            'rgba(88, 86, 214, 0.6)',   // tech purple
-            'rgba(16, 185, 129, 0.6)',  // tech green
-            'rgba(244, 63, 94, 0.6)',   // tech pink
-            'rgba(245, 158, 11, 0.6)',  // tech amber
+            'rgba(126, 34, 206, 0.65)',  // deep violet
+            'rgba(219, 39, 119, 0.6)',   // berry pink
+            'rgba(147, 51, 234, 0.6)',   // purple
+            'rgba(192, 38, 211, 0.55)',  // orchid
+            'rgba(8, 145, 178, 0.45)',   // cyan accent
           ],
-          connections: 'rgba(0, 122, 204, 0.15)',
-          grid: 'rgba(0, 122, 204, 0.03)',
+          connections: 'rgba(126, 34, 206, 0.16)',
+          grid: 'rgba(126, 34, 206, 0.04)',
         };
       }
     };
