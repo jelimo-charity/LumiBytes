@@ -519,7 +519,7 @@ const SoftwareEngineerPage = () => {
                     I also build internal tools, automate workflows, and improve processes that enhance team productivity, data quality, and system reliability.
 
                     </p>
-                    <p className="text-xs text-white italic">Git, GitHub, Docker, PostgreSQL, Python, SQL, Kubernetes</p>
+                    <p className="text-xs text-black dark:text-white italic">Git, GitHub, Docker, PostgreSQL, Python, SQL, Kubernetes</p>
                   </div>
                 </div>
               </div>
@@ -536,7 +536,7 @@ const SoftwareEngineerPage = () => {
                     <p className="text-secondary text-sm leading-relaxed">
                       At Griffin Global Technologies, I also contribute to the development and maintenance of internal platforms across both frontend and backend systems. I work on implementing features, improving APIs and services, and enhancing user interfaces to support system functionality and usability. I collaborate with engineers across the team and participate in testing, code reviews, and documentation to maintain high engineering standards.
                     </p>
-                    <p className="text-xs text-white italic">
+                    <p className="text-xs text-black dark:text-white italic">
                       TypeScript, Angular, .NET, SQL, Git/GitHub, Agile
                     </p>
                   </div>
@@ -555,7 +555,7 @@ const SoftwareEngineerPage = () => {
                     <p className="text-secondary text-sm leading-relaxed">
                       Supported the engineering team by working on small features, bug fixes, and internal tools. Collaborated with teammates to troubleshoot issues, improve UI flows, and contribute to clean, maintainable code.
                     </p>
-                    <p className="text-xs text-white italic">
+                    <p className="text-xs text-black dark:text-white italic">
                       TypeScript, React, Node.js, SQL, Git/GitHub, Docker, Ms Azure, Jira
                     </p>
                   </div>
@@ -574,7 +574,7 @@ const SoftwareEngineerPage = () => {
                     <p className="text-secondary text-sm leading-relaxed">
                       Participated in a 3-month full-stack training program where I enhanced my expertise in React, TypeScript, PostgreSQL, and Hono(Node.js). Successfully developed a car rental application, applying my skills in creating scalable solutions and improving my technical and soft skills.
                     </p>
-                    <p className="text-xs text-white italic">
+                    <p className="text-xs text-black dark:text-white italic">
                       React, TypeScript, PostgreSQL, Hono (Node.js), REST APIs, Git
                     </p>
                   </div>
@@ -593,7 +593,7 @@ const SoftwareEngineerPage = () => {
                     <p className="text-secondary text-sm leading-relaxed">
                       Contributed to web application development as part of a collaborative team environment. Worked on building and refining features, improving responsiveness, and learning best practices for delivering production-quality software.
                     </p>
-                    <p className="text-xs text-white italic">
+                    <p className="text-xs text-black dark:text-white italic">
                       JavaScript, React, Node.js, UI Development, Git, Team Collaboration
                     </p>
                   </div>

@@ -47,26 +47,26 @@ const ParticleBackground = () => {
       if (resolvedTheme === 'dark') {
         return {
           particles: [
-            'rgba(168, 85, 247, 0.8)',   // vivid violet
-            'rgba(244, 114, 182, 0.8)',  // neon pink
-            'rgba(196, 181, 253, 0.75)', // lavender
-            'rgba(217, 70, 239, 0.7)',   // orchid
-            'rgba(103, 232, 249, 0.55)', // cyan accent
+            'rgba(168, 85, 247, 0.95)',  // vivid violet
+            'rgba(244, 114, 182, 0.95)', // neon pink
+            'rgba(196, 181, 253, 0.9)',  // lavender
+            'rgba(217, 70, 239, 0.9)',   // orchid
+            'rgba(103, 232, 249, 0.8)',  // cyan accent
           ],
-          connections: 'rgba(196, 181, 253, 0.22)',
-          grid: 'rgba(168, 85, 247, 0.06)',
+          connections: 'rgba(196, 181, 253, 0.38)',
+          grid: 'rgba(168, 85, 247, 0.1)',
         };
       } else {
         return {
           particles: [
-            'rgba(126, 34, 206, 0.65)',  // deep violet
-            'rgba(219, 39, 119, 0.6)',   // berry pink
-            'rgba(147, 51, 234, 0.6)',   // purple
-            'rgba(192, 38, 211, 0.55)',  // orchid
-            'rgba(8, 145, 178, 0.45)',   // cyan accent
+            'rgba(126, 34, 206, 0.9)',   // deep violet
+            'rgba(219, 39, 119, 0.85)',  // berry pink
+            'rgba(147, 51, 234, 0.85)',  // purple
+            'rgba(192, 38, 211, 0.8)',   // orchid
+            'rgba(8, 145, 178, 0.75)',   // cyan accent
           ],
-          connections: 'rgba(126, 34, 206, 0.16)',
-          grid: 'rgba(126, 34, 206, 0.04)',
+          connections: 'rgba(126, 34, 206, 0.3)',
+          grid: 'rgba(126, 34, 206, 0.08)',
         };
       }
     };
@@ -150,7 +150,7 @@ const ParticleBackground = () => {
         particlesRef.current.push({
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
-          size: Math.random() * 1 + 1,
+          size: Math.random() * 1.5 + 1.5,
           speedX: (Math.random() - 0.5) * 0.3,
           speedY: (Math.random() - 0.5) * 0.3,
           color: colors[Math.floor(Math.random() * colors.length)],

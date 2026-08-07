@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
-import profilePic from "@/assets/cha1.jpg";
+import profileBackground from "@/assets/profile.jpg";
 import ParticleBackground from "@/components/ParticleBackground";
 import { Seo } from "@/components/Seo";
 
@@ -31,8 +31,16 @@ const Index = () => {
         includePersonJsonLd
       />
       <div className="min-h-screen font-sans bg-background flex items-center justify-center py-8 px-4 relative overflow-hidden">
+        {/* Full background with a clear center for the hero copy */}
+        <img
+          src={profileBackground}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-45 dark:opacity-85 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black_78%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,transparent_10%,black_78%)]"
+        />
+        <div className="absolute inset-0 bg-background/15 dark:bg-[#090612]/25" />
+
         {/* Midnight orchid gradient mesh */}
-        <div className="dark:block hidden absolute inset-0 bg-[radial-gradient(circle_at_top_left,_#35135c_0%,_#160b29_38%,_#090612_78%)]" />
         <div className="dark:block hidden absolute inset-0 opacity-40">
           <div className="absolute top-0 -left-4 w-96 h-96 bg-gradient-to-br from-fuchsia-500/50 via-purple-600/25 to-transparent rounded-full blur-3xl" />
           <div className="absolute top-1/2 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/40 via-violet-600/20 to-transparent rounded-full blur-3xl" />
@@ -52,17 +60,9 @@ const Index = () => {
         
         {/* Hero Section */}
         <section className="w-full max-w-4xl mx-auto relative z-10">
-          <div className="text-center space-y-6 md:space-y-8">
+          <div className="relative z-10 text-center space-y-6 md:space-y-8">
             {/* Main Title */}
             <div className="space-y-2">
-              {/* Profile Picture */}
-              <div className="flex justify-center pb-2">
-                <img 
-                  src={profilePic} 
-                  alt="Charity Jelimo Kipruto" 
-                  className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full object-cover border-2 border-primary shadow-[0_0_45px_rgba(168,85,247,0.35)]"
-                />
-              </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-accent px-4">
                 Charity Jelimo Kipruto
               </h1>
