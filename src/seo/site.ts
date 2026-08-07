@@ -10,5 +10,5 @@ export const DEFAULT_OG_TYPE = "website";
 /** Prefer PNG for social crawlers (SVG is often ignored). */
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/favicon.png`;
 
-export const DEFAULT_FAVICON_SVG = `${SITE_URL}/favicon.svg`;
+export const DEFAULT_FAVICON_SVG = `${SITE_URL}/favicon.png`;
 
